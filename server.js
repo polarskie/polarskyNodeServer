@@ -72,7 +72,7 @@ function onRequest(req, res) {
 	else {
 		var path=req.url.slice(1);
 		var t=path.charAt(0);
-		if (t=='/'||t=='.') { res.end("dont try haking me!!"); }
+		if (t=='/'||t=='.') { res.end("dont try hacking me!!"); }
 		else
 		{
 			fs.stat(path, function(err, stats){
