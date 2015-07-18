@@ -21,21 +21,6 @@ function quoting(str) {
 	return r.join("");
 }
 
-function adjustKeyword(keyword)
-{
-	var r=new Array();
-        r.push('%');
-	for(var i=0;i<keyword.length;++i)
-	{
-		if(keyword.charAt(i)==' ')
-			r.push('%');
-		else
-			r.push(keyword.charAt(i));
-	}
-        r.push('%');
-	return r.join('');
-}
-
 function decodeUrl(str)
 {
 	var start=1+str.indexOf('?');
