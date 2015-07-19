@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/register.css" />
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+    </div>
+</nav>
+<div class="container">
+<div class="row">
+<div id="container" class="container-fluid">
+    <div id="jumbotron" class="jumbotron">
+        <div id="title" class="page-header">
+            <h1><span class="glyphicon glyphicon-plus"></span> Register</h1>
+        </div>
+        <div id="form-container">
+            <form class="form-horizontal">
+                <div class="form-group form-group-lg">
+                    <label for="inputEmail" class="col-lg-offset-1 col-lg-3 col-sm-3 control-label "><u>Email</u></label>
+                    <div class="col-lg-7 col-sm-9">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group form-group-lg">
+                    <label for="inputPassword" class="col-lg-offset-1 col-lg-3 col-sm-3 control-label"><u>Password</u></label>
+                    <div class="col-lg-7 col-sm-9">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group form-group-lg">
+                    <label for="repeatPassword" class="col-lg-offset-1 col-lg-3 col-sm-3 control-label">Repeat</label>
+                    <div class="col-lg-7 col-sm-9">
+                        <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat">
+                    </div>
+                </div>
+                <div class="form-group form-group-lg">
+                    <label for="inputAge" class="col-lg-offset-1 col-lg-3 col-sm-3 control-label">Age</label>
+                    <div class="col-lg-7 col-sm-9">
+                        <input type="number" class="form-control" id="inputAge" placeholder="Age">
+                    </div>
+                </div>
+                <div class="form-group form-group-lg">
+                    <label class="col-lg-offset-1 col-lg-3 col-sm-3 control-label">Gender</label>
+                    <div class="col-lg-7 col-sm-9">
+                        <select class="form-control">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="S">Secret</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group form-group-lg">
+                    <div class="col-lg-offset-5 col-sm-offset-3 col-sm-10">
+                        <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div></div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/npm.js"></script>
+<script>
+    $(document).ready(function(){alert("loaded!")});
+
+</script>
+</body>
+</html>

@@ -15,6 +15,7 @@ function onRequest(req, res) {
 		if (t=='/'||t=='.') { res.end("dont try hacking me!!"); }
 		else
 		{
+			console.log(path);
 			fs.stat(path, function(err, stats){
 				console.log(stats.mtime);
 				console.log(stats.ctime);
@@ -42,6 +43,5 @@ function onRequest(req, res) {
 		}
 	}
 }
-sqlClient.query('use acgwiki;');
 server.on('request', onRequest);
-server.listen(80);
+server.listen(8011);

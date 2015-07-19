@@ -1,0 +1,14 @@
+#form-container
+{
+    width: 70%;
+    margin: auto;
+}
+body
+{
+    padding-top: 70px;
+}
+#title
+{
+    text-align: center;
+    width: 70%;
+}

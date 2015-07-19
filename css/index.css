@@ -1,0 +1,53 @@
+.background
+{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-image: url(../pic/bg.png);
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
+
+body
+{
+    min-height: 100%;
+}
+
+.header
+{
+    color: white;
+    background-color: RGBA(64, 64, 64, 0.7);
+    margin: 0;
+    width: 100%;
+    position: fixed;
+}
+.msg:nth-of-type(even)
+{
+    background-color: transparent;
+    color: black;
+}
+.msg:nth-of-type(odd)
+{
+    background-color: black;
+    color: white;
+}
+.msg:first-of-type
+{
+    margin-top: 70px;
+}
+.place-holder
+{
+    height: 50px;
+}
+
+a
+{
+    font-size: 2em;
+}
+
+.msg .container img
+{
+    float: left;
+    margin-right: 20px;
+}

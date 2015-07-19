@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POLARSKY</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="background"></div>
+<div class="container header"><h1>Welcome to Polarsky's Homepage</h1></div>
+<div class="place-holder"></div>
+<div class="jumbotron msg">
+    <div class="container">
+        <h1>pol-webGL simplified API</h1>
+        <p>This is a simple API for webGL. You can use it for web 3D game development for free, but you will have to
+            notify the origination is from <strong>POLARSKY</strong>'s work. Press <a href="polGL/polGL.html">here</a> to have a quick view about this
+        API. This API library is still not robust, and you may find a lot of error and implementation that is not formal
+        in it. If you want to contribute to it, fork this library on <a href="https://github.com/polarskie/polGL/tree/or">github</a> and implement your correction or optimization.
+        Your support is very invaluable!</p>
+    </div>
+</div>
+<div class="jumbotron msg">
+    <div class="container">
+        <h1>2D code(QR code) magic</h1>
+            <img src="pic/2dcode.png"><p>This is a cooperation project. We tried to combine a picture with a 2D code so
+            that a 2D code picture provide much more information than it was designed to. The basic idea is to mimic the
+            original 2D code by always fill the center pixels of every black or white blocks in color of the original
+            code. Thus the scanner will simply determine the 2D code by the center pixels. There are also some other tricks
+            used here, for example: sacrificing some blocks is OK. I must note here that this is not a orginal idea.
+            If you are interested in it, you can find much more information <a href="http://vecg.cs.ucl.ac.uk/Projects/SmartGeometry/halftone_QR/halftoneQR_sigga13.html">here</a>.
+            What we have done is implement it and find some ways to enhance the performance.
+        </p>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="jumbotron msg">
+    <div class="container">
+        <h1>Instance</h1>
+        <p>
+            When you fetch a list of resources, the response includes a subset of the attributes for that resource.
+            This is the “summary” representation of the resource. (Some attributes are computationally expensive for the
+            API to provide. For performance reasons, the summary representation excludes those attributes.
+            To obtain those attributes, fetch the “detailed” representation.)
+        </p>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/npm.js"></script>
+<script>
+    $(document).ready(function(){});
+
+</script>
+</body>
+</html>
