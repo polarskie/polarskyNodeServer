@@ -4,7 +4,7 @@ var fs   =   require('fs');
 var server=http.createServer();
 
 var fs = require('fs');
-
+var jj= 'kkkkk';
 function quoting(str) {
 	var r=new Array();
 	var i=new Array();
