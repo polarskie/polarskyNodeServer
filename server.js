@@ -3,51 +3,6 @@ var util = require('util');
 var fs   =   require('fs');
 var server=http.createServer();
 
-var fs = require('fs');
-var jj= 'kkkkk';
-function quoting(str) {
-	var r=new Array();
-	var i=new Array();
-	var last=0;
-	var now=0;
-	if (str==='') {return '';}
-	while ((now=str.indexOf("'", last))!=-1)
-	{
-		r.push(str.slice(last, now))
-		r.push("''");
-		last=now+1;
-	}
-	r.push(str.slice(last));
-	return r.join("");
-}
-
-function decodeUrl(str)
-{
-	var start=1+str.indexOf('?');
-	var attr=new Object();
-	while(str.indexOf('=', start)!=-1)
-	{
-		attr[str.slice(start, str.indexOf('=', start))]
-			=
-				str.slice(str.indexOf('=', start)+1, start=(str.indexOf('&', start)==-1?str.length:str.indexOf('&', start)));
-		start++;
-	}
-	return attr;
-}
-
-function decodePost(str) {
-	var start=0;
-	var attr=new Object();
-	while(str.indexOf('=', start)!=-1)
-	{
-		attr[str.slice(start, str.indexOf('=', start))]
-			=
-				str.slice(str.indexOf('=', start)+1, start=(str.indexOf('&', start)==-1?str.length:str.indexOf('&', start)));
-		start++;
-	}
-	return attr;
-}
-
 function onRequest(req, res) {
 	if(req.url.length<=1)
 	{
@@ -89,4 +44,4 @@ function onRequest(req, res) {
 }
 sqlClient.query('use acgwiki;');
 server.on('request', onRequest);
-server.listen(801);
+server.listen(80);
