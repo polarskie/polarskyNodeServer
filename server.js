@@ -99,6 +99,7 @@ function generateSignature(url, timestamp, nonceStr)
 	fourTuple.push("timestamp="+timestamp);
 	fourTuple.push("url="+url);
 	var content=fourTuple.join('&');
+	console.log('string1 is: '+content);
 	var sha1 = crypto.createHash('sha1');
 	sha1.update(content);
 	return sha1.digest('hex');
@@ -125,7 +126,7 @@ function onRequest(req, res) {
 			console.log("the timestamp now is "+timestamp);
 			console.log("the nonceStr now is "+nonceStr);
 			console.log("the jsapi_ticket now is "+jsapi_ticket);
-			var signature=generateSignature(mainUrl, timestamp);
+			var signature=generateSignature(mainUrl, timestamp, nonceStr);
 			console.log("the signature now is "+signature);
 			fs.stat(path, function(err, stats) {
 				console.log(path);
