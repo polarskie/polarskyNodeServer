@@ -116,9 +116,10 @@ function onRequest(req, res) {
 		if (path.charAt(0)=='/'||t!=-1) { res.end("dont try hacking me!!"); }
 		//special entry for wechat
 		else if (path.indexOf('wechat')!=-1) {
-			var mainUrl=req.url.slice(0, req.url.indexOf('#')==-1?null:req.url.indexOf('#'));
+			var mainUrl="http://www.polarsky.cc"+req.url.slice(0, req.url.indexOf('#')==-1?req.url.length:req.url.indexOf('#'));
 			var timestamp=(new Date()).getTime();
 			var nonceStr=generateNonce();
+			console.log("the url now is "+mainUrl);
 			var signature=generateSignature(mainUrl, timestamp);
 			fs.stat(path, function(err, stats) {
 				console.log(path);
