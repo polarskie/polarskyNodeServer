@@ -126,6 +126,7 @@ function onRequest(req, res) {
 			console.log("the nonceStr now is "+nonceStr);
 			console.log("the jsapi_ticket now is "+jsapi_ticket);
 			var signature=generateSignature(mainUrl, timestamp);
+			console.log("the signature now is "+signature);
 			fs.stat(path, function(err, stats) {
 				console.log(path);
 				console.log(err);
