@@ -29,8 +29,9 @@ function refreshAToken(){
 			//console.log(d.toString())
 			var jr=JSON.parse(d.toString());
 			console.log(util.inspect(jr));
-			if(jr.errcode!=0)
+			if(!jr.errcode)
 			{
+				console.log('NO ERR');
 				access_tocken=jr.access_token;
 				ticketOptions.path='/cgi-bin/ticket/getticket?access_token='+jr.access_token+'&type=jsapi';
 				if(!ticketRefreshing)
@@ -54,9 +55,10 @@ function refreshTicket(){
 			//console.log(d.toString())
 			var jr=JSON.parse(d.toString());
 			console.log(util.inspect(jr));
-			if(jr.errcode!=0)
+			if(jr.errcode==0)
 			{
-				jsapi_ticket=jr['ticket'];
+				console.log('NO ERR');
+				jsapi_ticket=jr.ticket;
 			}
 		});
 	});
