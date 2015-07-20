@@ -120,6 +120,9 @@ function onRequest(req, res) {
 			var timestamp=(new Date()).getTime();
 			var nonceStr=generateNonce();
 			console.log("the url now is "+mainUrl);
+			console.log("the timestamp now is "+timestamp);
+			console.log("the nonceStr now is "+nonceStr);
+			console.log("the jsapi_ticket now is "+jsapi_ticket);
 			var signature=generateSignature(mainUrl, timestamp);
 			fs.stat(path, function(err, stats) {
 				console.log(path);
