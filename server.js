@@ -136,7 +136,7 @@ function onRequest(req, res) {
 			<FromUserName>'+xpath.select("//ToUserName/text()", doc).toString().cutC()+'</FromUserName>\
 			<CreateTime>'+(new Date()).getTime()+'</CreateTime>\
 			<MsgType><![CDATA[text]]></MsgType>\
-			<Content><![CDATA[你好]]></Content>\
+			<Content><![CDATA[还在做一些准备，请等等...]]></Content>\
 			</xml>');
 		});
 	}
