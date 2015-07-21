@@ -35,7 +35,7 @@
     {
         wx.onMenuShareTimeline({
             title: 'wechat API testing', // 分享标题
-            link: 'http://www.polarsky.cc', // 分享链接
+            link: 'http://www.polarsky.cc/index.html', // 分享链接
             imgUrl: 'http://www.polarsky.cc/favicon.ico', // 分享图标
             success: function () {
                 alert("you have shared")
@@ -43,6 +43,9 @@
             },
             cancel: function () {
                 // 用户取消分享后执行的回调函数
+            },
+            fail: function(msg){
+                alert(msg);
             }
         });
     }
