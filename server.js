@@ -118,7 +118,7 @@ function onRequest(req, res) {
 	//special entry for wechat messages
 	else if(req.url.indexOf('wechat.php')==1)
 	{
-		console.log(util.inspect(req.body));
+		console.log(util.inspect(req));
 	}
 	else {
 		var path=req.url.slice(1, req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?'));
