@@ -122,7 +122,7 @@ function onRequest(req, res) {
 			var doc = new dom().parseFromString(data.toString());
 			var nodes = xpath.select("//title", doc);
 			console.log(data.toString());
-			console.log(xpath.select("//Content/text()", doc).toString());
+			console.log(xpath.select("//Content/CDATA/text()", doc).toString());
 		})
 	}
 	else {
@@ -218,4 +218,4 @@ function onRequest(req, res) {
 	}
 }
 server.on('request', onRequest);
-server.listen(8011);
+server.listen(80);
