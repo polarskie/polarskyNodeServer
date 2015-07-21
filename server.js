@@ -3,6 +3,9 @@ var https = require('https');
 var util = require('util');
 var fs   =   require('fs');
 var crypto = require('crypto');
+var request = require('request');
+var xpath = require('xpath');
+var dom = require('xmldom').DOMParser;
 var access_tocken;
 var jsapi_ticket;
 var charset="abcdefghijklmnopqrstuvwxyz";
@@ -70,7 +73,6 @@ function refreshTicket(){
 }
 refreshAToken();
 
-
 String.prototype.insertData=function (data)
 {
 	var loc=this.indexOf('<!DATA_HERE>');
@@ -112,13 +114,20 @@ function onRequest(req, res) {
 		var reFile=fs.createReadStream('index.html');
 		reFile.pipe(res);
 	}
+
+	//special entry for wechat messages
+	else if(req.url.indexOf('wechat.php')==1)
+	{
+		console.log(util.inspect(req.body));
+	}
 	else {
 		var path=req.url.slice(1, req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?'));
 		var parameters=req.url.slice(req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?')+1, req.url.length);
 		var t=path.indexOf('..');
 		var fileType=path.slice(path.lastIndexOf('.')+1);
 		if (path.charAt(0)=='/'||t!=-1) { res.end("dont try hacking me!!"); }
-		//special entry for wechat
+
+		//special entry for wechat web pages
 		else if (path.indexOf('wechat')!=-1) {
 			var mainUrl="http://www.polarsky.cc"+req.url.slice(0, req.url.indexOf('#')==-1?req.url.length:req.url.indexOf('#'));
 			var timestamp=(new Date()).getTime();
