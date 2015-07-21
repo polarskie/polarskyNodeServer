@@ -36,6 +36,12 @@ function refreshAToken(){
 			{
 				console.log('NO ERR');
 				access_tocken=jr.access_token;
+				var ws=fs.createWriteStream('accesstoken', {'flags': 'w', 'mode': 0777});
+				ws.write(new Buffer(access_tocken));
+				ws.on('drain', function(){
+					ws.end();
+					ws=null;
+				})
 				ticketOptions.path='/cgi-bin/ticket/getticket?access_token='+jr.access_token+'&type=jsapi';
 				if(!ticketRefreshing)
 				{
@@ -129,8 +135,6 @@ function onRequest(req, res) {
 		req.on('data', function(data){
 			var doc = new dom().parseFromString(data.toString());
 			var nodes = xpath.select("//title", doc);
-			console.log(data.toString());
-			console.log(xpath.select("//Content/text()", doc).toString().cutC());
 			res.end('<xml>\
 				<ToUserName>'+xpath.select("//FromUserName/text()", doc).toString().cutC()+'</ToUserName>\
 			<FromUserName>'+xpath.select("//ToUserName/text()", doc).toString().cutC()+'</FromUserName>\
