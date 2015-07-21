@@ -85,6 +85,14 @@ String.prototype.insertData=function (data)
 	}
 	return head+dataArray.join('')+tail;
 }
+String.prototype.cutC=function ()
+{
+	if(this.indexOf('<![CDATA[')!=-1)
+	{
+		return this.slice(this.indexOf('<![CDATA[')+9, -3);
+	}
+	return this.toString();
+}
 
 function generateNonce()
 {
@@ -122,7 +130,7 @@ function onRequest(req, res) {
 			var doc = new dom().parseFromString(data.toString());
 			var nodes = xpath.select("//title", doc);
 			console.log(data.toString());
-			console.log(xpath.select("//Content/CDATA/text()", doc).toString());
+			console.log(xpath.select("//Content/text()", doc).toString().cutC());
 		})
 	}
 	else {
