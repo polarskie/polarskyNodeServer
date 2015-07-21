@@ -122,6 +122,7 @@ function onRequest(req, res) {
 			var doc = new dom().parseFromString(data.toString());
 			var nodes = xpath.select("//title", doc);
 			console.log(data.toString());
+			console.log(xpath.select("//Content/text()", doc).toString());
 		})
 	}
 	else {
