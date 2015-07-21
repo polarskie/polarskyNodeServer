@@ -113,7 +113,8 @@ function onRequest(req, res) {
 		reFile.pipe(res);
 	}
 	else {
-		var path=req.url.slice(1);
+		var path=req.url.slice(1, req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?'));
+		var parameters=req.url.slice(req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?')+1, req.url.length);
 		var t=path.indexOf('..');
 		var fileType=path.slice(path.lastIndexOf('.')+1);
 		if (path.charAt(0)=='/'||t!=-1) { res.end("dont try hacking me!!"); }
@@ -131,6 +132,11 @@ function onRequest(req, res) {
 			fs.stat(path, function(err, stats) {
 				console.log(path);
 				console.log(err);
+				if(err)
+				{
+					res.end("Your querying page does not exist");
+					return;
+				}
 				var wechatBuf=new Buffer(stats.size);
 				fs.open(path, 'r', function(err, fd) {
 					if(err) console.log(err);
