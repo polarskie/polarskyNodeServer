@@ -49,8 +49,23 @@
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/npm.js"></script>
 <script>
-    $(document).ready(function(){});
-
+    $(document).ready(function(){
+        var args=getQueryStringArgs();
+        if(args['from']=='timeline')
+        {
+            alert("freind from wechat, welcome to polarsky's homepage!");
+        }
+    });
+    function getQueryStringArgs(){
+        var qs=(location.search.length>0?location.search.slice(1):"");
+        var args={};
+        var argPairs=qs.split("&");
+        for(var i in argPairs)
+        {
+            args[argPairs[i].slice(0, argPairs[i].indexOf('='))]=argPairs[i].slice(argPairs[i].indexOf('=')+1);
+        }
+        return args;
+    }
 </script>
 </body>
 </html>
