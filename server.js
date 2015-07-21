@@ -131,7 +131,14 @@ function onRequest(req, res) {
 			var nodes = xpath.select("//title", doc);
 			console.log(data.toString());
 			console.log(xpath.select("//Content/text()", doc).toString().cutC());
-		})
+			res.end('<xml>\
+				<ToUserName><![CDATA[toUser]]></ToUserName>\
+			<FromUserName><![CDATA[fromUser]]></FromUserName>\
+			<CreateTime>12345678</CreateTime>\
+			<MsgType><![CDATA[text]]></MsgType>\
+			<Content><![CDATA[你好]]></Content>\
+			</xml>');
+		});
 	}
 	else {
 		var path=req.url.slice(1, req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?'));
