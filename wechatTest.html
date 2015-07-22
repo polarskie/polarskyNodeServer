@@ -7,6 +7,7 @@
 </head>
 <body>
 <button onclick="share(event)">share</button>
+<button onclick="upload(event)">upload</button>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="js/jquery-1.11.3.js"></script>
 <script>
@@ -28,7 +29,7 @@
             'timestamp': timestamp, // 必填，生成签名的时间戳
             'nonceStr': nonceStr, // 必填，生成签名的随机串
             'signature': signature,// 必填，签名，见附录1
-            'jsApiList': ['onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            'jsApiList': ['onMenuShareTimeline,chooseImage,previewImage,uploadImage,downloadImage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
     })
     function share(event)
@@ -49,6 +50,26 @@
             }
         });
     }
+    wx.chooseImage({
+        count: 1, // 默认9
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function (res) {
+            localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+        }
+    });
+    function upload(event)
+    {
+        wx.uploadImage({
+            localId: localIds[0], // 需要上传的图片的本地ID，由chooseImage接口获得
+            isShowProgressTips: 1, // 默认为1，显示进度提示
+            success: function (res) {
+                var serverId = res.serverId; // 返回图片的服务器端ID
+                alert(serverId);
+            }
+        });
+    }
+
 </script>
 </body>
 </html>
