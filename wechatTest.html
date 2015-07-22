@@ -21,12 +21,12 @@
             alert(res);
         });
         wx.ready(function(){
-            wx.chooseImage({
-                count: 1, // 默认9
-                sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-                sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+            wx.downloadImage({
+                serverId: 'goy0ECTOr8W-QxIakheW9v5Nykriv9fAHealESDGdu0oNuvo7-MxAvcZNU82gZA7', // 需要下载的图片的服务器端ID，由uploadImage接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
                 success: function (res) {
-                    localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                    var localId = res.localId; // 返回图片下载后的本地ID
+                    $('body').prepend("<img src='"+localId+"' />");
                 }
             });
         });

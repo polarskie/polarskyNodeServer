@@ -136,11 +136,17 @@ function onRequest(req, res) {
 			var doc = new dom().parseFromString(data.toString());
 			var nodes = xpath.select("//title", doc);
 			res.end('<xml>\
-				<ToUserName>'+xpath.select("//FromUserName/text()", doc).toString().cutC()+'</ToUserName>\
-			<FromUserName>'+xpath.select("//ToUserName/text()", doc).toString().cutC()+'</FromUserName>\
-			<CreateTime>'+(new Date()).getTime()+'</CreateTime>\
-			<MsgType><![CDATA[text]]></MsgType>\
-			<Content><![CDATA[还在做一些准备，请等等...]]></Content>\
+				<ToUserName><![CDATA[toUser]]></ToUserName>\
+			<FromUserName><![CDATA[fromUser]]></FromUserName>\
+			<CreateTime>12345678</CreateTime>\
+			<MsgType><![CDATA[music]]></MsgType>\
+			<Music>\
+			<Title><![CDATA[琪露诺的数学教室]]></Title>\
+			<Description><![CDATA[琪露诺的数学教室]]></Description>\
+			<MusicUrl><![CDATA[MUSIC_Url]]></MusicUrl>\
+			<HQMusicUrl><![CDATA[HQ_MUSIC_Url]]></HQMusicUrl>\
+			<ThumbMediaId><![CDATA[media_id]]></ThumbMediaId>\
+			</Music>\
 			</xml>');
 		});
 	}
