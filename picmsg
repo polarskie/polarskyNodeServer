@@ -2,8 +2,8 @@
    "filter":{
       "is_to_all":true
    },
-   "text":{
-      "content":"这是一条群发消息"
+   "mpnews":{
+      "media_id":"tCcJFbkEa6XR0Hb1-levjlB_4h1IefieXLELsGTyB-4XGuMMcAq_7rdBsfXa5-6c"
    },
-    "msgtype":"text"
+    "msgtype":"mpnews"
 }
