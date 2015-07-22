@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
 </head>
 <body>
-<div class="container"><div class="jumbotron" onclick="uploadImg(event)"><p>upload</p></div></div>
+<div class="container"><div class="jumbotron" onclick="uploadImg(event)"><h1>upload</h1></div></div>
 
-<div class="container"><div class="jumbotron" id="downloadImage"><p>downloadImg</p></div></div>
+<div class="container"><div class="jumbotron" id="downloadImage"><h1>downloadImg</h1></div></div>
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="js/jquery-1.11.3.js"></script>
@@ -106,7 +106,7 @@
             wx.downloadImage({
                 serverId: img[i],
                 success: function (res) {
-                    $("body").prepend("<img src='"+res.localId+"' >");
+                    $("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
                     download(i+1);
                 }
             });
