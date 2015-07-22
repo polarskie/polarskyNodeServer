@@ -125,6 +125,10 @@ var server=http.createServer();
 function onRequest(req, res) {
 	if(req.url.length<=1)
 	{
+		req.on("data", function(data){
+			console.log("--------------------------------\n----------------------------------")
+			console.log(data.toString());
+		});
 		var reFile=fs.createReadStream('index.html');
 		reFile.pipe(res);
 	}
