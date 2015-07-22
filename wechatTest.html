@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
 </head>
 <body>
-<div><button class="btn btn-lg btn-primary" onclick="uploadImg(event)">upload</button></div>
+<div class="container"><div class="jumbotron" onclick="uploadImg(event)"><p>upload</p></div></div>
 
-<div><button class="btn btn-lg btn-primary" id="downloadImage">downloadImg</button></div>
+<div class="container"><div class="jumbotron" id="downloadImage"><p>downloadImg</p></div></div>
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="js/jquery-1.11.3.js"></script>
@@ -53,7 +53,7 @@
     function uploadImg(event)
     {
         wx.chooseImage({
-            count: 1, // 默认9
+            count: 9, // 默认9
             sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
             sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
             success: function (res) {
