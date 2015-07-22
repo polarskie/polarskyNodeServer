@@ -19,6 +19,7 @@
 <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script>
+    var img;
     $(document).ready(function (evnet) {
         wx.error(function(res){
             alert(res);
@@ -38,14 +39,6 @@
                 },
                 fail: function(msg){
                     alert(msg);
-                }
-            });
-
-            wx.downloadImage({
-                serverId: 'tP7S39tnwC06SQ-Yj4S9OCLU9iczADljO3oo6Fyb8TAa3cv1dn-5ThSCn4G1OLqi', // 需要下载的图片的服务器端ID，由uploadImage接口获得
-                isShowProgressTips: 1, // 默认为1，显示进度提示
-                success: function (res) {
-                    var localId = res.localId; // 返回图片下载后的本地ID
                 }
             });
         });
@@ -71,6 +64,7 @@
                     isShowProgressTips: 1, // 默认为1，显示进度提示
                     success: function (res) {
                         var serverId = res.serverId; // 返回图片的服务器端ID
+                        img=serverId;
                         alert(serverId);
                         $.post("upload",
                                 {"id": serverId},
@@ -80,6 +74,15 @@
                         alert("posted!");
                     }
                 });
+            }
+        });
+    }
+    function downloadImg(event) {
+        wx.downloadImage({
+            serverId: img, // 需要下载的图片的服务器端ID，由uploadImage接口获得
+            isShowProgressTips: 1, // 默认为1，显示进度提示
+            success: function (res) {
+                var localId = res.localId; // 返回图片下载后的本地ID
             }
         });
     }
