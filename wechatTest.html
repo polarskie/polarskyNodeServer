@@ -49,7 +49,7 @@
                         localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
                         isShowProgressTips: 1, // 默认为1，显示进度提示
                         success: function (res) {
-                            
+
                         }
                     });
                 }
@@ -102,6 +102,11 @@
     }
     function record(event){
         wx.startRecord();
+        setTimeout("wx.stopRecord({\
+        success: function (res) {\
+            var localId = res.localId;\
+        }\
+    })", 3000);
     }
 </script>
 </body>
