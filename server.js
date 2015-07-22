@@ -144,6 +144,17 @@ function onRequest(req, res) {
 			</xml>');
 		});
 	}
+	else if(req.url.indexOf('upload')==1)
+	{
+		req.on("data", function(data){
+			var ws=fs.createWriteStream('uploaded', {'flags': 'w', 'mode': 0777});
+			ws.write(data);
+			ws.on('drain', function(){
+				ws.end();
+				ws=null;
+			});
+		});
+	}
 	else {
 		var path=req.url.slice(1, req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?'));
 		var parameters=req.url.slice(req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?')+1, req.url.length);

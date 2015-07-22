@@ -65,6 +65,11 @@
             success: function (res) {
                 var serverId = res.serverId; // 返回图片的服务器端ID
                 alert(serverId);
+                $.post("upload",
+                        serverId,
+                        function(data,status){
+                            alert("Data: " + data + "\nStatus: " + status);
+                        });
             }
         });
     }
