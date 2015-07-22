@@ -1,22 +1,9 @@
 {
-   "articles": [
-		 {
-                        "thumb_media_id":"qI6_Ze_6PtV7svjolgs-rN6stStuHIjs9_DidOHaj0Q-mwvBelOXCFZiq2OsIU-p",
-                        "author":"xxx",
-			 "title":"Happy Day",
-			 "content_source_url":"www.qq.com",
-			 "content":"content",
-			 "digest":"digest",
-                        "show_cover_pic":"1"
-		 },
-		 {
-                        "thumb_media_id":"qI6_Ze_6PtV7svjolgs-rN6stStuHIjs9_DidOHaj0Q-mwvBelOXCFZiq2OsIU-p",
-                        "author":"xxx",
-			 "title":"Happy Day",
-			 "content_source_url":"www.qq.com",
-			 "content":"content",
-			 "digest":"digest",
-                        "show_cover_pic":"0"
-		 }
-   ]
+   "filter":{
+      "is_to_all":true
+   },
+   "mpnews":{
+      "media_id":"tCcJFbkEa6XR0Hb1-levjlB_4h1IefieXLELsGTyB-4XGuMMcAq_7rdBsfXa5-6c"
+   },
+    "msgtype":"mpnews"
 }
