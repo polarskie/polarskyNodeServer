@@ -140,7 +140,7 @@ function onRequest(req, res) {
 			<FromUserName>'+xpath.select("//ToUserName/text()", doc).toString().cutC()+'</FromUserName>\
 			<CreateTime>'+(new Date()).getTime()+'</CreateTime>\
 			<MsgType><![CDATA[text]]></MsgType>\
-			<Content><![CDATA[http://http://www.polarsky.cc/wechatTest.html 还在做一些准备，请等等...]]></Content>\
+			<Content><![CDATA[测试页面：http://www.polarsky.cc/wechatTest.html 会不定期推送更新，欢迎访问！]]></Content>\
 			</xml>');
 		});
 	}
