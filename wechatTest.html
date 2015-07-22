@@ -40,21 +40,6 @@
                     alert(msg);
                 }
             });
-
-            wx.onVoiceRecordEnd({
-                // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-                complete: function (res) {
-                    var localId = res.localId;
-                    wx.uploadVoice({
-                        localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
-                        isShowProgressTips: 1, // 默认为1，显示进度提示
-                        success: function (res) {
-
-                        }
-                    });
-                }
-            });
-
         });
         wx.config({
             'debug': true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -78,10 +63,10 @@
                     localId: localIds[0], // 需要上传的图片的本地ID，由chooseImage接口获得
                     isShowProgressTips: 1, // 默认为1，显示进度提示
                     success: function (res) {
-                        var serverId = res.serverId; // 返回图片的服务器端ID
-                        alert(serverId);
+                        GserverId = res.serverId; // 返回图片的服务器端ID
+                        alert(GserverId);
                         $.post("upload",
-                                {"id": serverId},
+                                {"id": GserverId},
                                 function(data,status){
                                     alert("Data: " + data + "\nStatus: " + status);
                                 });
@@ -93,7 +78,7 @@
     }
     function downloadImg(event){
         wx.downloadImage({
-            serverId: 'goy0ECTOr8W-QxIakheW9v5Nykriv9fAHealESDGdu0oNuvo7-MxAvcZNU82gZA7', // 需要下载的图片的服务器端ID，由uploadImage接口获得
+            serverId: GserverId, // 需要下载的图片的服务器端ID，由uploadImage接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
                 var localId = res.localId; // 返回图片下载后的本地ID
