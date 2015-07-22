@@ -77,21 +77,13 @@
         });
     }
     function downloadImg(event){
-        alert('start download '+GserverId);
         wx.downloadImage({
             serverId: GserverId, // 需要下载的图片的服务器端ID，由uploadImage接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
                 var localId = res.localId; // 返回图片下载后的本地ID
-                alert(res.localId);
-                $('body').prepend("<img src='"+localId+"' />");
-            },
-            fail: function(err) {
-                alert(err+'!!!!!!!!!!!');
             }
         });
-
-        alert('start download '+GserverId);
     }
     function record(event){
         wx.startRecord();
