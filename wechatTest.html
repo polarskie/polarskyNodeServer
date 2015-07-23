@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>wechatTest</title>
     <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/wechatTest.css" />
 </head>
 <body>
 <div class="container"><div class="jumbotron" onclick="uploadImg(event)"><h1>upload</h1></div></div>
@@ -92,8 +93,8 @@
         });
     }
     document.querySelector('#downloadImage').onclick = function () {
-        function download(i) {
-            if(i>=img.length)
+        function download(imgList, i) {
+            if(i>=imgList.length)
             {
                 if(i==0)
                 {
@@ -106,14 +107,14 @@
                 return;
             }
             wx.downloadImage({
-                serverId: img[i],
+                serverId: imgList[i],
                 success: function (res) {
                     $("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
                     download(i+1);
                 }
             });
         }
-        download(0);
+        download(img, 0);
     };
     $('#getlocation').click(function()
     {
@@ -126,6 +127,20 @@
                 var accuracy = res.accuracy; // 位置精度
                 alert("your position is:\nlatitude: "+latitude+"\n longtitude: "+longitude+"\n\
                 speed: "+speed+"m/s\naccuracy: "+accuracy+"m");
+            }
+        });
+    })
+    $('#showmeonmap').click(function(){
+        wx.getLocation({
+            type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+            success: function (res) {
+                wx.openLocation({
+                    latitude: res.latitude, // 纬度，浮点数，范围为90 ~ -90
+                    longitude: res.longitude, // 经度，浮点数，范围为180 ~ -180。
+                    name: 'me', // 位置名
+                    address: 'i am here', // 地址详情说明
+                    infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
+                });
             }
         });
     })
