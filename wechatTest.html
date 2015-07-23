@@ -19,7 +19,9 @@
 
 <div class="container attached" hidden><div class="jumbotron" id="saoyisao"><h1>扫一扫</h1></div></div>
 
-<div class="container"><div class="jumbotron" id="tingting"><h1>听我说话</h1></div></div>
+<div class="container"><div class="jumbotron"><h2>看看你在5秒钟内能说多少次“百姓网”</h2></div></div>
+
+<div class="container"><div class="jumbotron" id="tingting"><h1>开始说话</h1></div></div>
 
 <div class="container"><div class="jumbotron" id="showattached"><h1>显示附加功能</h1></div></div>
 
@@ -33,6 +35,7 @@
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script>
     var img=new Array();
+    var sw=0;
     $(document).ready(function (evnet) {
         wx.error(function(res){
             $('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
@@ -172,13 +175,15 @@
         setTimeout('uploadvoice()', 5000);
     });
     $('#showattached').click(function(){
-        if ($('#showattached').html()=="显示附加功能")
+        if (sw=0)
         {
             $('#showattached').html("隐藏附加功能");
+            sw=1;
         }
         else
         {
             $('#showattached').html("显示附加功能");
+            sw=0;
         }
         $('.attached').slideToggle('slow');
     });
