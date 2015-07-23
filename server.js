@@ -188,7 +188,7 @@ function onRequest(req, res) {
 				var inserted=false;
 				for(var i=0;i<ranking.length;++i)
 				{
-					if(ranking[i].count<newScore.count)
+					if(parseInt(ranking[i].score)<parseInt(newScore.score))
 					{
 						alert("inserted");
 						ranking.splice(i, 0, newScore);
