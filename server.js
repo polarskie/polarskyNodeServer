@@ -192,6 +192,7 @@ function onRequest(req, res) {
 					{
 						ranking.splice(i, 0, newScore);
 						inserted=true;
+						break;
 					}
 				}
 				if(!inserted)
