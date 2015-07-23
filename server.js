@@ -121,6 +121,19 @@ function generateSignature(url, timestamp, nonceStr)
 	sha1.update(content);
 	return sha1.digest('hex');
 }
+
+function getParameter(data)
+{
+	var arr=data.split('&');
+	var r=new Object();
+	for(var i in arr)
+	{
+		r[arr[i].slice(0, arr[i].indexOf('='))] =
+			arr[i].slice(arr[i].indexOf('=')+1);
+	}
+	return r;
+}
+
 var server=http.createServer();
 
 function onRequest(req, res) {
@@ -171,7 +184,7 @@ function onRequest(req, res) {
 			console.log(util.inspect(newScore));
 			var rs=fs.createReadStream('ranking');
 			rs.on('data', function(data){
-				var ranking=JSON.parse(data.toString());
+				var ranking=getParameter(data);
 				for(var i in ranking)
 				{
 					if(ranking[i].count<newScore.count)
