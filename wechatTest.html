@@ -160,9 +160,9 @@
             }
         });
     })
-    $('tingting').click(function(){
+    $('#tingting').click(function(){
         wx.startRecord();
-        setTimeout(uploadvoice, 5000);
+        setTimeout('uploadvoice()', 5000);
     });
     function uploadvoice()
     {
