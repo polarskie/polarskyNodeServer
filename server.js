@@ -139,13 +139,12 @@ function onRequest(req, res) {
 		req.on('data', function(data){
 			var doc = new dom().parseFromString(data.toString());
 			var openid = xpath.select("//FromUserName/text()", doc).toString().cutC();
-			var timestamp = (new Date()).getTime();
 			res.end('<xml>\
 				<ToUserName>'+xpath.select("//FromUserName/text()", doc).toString().cutC()+'</ToUserName>\
 			<FromUserName>'+xpath.select("//ToUserName/text()", doc).toString().cutC()+'</FromUserName>\
 			<CreateTime>'+(new Date()).getTime()+'</CreateTime>\
 			<MsgType><![CDATA[text]]></MsgType>\
-			<Content><![CDATA[测试页面：http://www.polarsky.cc/wechatTest.html?openid='+openid+'&timestamp='+timestamp+' 会不定期推送更新，欢迎访问！请于一分钟内访问上面页面，过期请再向我发信息，我会回复新的页面链接给你]></Content>\
+			<Content><![CDATA[测试页面：http://www.polarsky.cc/wechatTest.html?openid='+openid+' 会不定期推送更新，欢迎访问！]></Content>\
 			</xml>');
 		});
 	}
