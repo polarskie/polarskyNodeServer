@@ -286,10 +286,21 @@
 
     function showScore(count)
     {
-        alert('i am here now');
-        $('#noticeforscore').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在xx人中排名第XX。" +
-                "是否需要保留成绩？");
-        $('.scoreboard').fadeIn();
+        $.get("ranking",
+                {},
+                function(data, status){
+                    var rank=JSON.parse(data);
+                    var total=rank.length;
+                    var number=1;
+                    while(parseInt(rank[number-1]['score'])>count)
+                    {
+                        number++;
+                    }
+                    alert('i am here now');
+                    $('#noticeforscore').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。" +
+                            "是否需要保留成绩？");
+                    $('.scoreboard').fadeIn();
+                });
     }
 
     function getParameter(name)
