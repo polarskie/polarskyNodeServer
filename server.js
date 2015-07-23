@@ -185,14 +185,16 @@ function onRequest(req, res) {
 			var rs=fs.createReadStream('ranking');
 			rs.on('data', function(data){
 				var ranking=JSON.parse(data.toString());
+				var inserted=false;
 				for(var i=0;i<ranking.length;++i)
 				{
 					if(ranking[i].count<newScore.count)
 					{
 						ranking.splice(i, 0, newScore);
+						inserted=true;
 					}
 				}
-				if(i==0)
+				if(!inserted)
 				{
 					ranking.splice(i, 0, newScore);
 				}
