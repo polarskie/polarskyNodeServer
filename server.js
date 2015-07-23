@@ -190,6 +190,7 @@ function onRequest(req, res) {
 				{
 					if(ranking[i].count<newScore.count)
 					{
+						alert("inserted");
 						ranking.splice(i, 0, newScore);
 						inserted=true;
 					}
