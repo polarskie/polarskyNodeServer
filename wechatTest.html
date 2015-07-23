@@ -203,14 +203,14 @@
                     success: function (res) {
                         alert(res.translateResult); // 语音识别的结果
                         var count=count(res.translateResult, "百姓网");
-                        uploadScore(count);
+                        showScore(22);
                     }
                 });
             }
         });
     }
 
-    function uploadScore(count)
+    function showScore(count)
     {
         $('.upboard p').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在xx人中排名第XX。" +
                 "是否需要保留成绩？");

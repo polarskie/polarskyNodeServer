@@ -16,6 +16,7 @@ img
     width: 80%;
     top: 10%;
     margin: auto;
+    z-index: 9999;
 }
 .upboard p
 {
