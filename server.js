@@ -168,6 +168,7 @@ function onRequest(req, res) {
 	{
 		req.on("data", function (data) {
 			var newScore=JSON.parse(data.toSrting());
+			console.log(util.inspect(newScore));
 			var rs=fs.createReadStream('ranking');
 			rs.on('data', function(data){
 				var ranking=JSON.parse(data.toString());
