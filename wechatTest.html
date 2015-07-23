@@ -174,8 +174,9 @@
         countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s')", 1000);
         setTimeout('uploadvoice()', 5000);
     });
+
     $('#showattached').click(function(){
-        if (sw=0)
+        if (sw==0)
         {
             $('#showattached').html("隐藏附加功能");
             sw=1;
@@ -187,6 +188,7 @@
         }
         $('.attached').slideToggle('slow');
     });
+
     function uploadvoice()
     {
         clearInterval(countdown);
