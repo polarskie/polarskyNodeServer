@@ -180,11 +180,11 @@ function onRequest(req, res) {
 	else if(req.url.indexOf('score')==1)
 	{
 		req.on("data", function (data) {
-			var newScore=JSON.parse(data);
+			var newScore=getParameter(data);
 			console.log(util.inspect(newScore));
 			var rs=fs.createReadStream('ranking');
 			rs.on('data', function(data){
-				var ranking=getParameter(data);
+				var ranking=JSON.parse(data.toString());
 				for(var i in ranking)
 				{
 					if(ranking[i].count<newScore.count)
