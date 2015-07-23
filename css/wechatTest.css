@@ -2,14 +2,7 @@
 {
     text-align: center;
 }
-img
-{
-    margin: 5px;
-}
-#tingting:hover
-{
-    background-color: white;
-}
+
 .upboard
 {
     position: fixed;
@@ -18,7 +11,18 @@ img
     margin: auto;
     z-index: 9999;
 }
+
 .upboard p
 {
     font-size: 4em;
+}
+
+img
+{
+    margin: 5px;
+}
+
+#tingting:hover
+{
+    background-color: white;
 }
