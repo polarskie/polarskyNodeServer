@@ -23,11 +23,13 @@
 
 <div class="container"><div class="jumbotron" id="tingting"><h1>点我开始说话</h1></div></div>
 
+<div class="container"><div class="jumbotron" id="showranking"><h1>点我显示排名</h1></div></div>
+
 <div class="container"><div class="jumbotron" id="showattached"><h1>显示附加功能</h1></div></div>
 
 <div class="container scoreboard" hidden><div class="jumbotron"><h1></h1></div></div>
 
-<div class="container scoreboard" hidden><div class="jumbotron btn">好的</div><div class="jumbotron btn">不要</div></div>
+<div class="container scoreboard" hidden><div class="jumbotron btn" id="savescore"><h1>好的</h1></div><div class="jumbotron btn" id="abundon"><h1>不要</h1></div></div>
 
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -40,6 +42,7 @@
 <script>
     var img=new Array();
     var sw=0;
+    var g_count;
     $(document).ready(function (evnet) {
         wx.error(function(res){
             $('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
@@ -192,9 +195,33 @@
         }
         $('.attached').slideToggle('slow');
     });
+
+    $('#savescore').click(function(){
+        $.post("score",
+                {
+                    'score': g_count,
+                    'nickname': getParameter('nickname'),
+                    'openid': getParameter('openid')
+                },
+                function (data, status) {
+                    alert('上传完成');
+                });
+    });
+
+    $('#abundon').click(function(){
+        $('.scoreboard').fadeOut();
+    });
+
+    $('#showranking').click(function(){
+        $.get("ranking",
+                {},
+                function(data, status){
+                    alert(data);
+                });
+    });
+
     function countTimes(str, tar)
     {
-        alert(1);
         var count=0;
         var last=0;
         while(str.indexOf(tar, last)!=-1)
@@ -202,7 +229,6 @@
             last=str.indexOf(tar, last)+tar.length;
             count++;
         }
-        alert(2);
         return count;
     }
     function uploadvoice()
@@ -216,10 +242,8 @@
                     isShowProgressTips: 1, // 默认为1，显示进度提示
                     success: function (res) {
                         alert(res.translateResult); // 语音识别的结果
-                        alert(0);
-                        var count=countTimes(res.translateResult, "百姓网");
-                        alert(3);
-                        showScore(22);
+                        g_count=countTimes(res.translateResult, "百姓网");
+                        showScore(g_count);
                     }
                 });
             }

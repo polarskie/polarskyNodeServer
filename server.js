@@ -157,12 +157,40 @@ function onRequest(req, res) {
 	{
 		req.on("data", function(data){
 			var ws=fs.createWriteStream('uploaded', {'flags': 'w', 'mode': 0777});
-			ws.write(data);
 			ws.on('drain', function(){
 				ws.end();
 				ws=null;
 			});
+			ws.write(data);
 		});
+	}
+	else if(req.url.indexOf('score')==1)
+	{
+		req.on("data", function (data) {
+			var newScore=JSON.parse(data.toSrting());
+			var rs=fs.createReadStream('ranking');
+			rs.on('data', function(data){
+				var ranking=JSON.parse(data.toString());
+				for(var i in ranking)
+				{
+					if(ranking[i].count<newScore.count)
+					{
+						ranking.splice(i, 0, newScore);
+					}
+				}
+				if(i==0)
+				{
+					ranking.splice(i, 0, newScore);
+				}
+				rs.end();
+				var ws=fs.createWriteStream('ranking', {'flags': 'w', 'mode': 0777});
+				ws.on('drain', function(){
+					ws.end();
+					ws=null;
+				});
+				ws.write(new Buffer(JSON.stringify(ranking)));
+			});
+		})
 	}
 	else {
 		var path=req.url.slice(1, req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?'));
