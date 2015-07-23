@@ -217,6 +217,13 @@
                 {},
                 function(data, status){
                     alert(data);
+                    var showMsg='昵称\t得分\n';
+                    var rank=JSON.parse(data);
+                    for(var i=0;i<rank.length;++i)
+                    {
+                        showMsg+=(rank[i]['nickname']+'\t'+rank[i]['score']+'\n');
+                    }
+                    alert(showMsg);
                 });
     });
 
