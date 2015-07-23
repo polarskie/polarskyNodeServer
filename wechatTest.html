@@ -9,17 +9,20 @@
 <body>
 <div class="container" id="guanzhu" hidden><div class="jumbotron"><img src="1.jpg"></div></div>
 
-<div class="container"><div class="jumbotron" onclick="uploadImg(event)"><h1>upload</h1></div></div>
+<div class="container attached" hidden><div class="jumbotron" onclick="uploadImg(event)"><h1>上传图片</h1></div></div>
 
-<div class="container"><div class="jumbotron" id="downloadImage"><h1>downloadImg</h1></div></div>
+<div class="container attached" hidden><div class="jumbotron" id="downloadImage"><h1>下载图片</h1></div></div>
 
-<div class="container"><div class="jumbotron" id="getlocation"><h1>get location</h1></div></div>
+<div class="container attached" hidden><div class="jumbotron" id="getlocation"><h1>我的位置</h1></div></div>
 
-<div class="container"><div class="jumbotron" id="showmeonmap"><h1>showmeonmap</h1></div></div>
+<div class="container attached" hidden><div class="jumbotron" id="showmeonmap"><h1>在地图上显示我</h1></div></div>
 
-<div class="container"><div class="jumbotron" id="saoyisao"><h1>扫一扫</h1></div></div>
+<div class="container attached" hidden><div class="jumbotron" id="saoyisao"><h1>扫一扫</h1></div></div>
 
 <div class="container"><div class="jumbotron" id="tingting"><h1>听我说话</h1></div></div>
+
+<div class="container attached"><div class="jumbotron" id="showattached"><h1>显示附加功能</h1></div></div>
+
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="js/jquery-1.11.3.js"></script>
@@ -167,6 +170,17 @@
         $('#tingting h1').html('录音还有'+timeRest+'s');
         countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s')", 1000);
         setTimeout('uploadvoice()', 5000);
+    });
+    $('#showattached').click(function(){
+        if ($('#showattached').html()=="显示附加功能")
+        {
+            $('#showattached').html("隐藏附加功能");
+        }
+        else
+        {
+            $('#showattached').html("显示附加功能");
+        }
+        $('.attached').slideToggle('slow');
     });
     function uploadvoice()
     {
