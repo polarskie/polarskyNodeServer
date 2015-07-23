@@ -295,6 +295,7 @@
                     while(parseInt(rank[number-1]['score'])>count)
                     {
                         number++;
+                        if(number==total) break;
                     }
                     alert('i am here now');
                     $('#noticeforscore').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。" +
