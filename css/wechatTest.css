@@ -6,8 +6,8 @@ img
 {
     margin: 5px;
 }
-.notice
+.container .jumbotron .notice
 {
     color: #761c19;
-    font-size: 2em;
+    font-size: 4em;
 }
