@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/wechatTest.css" />
 </head>
 <body>
-<div class="container" id="guanzhu"><div class="jumbotron"><img src="1.jpg"><p>请先关注我（长按二维码，选择识别图中二维码）</p></div></div>
+<div class="container" id="guanzhu" hidden><div class="jumbotron"><img src="1.jpg"><p>请先关注我（长按二维码，选择识别图中二维码）</p></div></div>
 
 <div class="container"><div class="jumbotron" onclick="uploadImg(event)"><h1>upload</h1></div></div>
 
@@ -31,7 +31,6 @@
 <script>
     var img=new Array();
     $(document).ready(function (evnet) {
-        $('#guanzhu').hide();
         wx.error(function(res){
             setTimeout("$('#guanzhu').fadeIn('slow')", 1000);
         });
