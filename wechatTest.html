@@ -237,10 +237,10 @@
         $('#tingting h1').html('点我开始说话');
         wx.stopRecord({
             success: function (res) {
-                alert(res.localId);
+                alert(res.localId);/*
                 wx.playVoice({
                     localId: res.localId // 需要播放的音频的本地ID，由stopRecord接口获得
-                });/*
+                });*/
                 wx.translateVoice({
                     localId: res.localId, // 需要识别的音频的本地Id，由录音相关接口获得
                     isShowProgressTips: 1, // 默认为1，显示进度提示
@@ -252,7 +252,7 @@
                     fail: function(res1){
                         alert(res.errMsg);
                     }
-                });*/
+                });
             }
         });
     }
