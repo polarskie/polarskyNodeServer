@@ -244,6 +244,9 @@
                         alert(res.translateResult); // 语音识别的结果
                         g_count=countTimes(res.translateResult, "百姓网");
                         showScore(g_count);
+                    },
+                    fail: function(res){
+                        alert(res.errMsg);
                     }
                 });
             }
