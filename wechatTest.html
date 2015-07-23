@@ -162,10 +162,14 @@
     })
     $('#tingting').click(function(){
         wx.startRecord();
+        timeRest=5.0;
+        $('#tingting h1').html('录音还有'+timeRest+'s');
+        countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=0.1)+'s')", 100);
         setTimeout('uploadvoice()', 5000);
     });
     function uploadvoice()
     {
+        clearInterval(countdown);
         wx.stopRecord({
             success: function (res) {
                 wx.translateVoice({
