@@ -190,7 +190,7 @@
         }
         $('.attached').slideToggle('slow');
     });
-
+    /*
     function count(str, tar)
     {
         alert(1);
@@ -203,8 +203,11 @@
         }
         alert(2);
         return count;
+    }*/
+    function count(src, tar)
+    {
+        alert(1);
     }
-    function add(){alert('yes');}
     function uploadvoice()
     {
         clearInterval(countdown);
@@ -217,7 +220,6 @@
                     success: function (res) {
                         alert(res.translateResult); // 语音识别的结果
                         alert(0);
-                        add();
                         var count=count(res.translateResult, "百姓网");
                         alert(3);
                         showScore(22);
