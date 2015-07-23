@@ -237,16 +237,16 @@
         $('#tingting h1').html('点我开始说话');
         wx.stopRecord({
             success: function (res) {
-                alert('dfefe');
+                alert(res.localId);
                 wx.translateVoice({
                     localId: res.localId, // 需要识别的音频的本地Id，由录音相关接口获得
                     isShowProgressTips: 1, // 默认为1，显示进度提示
-                    success: function (res) {
-                        alert(res.translateResult); // 语音识别的结果
-                        g_count=countTimes(res.translateResult, "百姓网");
+                    success: function (res1) {
+                        alert(res1.translateResult); // 语音识别的结果
+                        g_count=countTimes(res1.translateResult, "百姓网");
                         showScore(g_count);
                     },
-                    fail: function(res){
+                    fail: function(res1){
                         alert(res.errMsg);
                     }
                 });
