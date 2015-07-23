@@ -9,27 +9,30 @@
 <body>
 <div class="container" id="guanzhu" hidden><div class="jumbotron"><img src="1.jpg"></div></div>
 
-<div class="container attached" hidden><div class="jumbotron" onclick="uploadImg(event)"><h1>上传图片</h1></div></div>
+<div class="container attached" hidden>
+    <div class="jumbotron" onclick="uploadImg(event)"><h1>上传图片</h1></div>
+    <div class="jumbotron" id="downloadImage"><h1>下载图片</h1></div>
+    <div class="jumbotron" id="getlocation"><h1>我的位置</h1></div>
+    <div class="jumbotron" id="showmeonmap"><h1>在地图上显示我</h1></div>
+    <div class="jumbotron" id="saoyisao"><h1>扫一扫</h1></div>
+</div>
 
-<div class="container attached" hidden><div class="jumbotron" id="downloadImage"><h1>下载图片</h1></div></div>
+<div class="container speakracer">
+    <div class="jumbotron"><h2>看看你在5秒钟内能清楚地说出多少次“百姓网”</h2></div>
+    <div class="jumbotron" id="tingting"><h1>点我开始说话</h1></div>
+    <div class="jumbotron" id="showranking"><h1>点我显示排名</h1></div>
+    <div class="jumbotron" id="showattached"><h1>显示附加功能</h1></div>
+</div>
 
-<div class="container attached" hidden><div class="jumbotron" id="getlocation"><h1>我的位置</h1></div></div>
+<div class="container scoreboard" hidden>
+    <div class="jumbotron"><h1 id="noticeforscore"></h1></div>
+    <div class="jumbotron btn" id="savescore"><h1>好的</h1></div>
+    <div class="jumbotron btn" id="abundon"><h1>不要</h1></div>
+</div>
 
-<div class="container attached" hidden><div class="jumbotron" id="showmeonmap"><h1>在地图上显示我</h1></div></div>
+<div class="container rankingboard" hidden>
 
-<div class="container attached" hidden><div class="jumbotron" id="saoyisao"><h1>扫一扫</h1></div></div>
-
-<div class="container"><div class="jumbotron"><h2>看看你在5秒钟内能清楚地说出多少次“百姓网”</h2></div></div>
-
-<div class="container"><div class="jumbotron" id="tingting"><h1>点我开始说话</h1></div></div>
-
-<div class="container"><div class="jumbotron" id="showranking"><h1>点我显示排名</h1></div></div>
-
-<div class="container"><div class="jumbotron" id="showattached"><h1>显示附加功能</h1></div></div>
-
-<div class="container scoreboard" hidden><div class="jumbotron"><h1 id="noticeforscore"></h1></div></div>
-
-<div class="container scoreboard" hidden><div class="jumbotron btn" id="savescore"><h1>好的</h1></div><div class="jumbotron btn" id="abundon"><h1>不要</h1></div></div>
+</div>
 
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -217,16 +220,33 @@
                 {},
                 function(data, status){
                     alert(data);
-                    var showMsg='昵称\t得分\n';
+                    $('.rankingboard').html('');
+                    $('.rankingboard').append('<div class="row">\
+                            <div class="col-xs-6">昵称</div>\
+                            <div class="col-xs-6">分数</div>\
+                            </div>');
                     var rank=JSON.parse(data);
                     for(var i=0;i<rank.length;++i)
                     {
-                        showMsg+=(rank[i]['nickname']+'\t'+rank[i]['score']+'\n');
+                        $('.rankingboard').append('<div class="row">\
+                            <div class="col-xs-6">'+rank[i]['nickname']+'</div>\
+                            <div class="col-xs-6">'+rank[i]['score']+'</div>\
+                            </div>');
                     }
-                    alert(showMsg);
+                    $('.rankingboard').append('<div class="row">\
+                            <div class="col-xs-6 col-xs-offset-3" id="hiderankingboard">隐藏</div>\
+                            </div>');
+                    $('.speakracer').slideUp('slow');
+                    $('.scoreboard').slideUp('slow', function(){$('.rankingboard').slideDown('slow');});
+
                 });
     });
 
+    $('#hiderankingboard').click(function(){
+        $('.rankingboard').slideUp('slow', function(){
+            $('.speakracer').slideDown('slow');
+        });
+    });
     function countTimes(str, tar)
     {
         var count=0;
