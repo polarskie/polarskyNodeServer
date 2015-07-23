@@ -222,31 +222,30 @@
                     alert(data);
                     $('.rankingboard').html('');
                     $('.rankingboard').append('<div class="row">\
-                            <div class="col-xs-6">昵称</div>\
-                            <div class="col-xs-6">分数</div>\
+                            <div class="col-xs-6"><div class="jumbotron"><h1>昵称</h1></div></div>\
+                            <div class="col-xs-6"><div class="jumbotron"><h1>分数</h1></div></div>\
                             </div>');
                     var rank=JSON.parse(data);
                     for(var i=0;i<rank.length;++i)
                     {
                         $('.rankingboard').append('<div class="row">\
-                            <div class="col-xs-6">'+rank[i]['nickname']+'</div>\
-                            <div class="col-xs-6">'+rank[i]['score']+'</div>\
+                            <div class="col-xs-6"><div class="jumbotron"><h1>'+rank[i]['nickname']+'</h1></div></div>\
+                            <div class="col-xs-6"><div class="jumbotron"><h1>'+rank[i]['score']+'</h1></div></div>\
                             </div>');
                     }
                     $('.rankingboard').append('<div class="row">\
-                            <div class="col-xs-6 col-xs-offset-3" id="hiderankingboard">隐藏</div>\
+                            <div class="col-xs-6 col-xs-offset-3" id="hiderankingboard"><div class="jumbotron"><h1>隐藏</h1></div></div>\
                             </div>');
                     $('.speakracer').slideUp('slow');
                     $('.scoreboard').slideUp('slow', function(){$('.rankingboard').slideDown('slow');});
-
+                    $('#hiderankingboard').click(function(){
+                        $('.rankingboard').slideUp('slow', function(){
+                            $('.speakracer').slideDown('slow');
+                        });
+                    });
                 });
     });
 
-    $('#hiderankingboard').click(function(){
-        $('.rankingboard').slideUp('slow', function(){
-            $('.speakracer').slideDown('slow');
-        });
-    });
     function countTimes(str, tar)
     {
         var count=0;
