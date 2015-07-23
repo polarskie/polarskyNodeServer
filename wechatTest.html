@@ -203,6 +203,7 @@
                     success: function (res) {
                         alert(res.translateResult); // 语音识别的结果
                         var count=count(res.translateResult, "百姓网");
+                        alert(3);
                         showScore(22);
                     }
                 });
@@ -229,6 +230,7 @@
     }
     function count(str, tar)
     {
+        alert(1);
         var count=0;
         var last=0;
         while(str.indexOf(tar, last)!=-1)
@@ -236,6 +238,7 @@
             last=str.indexOf(tar, last)+tar.length;
             count++;
         }
+        alert(2);
         return count;
     }
 </script>
