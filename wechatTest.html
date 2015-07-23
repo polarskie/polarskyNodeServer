@@ -41,7 +41,7 @@
             {
                 testtimestamp="N";
             }
-            $('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择识别图中二维码）,否则功能无法实现哦');});
+            $('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
         });
         wx.ready(function(){
             if(testtimestamp!="N") {
@@ -49,7 +49,7 @@
             }
             wx.onMenuShareTimeline({
                 title: 'wechat API testing', // 分享标题
-                link: 'http://www.polarsky.cc/index.html', // 分享链接
+                link: 'http://www.polarsky.cc/jump.html', // 分享链接
                 imgUrl: 'http://www.polarsky.cc/favicon.ico', // 分享图标
                 success: function () {
                     alert("you have shared");
