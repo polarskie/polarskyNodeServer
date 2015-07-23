@@ -180,6 +180,7 @@ function onRequest(req, res) {
 	else if(req.url.indexOf('score')==1)
 	{
 		req.on("data", function (data) {
+			res.end();
 			var newScore=getParameter(data);
 			console.log(util.inspect(newScore));
 			var rs=fs.createReadStream('ranking');
