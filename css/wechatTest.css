@@ -2,3 +2,11 @@
 {
     text-align: center;
 }
+img
+{
+    margin: 5px;
+}
+#guanzhu
+{
+    display: none;
+}

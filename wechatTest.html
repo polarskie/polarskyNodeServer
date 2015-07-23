@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/wechatTest.css" />
 </head>
 <body>
-<div class="container"><div class="jumbotron"><img src="1.jpg"><p>请先关注我（长按二维码，选择识别图中二维码）</p></div></div>
+<div class="container" id="guanzhu"><div class="jumbotron"><img src="1.jpg"><p>请先关注我（长按二维码，选择识别图中二维码）</p></div></div>
 
 <div class="container"><div class="jumbotron" onclick="uploadImg(event)"><h1>upload</h1></div></div>
 
@@ -32,7 +32,7 @@
     var img=new Array();
     $(document).ready(function (evnet) {
         wx.error(function(res){
-            alert(res);
+            $('#guanzhu').slideDown();
         });
         wx.ready(function(){
 
