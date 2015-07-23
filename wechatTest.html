@@ -198,14 +198,14 @@
 
     $('#savescore').click(function(){
         $.post("score",
-                {
-                    'score': g_count,
-                    'nickname': getParameter('nickname'),
-                    'openid': getParameter('openid')
-                },
+                "{\
+                    'score': "+g_count+",\
+                    'nickname': "+getParameter('nickname')+",\
+                    'openid': "+getParameter('openid')+"\
+                }",
                 function (data, status) {
                     alert('上传完成');
-                },"JSON");
+                });
     });
 
     $('#abundon').click(function(){
