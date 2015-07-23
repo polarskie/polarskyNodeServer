@@ -207,7 +207,7 @@
     }
     function testTimeStamp()
     {
-        if((new Date()).getTime()-parseInt(getParameter("timestamp"))>10000)
+        if((new Date()).getTime()-parseInt(getParameter("timestamp"))>60000)
         {
             alert("这个页面过期了，请回到服务号重新和我说话以获取新的链接");
             location.assign("http://www.polarsky.cc");
