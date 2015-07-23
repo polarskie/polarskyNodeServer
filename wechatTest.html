@@ -204,7 +204,7 @@
         alert(2);
         return count;
     }*/
-    function count(src, tar)
+    function countTimes(src, tar)
     {
         alert('uew');
     }
@@ -220,7 +220,7 @@
                     success: function (res) {
                         alert(res.translateResult); // 语音识别的结果
                         alert(0);
-                        var count=count(res.translateResult, "百姓网");
+                        var count=countTimes(res.translateResult, "百姓网");
                         alert(3);
                         showScore(22);
                     }
