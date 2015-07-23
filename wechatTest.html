@@ -162,14 +162,15 @@
     })
     $('#tingting').click(function(){
         wx.startRecord();
-        timeRest=5.0;
+        timeRest=5;
         $('#tingting h1').html('录音还有'+timeRest+'s');
-        countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=0.1)+'s')", 100);
+        countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s')", 1000);
         setTimeout('uploadvoice()', 5000);
     });
     function uploadvoice()
     {
         clearInterval(countdown);
+        $('#tingting h1').html('听我说话');
         wx.stopRecord({
             success: function (res) {
                 wx.translateVoice({
