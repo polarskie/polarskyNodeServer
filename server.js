@@ -124,7 +124,7 @@ function generateSignature(url, timestamp, nonceStr)
 
 function getParameter(data)
 {
-	var arr=data.split('&');
+	var arr=(new String(data)).split('&');
 	var r=new Object();
 	for(var i in arr)
 	{
