@@ -196,7 +196,6 @@ function onRequest(req, res) {
 				{
 					ranking.splice(i, 0, newScore);
 				}
-				rs.end();
 				var ws=fs.createWriteStream('ranking', {'flags': 'w', 'mode': 0777});
 				ws.on('drain', function(){
 					ws.end();
