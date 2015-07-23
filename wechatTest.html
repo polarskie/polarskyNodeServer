@@ -237,6 +237,7 @@
         $('#tingting h1').html('点我开始说话');
         wx.stopRecord({
             success: function (res) {
+                alert('dfefe');
                 wx.translateVoice({
                     localId: res.localId, // 需要识别的音频的本地Id，由录音相关接口获得
                     isShowProgressTips: 1, // 默认为1，显示进度提示
