@@ -10,3 +10,14 @@ img
 {
     background-color: white;
 }
+.upboard
+{
+    position: fixed;
+    width: 80%;
+    top: 10%;
+    margin: auto;
+}
+.upboard p
+{
+    font-size: 4em;
+}

@@ -25,6 +25,8 @@
 
 <div class="container"><div class="jumbotron" id="showattached"><h1>显示附加功能</h1></div></div>
 
+<div class="upboard" hidden><p></p><div class="btn btn-lg btn-success">好的</div><div class="btn btn-lg btn-danger">不要</div></div>
+
 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="js/jquery-1.11.3.js"></script>
@@ -178,12 +180,12 @@
     $('#showattached').click(function(){
         if (sw==0)
         {
-            $('#showattached').html("<h2>隐藏附加功能</h2>");
+            $('#showattached').html("<h1>隐藏附加功能</h1>");
             sw=1;
         }
         else
         {
-            $('#showattached').html("<h2>显示附加功能</h2>");
+            $('#showattached').html("<h1>显示附加功能</h1>");
             sw=0;
         }
         $('.attached').slideToggle('slow');
@@ -200,12 +202,21 @@
                     isShowProgressTips: 1, // 默认为1，显示进度提示
                     success: function (res) {
                         alert(res.translateResult); // 语音识别的结果
-                        alert(count(res.translateResult, "百姓网"));
+                        var count=count(res.translateResult, "百姓网");
+                        uploadScore(count);
                     }
                 });
             }
         });
     }
+
+    function uploadScore(count)
+    {
+        $('.upboard p').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在xx人中排名第XX。" +
+                "是否需要保留成绩？");
+        $('.upboard').fadeIn();
+    }
+
     function getParameter(name)
     {
         if(location.search.indexOf(name)==-1){
