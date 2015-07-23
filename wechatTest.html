@@ -34,8 +34,12 @@
         wx.error(function(res){
             $('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择识别图中二维码）,否则功能无法实现哦');});
         });
+        wx.success(function (res)
+        {
+            alert('success');
+        });
         wx.ready(function(){
-
+            alert('ready');
             wx.onMenuShareTimeline({
                 title: 'wechat API testing', // 分享标题
                 link: 'http://www.polarsky.cc/index.html', // 分享链接

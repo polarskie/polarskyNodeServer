@@ -138,13 +138,14 @@ function onRequest(req, res) {
 	{
 		req.on('data', function(data){
 			var doc = new dom().parseFromString(data.toString());
-			var nodes = xpath.select("//title", doc);
+			var openid = xpath.select("//FromUserName/text()", doc).toString().cutC();
+			var timestamp = (new Date()).getTime();
 			res.end('<xml>\
 				<ToUserName>'+xpath.select("//FromUserName/text()", doc).toString().cutC()+'</ToUserName>\
 			<FromUserName>'+xpath.select("//ToUserName/text()", doc).toString().cutC()+'</FromUserName>\
 			<CreateTime>'+(new Date()).getTime()+'</CreateTime>\
 			<MsgType><![CDATA[text]]></MsgType>\
-			<Content><![CDATA[测试页面：http://www.polarsky.cc/wechatTest.html 会不定期推送更新，欢迎访问！]]></Content>\
+			<Content><![CDATA[测试页面：http://www.polarsky.cc/wechatTest.html?openid='+openid+'&timestamp='+timestamp+' 会不定期推送更新，欢迎访问！]]></Content>\
 			</xml>');
 		});
 	}
