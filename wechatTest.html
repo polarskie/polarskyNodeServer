@@ -208,6 +208,7 @@
                 },
                 function (data, status) {
                     alert('上传完成');
+                    showranking();
                 });
     });
 
@@ -215,7 +216,8 @@
         $('.scoreboard').fadeOut();
     });
 
-    $('#showranking').click(function(){
+    $('#showranking').click(showranking);
+    function showranking(){
         $.get("ranking",
                 {},
                 function(data, status){
@@ -244,8 +246,7 @@
                         });
                     });
                 });
-    });
-
+    }
     function countTimes(str, tar)
     {
         var count=0;
