@@ -5,7 +5,7 @@
 
 .upboard
 {
-    position: fixed;
+    position: absolute;
     width: 80%;
     top: 10px;
     left: 10%;
