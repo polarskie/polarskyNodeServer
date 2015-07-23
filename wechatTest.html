@@ -71,7 +71,7 @@
             'nonceStr': nonceStr, // 必填，生成签名的随机串
             'signature': signature,// 必填，签名，见附录1
             'jsApiList': ['onMenuShareTimeline','chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
-                'openLocation', 'scanQRCode', 'startRecord', 'stopRecord', 'translateVoice'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                'openLocation', 'scanQRCode', 'startRecord', 'stopRecord', 'translateVoice', 'playVoice'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
     });
     function uploadImg(event)
@@ -238,6 +238,9 @@
         wx.stopRecord({
             success: function (res) {
                 alert(res.localId);
+                wx.playVoice({
+                    localId: res.localId // 需要播放的音频的本地ID，由stopRecord接口获得
+                });/*
                 wx.translateVoice({
                     localId: res.localId, // 需要识别的音频的本地Id，由录音相关接口获得
                     isShowProgressTips: 1, // 默认为1，显示进度提示
@@ -249,7 +252,7 @@
                     fail: function(res1){
                         alert(res.errMsg);
                     }
-                });
+                });*/
             }
         });
     }
