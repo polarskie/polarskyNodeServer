@@ -185,7 +185,7 @@ function onRequest(req, res) {
 			var rs=fs.createReadStream('ranking');
 			rs.on('data', function(data){
 				var ranking=JSON.parse(data.toString());
-				for(var i in ranking)
+				for(var i=0;i<ranking.length;++i)
 				{
 					if(ranking[i].count<newScore.count)
 					{
