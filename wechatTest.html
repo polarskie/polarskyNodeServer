@@ -21,7 +21,7 @@
 
 <div class="container"><div class="jumbotron"><h2>看看你在5秒钟内能清楚地说出多少次“百姓网”</h2></div></div>
 
-<div class="container"><div class="jumbotron" id="tingting"><h1>开始说话</h1></div></div>
+<div class="container"><div class="jumbotron" id="tingting"><h1>点我开始说话</h1></div></div>
 
 <div class="container"><div class="jumbotron" id="showattached"><h1>显示附加功能</h1></div></div>
 
@@ -192,7 +192,7 @@
     function uploadvoice()
     {
         clearInterval(countdown);
-        $('#tingting h1').html('听我说话');
+        $('#tingting h1').html('点我开始说话');
         wx.stopRecord({
             success: function (res) {
                 wx.translateVoice({
