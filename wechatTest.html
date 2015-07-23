@@ -19,7 +19,7 @@
 
 <div class="container attached" hidden><div class="jumbotron" id="saoyisao"><h1>扫一扫</h1></div></div>
 
-<div class="container"><div class="jumbotron"><h2>看看你在5秒钟内能说多少次“百姓网”</h2></div></div>
+<div class="container"><div class="jumbotron"><h2>看看你在5秒钟内能清楚地说出多少次“百姓网”</h2></div></div>
 
 <div class="container"><div class="jumbotron" id="tingting"><h1>开始说话</h1></div></div>
 
@@ -198,6 +198,7 @@
                     isShowProgressTips: 1, // 默认为1，显示进度提示
                     success: function (res) {
                         alert(res.translateResult); // 语音识别的结果
+                        alert(count(res.translateResult, "百姓网"));
                     }
                 });
             }
@@ -211,6 +212,17 @@
         return location.search.slice(location.search.indexOf(name)+name.length+1,
                 location.search.indexOf('&', location.search.indexOf(name))==-1?location.search.length:location.search.indexOf(
                         '&', location.search.indexOf(name)));
+    }
+    function count(str, tar)
+    {
+        var count=0;
+        var last=0;
+        while(str.indexOf(tar, last)!=-1)
+        {
+            last=str.indexOf(tar, last)+tar.length;
+            count++;
+        }
+        return count;
     }
 </script>
 </body>
