@@ -32,7 +32,7 @@
     var img=new Array();
     $(document).ready(function (evnet) {
         wx.error(function(res){
-            $('#guanzhu').slideDown('slow', "alert('请先关注我（长按二维码，选择识别图中二维码）,否则功能无法实现哦')");
+            $('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择识别图中二维码）,否则功能无法实现哦');});
         });
         wx.ready(function(){
 
