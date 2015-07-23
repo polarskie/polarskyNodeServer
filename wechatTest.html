@@ -30,12 +30,23 @@
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script>
     var img=new Array();
+    var testtimestamp=null;
     $(document).ready(function (evnet) {
         wx.error(function(res){
+            if(testtimestamp)
+            {
+                clearTimeout(testtimestamp);
+            }
+            else
+            {
+                testtimestamp="N";
+            }
             $('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择识别图中二维码）,否则功能无法实现哦');});
         });
         wx.ready(function(){
-            alert('ready');
+            if(testtimestamp!="N") {
+                testtimestamp = setTimeout(testTimeStamp, 1500);
+            }
             wx.onMenuShareTimeline({
                 title: 'wechat API testing', // 分享标题
                 link: 'http://www.polarsky.cc/index.html', // 分享链接
@@ -184,6 +195,23 @@
                 });
             }
         });
+    }
+    function getParameter(name)
+    {
+        if(location.search.indexOf(name)==-1){
+            return null;
+        }
+        return location.search.slice(location.search.indexOf(name)+name.length+1,
+                location.search.indexOf('&', location.search.indexOf(name))==-1?location.search.length:location.search.indexOf(
+                        '&', location.search.indexOf(name)));
+    }
+    function testTimeStamp()
+    {
+        if((new Date()).getTime()-parseInt(getParameter("timestamp"))>10000)
+        {
+            alert("这个页面过期了，请回到服务号重新和我说话以获取新的链接");
+            location.assign("http://www.polarsky.cc");
+        }
     }
 </script>
 </body>
