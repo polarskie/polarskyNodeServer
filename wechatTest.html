@@ -27,7 +27,7 @@
 
 <div class="container"><div class="jumbotron" id="showattached"><h1>显示附加功能</h1></div></div>
 
-<div class="container scoreboard" hidden><div class="jumbotron"><h1></h1></div></div>
+<div class="container scoreboard" hidden><div class="jumbotron"><h1 id="noticeforscore"></h1></div></div>
 
 <div class="container scoreboard" hidden><div class="jumbotron btn" id="savescore"><h1>好的</h1></div><div class="jumbotron btn" id="abundon"><h1>不要</h1></div></div>
 
@@ -260,7 +260,7 @@
     function showScore(count)
     {
         alert('i am here now');
-        $('.scoreboard .jumbotron h1').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在xx人中排名第XX。" +
+        $('#noticeforscore').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在xx人中排名第XX。" +
                 "是否需要保留成绩？");
         $('.scoreboard').fadeIn();
     }
