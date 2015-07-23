@@ -31,8 +31,9 @@
 <script>
     var img=new Array();
     $(document).ready(function (evnet) {
+        $('#guanzhu').hide();
         wx.error(function(res){
-            //setTimeout("$('#guanzhu').fadeIn('slow')", 1000);
+            setTimeout("$('#guanzhu').fadeIn('slow')", 1000);
         });
         wx.ready(function(){
 
