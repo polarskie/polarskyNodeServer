@@ -150,6 +150,7 @@ function onRequest(req, res) {
 	//special entry for wechat messages
 	else if(req.url.indexOf('wechat.php')==1)
 	{
+		console.log('dataget!');
 		req.on('data', function(data){
 			var doc = new dom().parseFromString(data.toString());
 			var openid = xpath.select("//FromUserName/text()", doc).toString().cutC();
