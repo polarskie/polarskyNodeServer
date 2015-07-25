@@ -137,6 +137,7 @@ function getParameter(data)
 var server=http.createServer();
 
 function onRequest(req, res) {
+	console.log('dataget!');
 	if(req.url.length<=1)
 	{
 		req.on("data", function(data){
@@ -150,7 +151,6 @@ function onRequest(req, res) {
 	//special entry for wechat messages
 	else if(req.url.indexOf('wechat.php')==1)
 	{
-		console.log('dataget!');
 		req.on('data', function(data){
 			var doc = new dom().parseFromString(data.toString());
 			var openid = xpath.select("//FromUserName/text()", doc).toString().cutC();
