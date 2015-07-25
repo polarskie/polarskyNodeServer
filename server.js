@@ -155,16 +155,34 @@ function onRequest(req, res) {
 			var doc = new dom().parseFromString(data.toString());
 			var openid = xpath.select("//FromUserName/text()", doc).toString().cutC();
 			exec('curl -G -d access_token='+access_tocken+' -d openid='+openid+' https://api.weixin.qq.com/cgi-bin/user/info',
-			function(err, stdout, stderr){
-				var nn=JSON.parse(stdout.toString())['nickname'];
-				res.end('<xml>\
+				function(err, stdout, stderr){
+					var nn=JSON.parse(stdout.toString())['nickname'];
+					res.end('<xml>\
 				<ToUserName>'+xpath.select("//FromUserName/text()", doc).toString().cutC()+'</ToUserName>\
 			<FromUserName>'+xpath.select("//ToUserName/text()", doc).toString().cutC()+'</FromUserName>\
 			<CreateTime>'+(new Date()).getTime()+'</CreateTime>\
 			<MsgType><![CDATA[text]]></MsgType>\
 			<Content><![CDATA[测试页面：http://www.polarsky.cc/wechatTest.html?openid='+openid+'&nickname='+nn+' 会不定期推送更新，欢迎访问！]></Content>\
 			</xml>');
-			});
+				});
+		});
+	}
+	else if(req.url.indexOf('breeze.php')==1)
+	{
+		req.on('data', function(data){
+			var doc = new dom().parseFromString(data.toString());
+			var openid = xpath.select("//FromUserName/text()", doc).toString().cutC();
+			exec('curl -G -d access_token='+access_tocken+' -d openid='+openid+' https://api.weixin.qq.com/cgi-bin/user/info',
+				function(err, stdout, stderr){
+					var nn=JSON.parse(stdout.toString())['nickname'];
+					res.end('<xml>\
+				<ToUserName>'+xpath.select("//FromUserName/text()", doc).toString().cutC()+'</ToUserName>\
+			<FromUserName>'+xpath.select("//ToUserName/text()", doc).toString().cutC()+'</FromUserName>\
+			<CreateTime>'+(new Date()).getTime()+'</CreateTime>\
+			<MsgType><![CDATA[text]]></MsgType>\
+			<Content><![CDATA[测试页面：http://www.polarsky.cc/wechatTest.html?openid='+openid+'&nickname='+nn+' 会不定期推送更新，欢迎访问！]></Content>\
+			</xml>');
+				});
 		});
 	}
 	else if(req.url.indexOf('upload')==1)
