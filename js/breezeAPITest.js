@@ -201,6 +201,7 @@ function showranking(){
                             <a></a>\
                             </li>');
             }
+            alert('hey');
             $('.rankingboard').listview('refresh');
             alert('hey');
             $('#jumptorankingboard').click();
