@@ -158,9 +158,7 @@ $('#tingting').click(function(){
     alert($('#tingting h1').html());
     $('#opopop').html('录音还有'+timeRest+'s');
     $('#tingting').buttonMarkup('refresh');
-    alert($('#tingting h1').html());
-    $('#tingting').button();
-    alert($('#tingting h1').html());
+    $('#tingting').button( "refresh" );
     countdown=setInterval("$('#opopop').html('录音还有'+(timeRest-=1)+'s')", 1000);
     setTimeout('uploadvoice()', 5000);
 });
