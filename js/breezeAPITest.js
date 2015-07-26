@@ -199,7 +199,8 @@ function showranking(){
                             </li>');
             }
             $('.rankingboard').listview('refresh');
-            $('.jumptorankingboard').click();
+            alert('hey')
+            $('#jumptorankingboard').click();
         });
 }
 
