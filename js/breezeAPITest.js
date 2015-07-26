@@ -157,8 +157,9 @@ $('#tingting').click(function(){
     timeRest=5;
     alert($('#tingting h1').html());
     $('#tingting h1').html('录音还有'+timeRest+'s');
-    alert($('#tingting h1').html());
     $('#tingting').buttonMarkup('refresh');
+    alert($('#tingting h1').html());
+    $('#tingting').button();
     countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s')", 1000);
     setTimeout('uploadvoice()', 5000);
 });
