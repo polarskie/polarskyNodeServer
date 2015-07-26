@@ -187,9 +187,12 @@ function showranking(){
         function(data, status){
             alert(data);
             $('.rankingboard').html('');
+            alert('hey');
             $('.rankingboard').append(
                 '<li data-role="list-divider"><a>nickname</a><a>score</a><a>_</a></li>');
+            alert('hey');
             var rank=JSON.parse(data);
+            alert('hey');
             for(var i=0;i<rank.length;++i)
             {
                 $('.rankingboard').append('<li class="row">\
@@ -199,7 +202,7 @@ function showranking(){
                             </li>');
             }
             $('.rankingboard').listview('refresh');
-            alert('hey')
+            alert('hey');
             $('#jumptorankingboard').click();
         });
 }
