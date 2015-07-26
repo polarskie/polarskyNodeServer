@@ -160,6 +160,7 @@ $('#tingting').click(function(){
     $('#tingting').buttonMarkup('refresh');
     alert($('#tingting h1').html());
     $('#tingting').button();
+    alert($('#tingting h1').html());
     countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s')", 1000);
     setTimeout('uploadvoice()', 5000);
 });
