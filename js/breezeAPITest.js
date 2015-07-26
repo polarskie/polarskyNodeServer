@@ -175,54 +175,33 @@ $('#showattached').click(function(){
     $('.attached').slideToggle('slow');
 });
 
-$('#savescore').click(function(){
-    $.post("score",
-        {
-            'score': g_count,
-            'nickname': getParameter('nickname'),
-            'openid': getParameter('openid')
-        },
-        function (data, status) {
-            alert('上传完成');
-            showranking();
-        });
-});
-
 $('#abundon').click(function(){
     $('.scoreboard').fadeOut();
 });
 
 $('#showranking').click(showranking);
+
 function showranking(){
     $.get("ranking",
         {},
         function(data, status){
             alert(data);
             $('.rankingboard').html('');
-            $('.rankingboard').append('<div class="row">\
-                            <div class="col-xs-6"><div class="jumbotron"><h1>昵称</h1></div></div>\
-                            <div class="col-xs-6"><div class="jumbotron"><h1>分数</h1></div></div>\
-                            </div>');
+            $('.rankingboard').append(
+                '<li data-role="list-divider"><a>nickname</a><a>score</a><a>_</a></li>');
             var rank=JSON.parse(data);
             for(var i=0;i<rank.length;++i)
             {
-                $('.rankingboard').append('<div class="row">\
-                            <div class="col-xs-6"><div class="jumbotron"><h1>'+rank[i]['nickname']+'</h1></div></div>\
-                            <div class="col-xs-6"><div class="jumbotron"><h1>'+rank[i]['score']+'</h1></div></div>\
-                            </div>');
+                $('.rankingboard').append('<li class="row">\
+                            <a>'+rank[i]['nickname']+'</a>\
+                            <a>'+rank[i]['score']+'</a>\
+                            <a></a>\
+                            </li>');
             }
-            $('.rankingboard').append('<div class="row">\
-                            <div class="col-xs-6 col-xs-offset-3" id="hiderankingboard"><div class="jumbotron"><h1>隐藏</h1></div></div>\
-                            </div>');
-            $('.speakracer').slideUp('slow');
-            $('.scoreboard').slideUp('slow', function(){$('.rankingboard').slideDown('slow');});
-            $('#hiderankingboard').click(function(){
-                $('.rankingboard').slideUp('slow', function(){
-                    $('.speakracer').slideDown('slow');
-                });
-            });
+            $('.rankingboard').listview('refresh');
         });
 }
+
 function countTimes(str, tar)
 {
     var count=0;
@@ -275,9 +254,25 @@ function showScore(count)
                 if(number==total) break;
             }
             //alert('i am here now');
-            $('#noticeforscore').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。" +
-                "是否需要保留成绩？");
+            savescore(count);
+            $('#noticeforscore').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。");
+            $('countdowntoranking').html("5s后跳转到排行榜");
+            var timerest=5;
+            var countdowntoranking=setInterval("$('countdowntoranking').html((timerest-=1)+'s后跳转到排行榜');", 1000);
+            setTimeout("clearInterval(countdowntoranking);showranking();",5000);
             $('#jumptoscoreboard').click();
+        });
+}
+
+function savescore(count){
+    $.post("score",
+        {
+            'score': count,
+            'nickname': getParameter('nickname'),
+            'openid': getParameter('openid')
+        },
+        function (data, status) {
+            //showranking();
         });
 }
 
