@@ -238,6 +238,7 @@ function uploadvoice()
 {
     clearInterval(countdown);
     $('#tingting h1').html('点我开始说话');
+    $('#tingting').button('refresh');
     wx.stopRecord({
         success: function (res) {
             //alert(res.localId);/*
@@ -246,11 +247,14 @@ function uploadvoice()
                 isShowProgressTips: 1, // 默认为1，显示进度提示
                 success: function (res1) {
                     alert(res1.translateResult); // 语音识别的结果
-                    g_count=countTimes(res1.translateResult, "百姓网");
-                    showScore(g_count);
+                    //g_count=;
+                    showScore(countTimes(res1.translateResult, "百姓网"));
                 },
                 fail: function(res1){
                     alert(res.errMsg);
+                },
+                cancel: function(){
+                    alert("你取消了识别");
                 }
             });
         }
@@ -273,9 +277,7 @@ function showScore(count)
             //alert('i am here now');
             $('#noticeforscore').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。" +
                 "是否需要保留成绩？");
-            $('.scoreboard').fadeIn('slow', function () {
-                alert("快右上角分享给大家吧！");
-            });
+            $('#jumptoscoreboard').click();
         });
 }
 
