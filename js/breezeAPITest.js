@@ -4,7 +4,7 @@
 var img=new Array();
 var sw=0;
 var g_count;
-$(document).on("pageinit","#challenge",function(){
+$(document).ready(function (evnet) {
     wx.error(function(res){
         alert(res.errMsg);
         $('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
