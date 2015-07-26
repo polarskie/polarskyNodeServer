@@ -156,12 +156,12 @@ $('#tingting').click(function(){
     wx.startRecord();
     timeRest=5;
     alert($('#tingting h1').html());
-    $('#tingting').html('录音还有'+timeRest+'s');
+    $('#opopop').html('录音还有'+timeRest+'s');
     $('#tingting').buttonMarkup('refresh');
     alert($('#tingting h1').html());
     $('#tingting').button();
     alert($('#tingting h1').html());
-    countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s')", 1000);
+    countdown=setInterval("$('#opopop').html('录音还有'+(timeRest-=1)+'s')", 1000);
     setTimeout('uploadvoice()', 5000);
 });
 
