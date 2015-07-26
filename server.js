@@ -238,6 +238,8 @@ function onRequest(req, res) {
 
 		//special entry for wechat web pages
 		else if (path.indexOf('wechat')!=-1) {
+			res.end("sorry. 系统维护中");
+			return;
 			var mainUrl="http://www.polarsky.cc"+req.url.slice(0, req.url.indexOf('#')==-1?req.url.length:req.url.indexOf('#'));
 			var timestamp=parseInt((new Date()).getTime());
 			var nonceStr=generateNonce();
