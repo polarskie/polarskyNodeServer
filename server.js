@@ -15,7 +15,7 @@ var ticketRefreshing=false;
 var aTokenOptions = {
 	hostname: 'api.weixin.qq.com',
 	port: 443,
-	path: '/cgi-bin/token?grant_type=client_credential&appid=wxee703ec8c8670ca9&secret=932e32e53ceec9ffa46277734b450c33',
+	path: '/cgi-bin/token?grant_type=client_credential&appid=wx26c652b1b427bcfd&secret=43c0623c4ade955da363cc0258f7287a',
 	method: 'GET'
 };
 
@@ -42,7 +42,7 @@ function refreshAToken(){
 				ws.on('drain', function(){
 					ws.end();
 					ws=null;
-				})
+				});
 				ticketOptions.path='/cgi-bin/ticket/getticket?access_token='+jr.access_token+'&type=jsapi';
 				if(!ticketRefreshing)
 				{
@@ -228,6 +228,7 @@ function onRequest(req, res) {
 			});
 		})
 	}
+	//else, a ture file is needed
 	else {
 		var path=req.url.slice(1, req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?'));
 		var parameters=req.url.slice(req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?')+1, req.url.length);
@@ -265,7 +266,6 @@ function onRequest(req, res) {
 					});
 				});
 			});
-
 		}
 		else
 		{
