@@ -15,7 +15,7 @@ var ticketRefreshing=false;
 var aTokenOptions = {
 	hostname: 'api.weixin.qq.com',
 	port: 443,
-	path: '/cgi-bin/token?grant_type=client_credential&appid=wx26c652b1b427bcfd&secret=43c0623c4ade955da363cc0258f7287a',
+	path: '/cgi-bin/token?grant_type=client_credential&appid=wx26c652b1b427bcfd&secret=www',
 	method: 'GET'
 };
 
