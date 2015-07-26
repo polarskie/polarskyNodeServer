@@ -179,7 +179,7 @@ $('#abundon').click(function(){
     $('.scoreboard').fadeOut();
 });
 
-$('#showranking').click(showranking);
+$('.showranking').click(showranking);
 
 function showranking(){
     $.get("ranking",
@@ -199,6 +199,7 @@ function showranking(){
                             </li>');
             }
             $('.rankingboard').listview('refresh');
+            $('#showranking').click();
         });
 }
 
