@@ -239,7 +239,7 @@ function onRequest(req, res) {
 		//special entry for wechat web pages
 		else if (path.indexOf('wechat')!=-1) {
 			var mainUrl="http://www.polarsky.cc"+req.url.slice(0, req.url.indexOf('#')==-1?req.url.length:req.url.indexOf('#'));
-			var timestamp=parseInt((new Date()).getTime()/1000);
+			var timestamp=parseInt((new Date()).getTime());
 			var nonceStr=generateNonce();
 			console.log("the url now is "+mainUrl);
 			console.log("the timestamp now is "+timestamp);
