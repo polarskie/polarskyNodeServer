@@ -156,7 +156,7 @@ $('#tingting').click(function(){
     wx.startRecord();
     timeRest=5;
     alert($('#tingting h1').html());
-    $('#tingting h1').html('录音还有'+timeRest+'s');
+    $('#tingting').html('录音还有'+timeRest+'s');
     $('#tingting').buttonMarkup('refresh');
     alert($('#tingting h1').html());
     $('#tingting').button();
