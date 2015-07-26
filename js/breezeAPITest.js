@@ -199,7 +199,7 @@ function showranking(){
                             </li>');
             }
             $('.rankingboard').listview('refresh');
-            $('#jumptorankingboard').click();
+            $('.jumptorankingboard').click();
         });
 }
 
@@ -261,7 +261,7 @@ function showScore(count)
             var timerest=5;
             var countdowntoranking=setInterval("$('countdowntoranking').html((timerest-=1)+'s后跳转到排行榜');", 1000);
             setTimeout("clearInterval(countdowntoranking);showranking();",5000);
-            $('.jumptoscoreboard').click();
+            $('#jumptoscoreboard').click();
         });
 }
 
