@@ -199,7 +199,7 @@ function showranking(){
                             </li>');
             }
             $('.rankingboard').listview('refresh');
-            $('#showranking').click();
+            $('#jumptorankingboard').click();
         });
 }
 
