@@ -271,8 +271,6 @@ function onRequest(req, res) {
 		}
 		else if (path.indexOf('wechal')!=-1)
 		{
-			res.end("sorry. system is under maintain");
-			return;
 			var mainUrl="http://www.polarsky.cc"+req.url.slice(0, req.url.indexOf('#')==-1?req.url.length:req.url.indexOf('#'));
 			var timestamp=parseInt((new Date()).getTime());
 			var nonceStr=generateNonce();
