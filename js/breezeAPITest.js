@@ -6,6 +6,7 @@ var sw=0;
 var g_count;
 $(document).ready(function (evnet) {
     wx.error(function(res){
+        alert(res.errMsg);
         $('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
     });
     wx.ready(function(){
@@ -40,7 +41,7 @@ $(document).ready(function (evnet) {
         });
     });
     wx.config({
-        'debug': false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        'debug': true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         'appId': 'wxee703ec8c8670ca9', // 必填，公众号的唯一标识
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
