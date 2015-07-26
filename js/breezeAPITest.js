@@ -89,7 +89,8 @@ function uploadImg(event)
         }
     });
 }
-document.querySelector('#downloadImage').onclick = function () {
+$('#downloadImage').click(function ()
+{
     function download(imgList, i) {
         if(i>=imgList.length)
         {
@@ -112,7 +113,8 @@ document.querySelector('#downloadImage').onclick = function () {
         });
     }
     download(img, 0);
-};
+});
+
 $('#getlocation').click(function()
 {
     wx.getLocation({
@@ -154,6 +156,7 @@ $('#tingting').click(function(){
     wx.startRecord();
     timeRest=5;
     $('#tingting h1').html('录音还有'+timeRest+'s');
+    $('#tingting').buttonMarkup('refresh');
     countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s')", 1000);
     setTimeout('uploadvoice()', 5000);
 });
