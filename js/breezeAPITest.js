@@ -202,7 +202,7 @@ function showranking(){
                             </li>');
             }
             alert('hey');
-            $('#rankinglist').listview('refresh');
+            //$('#rankinglist').listview('refresh');
             alert('hey');
             $('#rankinglist').click();
         });
