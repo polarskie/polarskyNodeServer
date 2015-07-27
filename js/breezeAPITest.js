@@ -187,14 +187,14 @@ function showranking(){
         function(data, status){
             $('#rankinglist').html('');
             $('#rankinglist').append(
-                '<li data-role="list-divider"><a href="#"><p style="display:inline-block; width:40%">nickname</p>' +
-                '<p style="display:inline-block; width:40%">score</p></a><a> </a></li>');
+                '<li data-role="list-divider"><div><p style="display:inline-block; width:40%">nickname</p>' +
+                '<p style="display:inline-block; width:40%">score</p></div><span style="display: inline-block; width: 40px;"> </span></li>');
             var rank=JSON.parse(data);
             for(var i=0;i<rank.length;++i)
             {
                 $('#rankinglist').append('<li class="row">\
-                            <a href="#"><p style="display:inline-block; width:40%">'+rank[i]['nickname']+'</p>\
-                            <p style="display:inline-block; width:40%">'+rank[i]['score']+'</p></a>\
+                            <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
+                            <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
                             <a class="ui-grid-c">听</a>\
                             </li>');
             }
