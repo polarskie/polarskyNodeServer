@@ -185,14 +185,10 @@ function showranking(){
     $.get("ranking",
         {},
         function(data, status){
-            alert(data);
             $('#rankinglist').html('');
-            alert('hey');
             $('#rankinglist').append(
                 '<li data-role="list-divider"><a>nickname</a><a>score</a><a>_</a></li>');
-            alert('hey');
             var rank=JSON.parse(data);
-            alert('hey');
             for(var i=0;i<rank.length;++i)
             {
                 $('#rankinglist').append('<li class="row">\
@@ -201,10 +197,8 @@ function showranking(){
                             <a></a>\
                             </li>');
             }
-            alert('hey');
-            setTimeout("$('#rankinglist').listview('refresh');",500);
-            alert('hey');
             $('#jumptorankingboard').click();
+            setTimeout("$('#rankinglist').listview('refresh');",0);
         });
 }
 
