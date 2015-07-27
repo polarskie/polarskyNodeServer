@@ -202,9 +202,9 @@ function showranking(){
                             </li>');
             }
             alert('hey');
-            //$('#rankinglist').listview('refresh');
+            setTimeout("$('#rankinglist').listview('refresh');",500);
             alert('hey');
-            $('#rankinglist').click();
+            $('#jumptorankingboard').click();
         });
 }
 
