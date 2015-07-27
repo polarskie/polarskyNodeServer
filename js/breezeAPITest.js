@@ -188,7 +188,7 @@ function showranking(){
             $('#rankinglist').html('');
             $('#rankinglist').append(
                 '<li data-role="list-divider"><a href="#"><p style="display:inline-block; width:40%">nickname</p>' +
-                '<p style="display:inline-block; width:40%">score</p></a></li>');
+                '<p style="display:inline-block; width:40%">score</p></a><a> </a></li>');
             var rank=JSON.parse(data);
             for(var i=0;i<rank.length;++i)
             {
