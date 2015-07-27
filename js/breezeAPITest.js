@@ -193,7 +193,7 @@ function showranking(){
             for(var i=0;i<rank.length;++i)
             {
                 $('#rankinglist').append('<li class="row">\
-                            <a href="#"></a><p style="display:inline-block; width:40%">'+rank[i]['nickname']+'</p>\
+                            <a href="#"><p style="display:inline-block; width:40%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:40%">'+rank[i]['score']+'</p></a>\
                             <a class="ui-grid-c">听</a>\
                             </li>');
