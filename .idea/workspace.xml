@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61219794">
-              <caret line="355" column="38" selection-start-line="355" selection-start-column="38" selection-end-line="355" selection-end-column="38" />
+            <state vertical-scroll-proportion="-4.851852">
+              <caret line="342" column="34" selection-start-line="342" selection-start-column="34" selection-end-line="342" selection-end-column="34" />
               <folding>
                 <marker date="1438063535612" expanded="true" signature="6231:6249" placeholder="..." />
                 <marker date="1438063535612" expanded="true" signature="7118:7136" placeholder="..." />
@@ -92,15 +92,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wechatTest.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="wechatTest.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wechatTest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8928572">
-              <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.5490417">
+              <caret line="71" column="71" selection-start-line="71" selection-start-column="71" selection-end-line="71" selection-end-column="71" />
               <folding>
-                <marker date="1437666201000" expanded="true" signature="8766:8998" placeholder="..." />
-                <marker date="1437666201000" expanded="true" signature="9190:9269" placeholder="..." />
-                <marker date="1437666201000" expanded="true" signature="9551:9723" placeholder="..." />
+                <marker date="1438064290174" expanded="true" signature="8834:9066" placeholder="..." />
+                <marker date="1438064290174" expanded="true" signature="9258:9337" placeholder="..." />
+                <marker date="1438064290174" expanded="true" signature="9619:9791" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -141,7 +141,6 @@
         <option value="$PROJECT_DIR$/js/wexin.js" />
         <option value="$PROJECT_DIR$/jump.html" />
         <option value="$PROJECT_DIR$/css/wechatTest.css" />
-        <option value="$PROJECT_DIR$/wechatTest.html" />
         <option value="$PROJECT_DIR$/polGL/breeze.html" />
         <option value="$PROJECT_DIR$/js/breeze.js" />
         <option value="$PROJECT_DIR$/breeze.html" />
@@ -153,6 +152,7 @@
         <option value="$PROJECT_DIR$/js/breezeAPITest.js" />
         <option value="$PROJECT_DIR$/js/token.js" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/wechatTest.html" />
       </list>
     </option>
   </component>
@@ -688,18 +688,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wechatTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8928572">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
-          <folding>
-            <marker date="1437666201000" expanded="true" signature="8766:8998" placeholder="..." />
-            <marker date="1437666201000" expanded="true" signature="9190:9269" placeholder="..." />
-            <marker date="1437666201000" expanded="true" signature="9551:9723" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/breeze.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -752,11 +740,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61219794">
-          <caret line="355" column="38" selection-start-line="355" selection-start-column="38" selection-end-line="355" selection-end-column="38" />
+        <state vertical-scroll-proportion="-4.851852">
+          <caret line="342" column="34" selection-start-line="342" selection-start-column="34" selection-end-line="342" selection-end-column="34" />
           <folding>
             <marker date="1438063535612" expanded="true" signature="6231:6249" placeholder="..." />
             <marker date="1438063535612" expanded="true" signature="7118:7136" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechatTest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5490417">
+          <caret line="71" column="71" selection-start-line="71" selection-start-column="71" selection-end-line="71" selection-end-column="71" />
+          <folding>
+            <marker date="1438064290174" expanded="true" signature="8834:9066" placeholder="..." />
+            <marker date="1438064290174" expanded="true" signature="9258:9337" placeholder="..." />
+            <marker date="1438064290174" expanded="true" signature="9619:9791" placeholder="..." />
           </folding>
         </state>
       </provider>
