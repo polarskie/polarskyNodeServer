@@ -179,11 +179,9 @@ $('#stopVoice').click(function(){
 });
 $('#getlocation').click(function()
 {
-    var startTime=(new Date()).getTime();
     wx.getLocation({
         type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
         success: function (res) {
-            alert((new Date()).getTime()-startTime);
             for(var i in res)
             {
                 alert(i+' '+res[i]);
@@ -287,6 +285,7 @@ function uploadvoice()
     clearInterval(countdown);
     $('#tingting h1').html('点我开始说话');
     $('#tingting').button('refresh');
+    var startTime=(new Date()).getTime();
     wx.stopRecord({
         success: function (res) {
             //alert(res.localId);/*
@@ -295,6 +294,7 @@ function uploadvoice()
                 isShowProgressTips: 1, // 默认为1，显示进度提示
                 success: function (res1) {
                     alert(res1.translateResult); // 语音识别的结果
+                    alert((new Date()).getTime()-startTime);
                     //g_count=;
                     showScore(countTimes(res1.translateResult, "百姓网"));
                 },
