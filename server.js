@@ -115,10 +115,9 @@ Token.prototype.refreshAToken =function(){
 			if(!jr.errcode)
 			{
 				console.log('NO ERR');
-				me.access_tocken=jr.access_token;
-				console.log(me.id);
+				me.access_token=jr.access_token;
 				var ws=fs.createWriteStream(me.id, {'flags': 'w', 'mode': 0777});
-				ws.write(new Buffer(me.access_tocken));
+				ws.write(new Buffer(me.access_token));
 				ws.on('drain', function(){
 					ws.end();
 					ws=null;
@@ -140,6 +139,7 @@ Token.prototype.refreshAToken =function(){
 
 Token.prototype.refreshTicket=function (){
 	var me = this;
+	console.log(this.acc)
 	this.ticketOptions.path='/cgi-bin/ticket/getticket?access_token='+this.access_token+'&type=jsapi';
 	var req = https.request(this.ticketOptions, function(res) {
 		res.on('data', function(d) {
