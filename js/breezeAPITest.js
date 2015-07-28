@@ -11,8 +11,8 @@ $(document).on("pageinit","#challenge",function(){
     });
     wx.ready(function(){
         wx.onMenuShareTimeline({
-            title: '［百姓网/测试］看看你的嘴有多利索', // 分享标题
-            link: 'http://www.polarsky.cc/jump.html', // 分享链接
+            title: 'welcome to my homepage', // 分享标题
+            link: 'http://www.polarsky.cc', // 分享链接
             imgUrl: 'http://www.polarsky.cc/favicon.ico', // 分享图标
             success: function () {
                 alert("感谢你的支持！");
