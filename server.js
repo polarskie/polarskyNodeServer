@@ -330,16 +330,14 @@ function onRequest(req, res) {
 
 		//special entry for wechat web pages
 		else if (path.indexOf('wechat')!=-1) {
-			res.end("sorry. system is under maintain");
-			return;
 			var mainUrl="http://www.polarsky.cc"+req.url.slice(0, req.url.indexOf('#')==-1?req.url.length:req.url.indexOf('#'));
 			var timestamp=parseInt((new Date()).getTime());
 			var nonceStr=generateNonce();
 			console.log("the url now is "+mainUrl);
 			console.log("the timestamp now is "+timestamp);
 			console.log("the nonceStr now is "+nonceStr);
-			console.log("the jsapi_ticket now is "+jsapi_ticket);
-			var signature=generateSignature(mainUrl, timestamp, nonceStr);
+			console.log("the jsapi_ticket now is "+testAcc.jsapi_ticket);
+			var signature=generateSignature(mainUrl, timestamp, nonceStr, testAcc.jsapi_ticket);
 			console.log("the signature now is "+signature);
 			fs.stat(path, function(err, stats) {
 				console.log(path);
