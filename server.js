@@ -364,7 +364,7 @@ function onRequest(req, res) {
 		else if (path.indexOf('wechal')!=-1)
 		{
 			var mainUrl="http://www.polarsky.cc"+req.url.slice(0, req.url.indexOf('#')==-1?req.url.length:req.url.indexOf('#'));
-			var timestamp=parseInt((new Date()).getTime());
+			var timestamp=parseInt((new Date()).getTime()/1000);
 			var nonceStr=generateNonce();
 			console.log("the url now is "+mainUrl);
 			console.log("the timestamp now is "+timestamp);
