@@ -91,7 +91,7 @@ function uploadImg(event)
                     }
                     else
                     {
-                        alert("all picture uploaded, consumed "+(new Date()).getTime()-timestart+'s');
+                        alert("all picture uploaded, consumed "+((new Date()).getTime()-timestart)+'s');
                     }
                     return;
                 }
@@ -125,7 +125,7 @@ $('#downloadImage').click(function ()
             }
             else
             {
-                alert("all img downloaded "+(new Date()).getTime()-timestart+'s');
+                alert("all img downloaded "+((new Date()).getTime()-timestart)+'s');
             }
             return;
         }
