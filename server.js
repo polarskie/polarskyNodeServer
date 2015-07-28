@@ -115,6 +115,7 @@ Token.prototype.refreshAToken =function(){
 			{
 				console.log('NO ERR');
 				this.access_tocken=jr.access_token;
+				console.log(this.id);
 				var ws=fs.createWriteStream(this.id, {'flags': 'w', 'mode': 0777});
 				ws.write(new Buffer(this.access_tocken));
 				ws.on('drain', function(){
