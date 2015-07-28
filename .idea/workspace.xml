@@ -95,12 +95,12 @@
       <file leaf-file-name="wechatTest.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wechatTest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.518602">
-              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.7316798">
+              <caret line="74" column="93" selection-start-line="74" selection-start-column="85" selection-end-line="74" selection-end-column="93" />
               <folding>
-                <marker date="1438065732800" expanded="true" signature="8749:8981" placeholder="..." />
-                <marker date="1438065732800" expanded="true" signature="9173:9252" placeholder="..." />
-                <marker date="1438065732800" expanded="true" signature="9534:9706" placeholder="..." />
+                <marker date="1438065822836" expanded="true" signature="8819:9051" placeholder="..." />
+                <marker date="1438065822836" expanded="true" signature="9243:9322" placeholder="..." />
+                <marker date="1438065822836" expanded="true" signature="9604:9776" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -751,12 +751,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wechatTest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.518602">
-          <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.7316798">
+          <caret line="74" column="93" selection-start-line="74" selection-start-column="85" selection-end-line="74" selection-end-column="93" />
           <folding>
-            <marker date="1438065732800" expanded="true" signature="8749:8981" placeholder="..." />
-            <marker date="1438065732800" expanded="true" signature="9173:9252" placeholder="..." />
-            <marker date="1438065732800" expanded="true" signature="9534:9706" placeholder="..." />
+            <marker date="1438065822836" expanded="true" signature="8819:9051" placeholder="..." />
+            <marker date="1438065822836" expanded="true" signature="9243:9322" placeholder="..." />
+            <marker date="1438065822836" expanded="true" signature="9604:9776" placeholder="..." />
           </folding>
         </state>
       </provider>
