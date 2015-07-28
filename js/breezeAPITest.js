@@ -4,7 +4,6 @@
 var img=new Array();
 var sw=0;
 var g_count;
-var localIds;
 $(document).on("pageinit","#challenge",function(){
     wx.error(function(res){
         $('jumptofollow').click();
@@ -133,10 +132,13 @@ $('#downloadImage').click(function ()
 });
 
 $('#previewImage').click(function(){
-    if(localIds)
     wx.previewImage({
-        current: localIds[0],
-        urls: localIds
+        current: 'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
+        urls: [
+            'oo.jpg',
+            'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
+            'http://img3.douban.com/view/photo/photo/public/p2152134700.jpg'
+        ]
     });
 });
 
