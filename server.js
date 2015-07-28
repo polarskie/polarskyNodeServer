@@ -200,10 +200,10 @@ function generateNonce()
 		r.push(charset.charAt(Math.random()*26));
 	return r.join('');
 }
-function generateSignature(url, timestamp, nonceStr)
+function generateSignature(url, timestamp, nonceStr, ticket)
 {
 	var fourTuple=new Array();
-	fourTuple.push("jsapi_ticket="+jsapi_ticket);
+	fourTuple.push("jsapi_ticket="+ticket);
 	fourTuple.push("noncestr="+nonceStr);
 	fourTuple.push("timestamp="+timestamp);
 	fourTuple.push("url="+url);
@@ -370,7 +370,7 @@ function onRequest(req, res) {
 			console.log("the timestamp now is "+timestamp);
 			console.log("the nonceStr now is "+nonceStr);
 			console.log("the jsapi_ticket now is "+breezeAcc.jsapi_ticket);
-			var signature=generateSignature(mainUrl, timestamp, nonceStr);
+			var signature=generateSignature(mainUrl, timestamp, nonceStr, breezeAcc.jsapi_ticket);
 			console.log("the signature now is "+signature);
 			fs.stat(path, function(err, stats) {
 				console.log(path);
