@@ -7,6 +7,7 @@ var g_count;
 $(document).on("pageinit","#challenge",function(){
     wx.error(function(res){
         $('jumptofollow').click();
+        alert('opps');
         //$('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
     });
     wx.ready(function(){
@@ -143,7 +144,7 @@ $('#getlocation').click(function()
                 speed: "+speed+"m/s\naccuracy: "+accuracy+"m");
         }
     });
-})
+});
 $('#showmeonmap').click(function(){
     wx.getLocation({
         type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
@@ -157,7 +158,7 @@ $('#showmeonmap').click(function(){
             });
         }
     });
-})
+});
 $('#saoyisao').click(function(){
     wx.scanQRCode({
         needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
@@ -166,7 +167,7 @@ $('#saoyisao').click(function(){
             alert(res.resultStr); // 当needResult 为 1 时，扫码返回的结果
         }
     });
-})
+});
 $('#tingting').click(function(){
     wx.startRecord();
     timeRest=5;
