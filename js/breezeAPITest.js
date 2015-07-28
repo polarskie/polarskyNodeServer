@@ -179,9 +179,11 @@ $('#stopVoice').click(function(){
 });
 $('#getlocation').click(function()
 {
+    var startTime=(new Date()).getTime();
     wx.getLocation({
         type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
         success: function (res) {
+            alert((new Date()).getTime()-startTime);
             for(var i in res)
             {
                 alert(i+' '+res[i]);
@@ -209,7 +211,7 @@ $('#showmeonmap').click(function(){
         }
     });
 });
-$('#saoyisao').click(function(){
+$('#scanqrcode').click(function(){
     wx.scanQRCode({
         needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
         scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
