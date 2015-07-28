@@ -106,6 +106,7 @@ function Token(appid, secret, id)
 }
 
 Token.prototype.refreshAToken =function(){
+	var me=this;
 	var req = https.request(this.aTokenOptions, function(res) {
 		res.on('data', function(d) {
 			//console.log(d.toString())
@@ -114,18 +115,18 @@ Token.prototype.refreshAToken =function(){
 			if(!jr.errcode)
 			{
 				console.log('NO ERR');
-				this.access_tocken=jr.access_token;
-				console.log(this.id);
-				var ws=fs.createWriteStream(this.id, {'flags': 'w', 'mode': 0777});
-				ws.write(new Buffer(this.access_tocken));
+				me.access_tocken=jr.access_token;
+				console.log(me.id);
+				var ws=fs.createWriteStream(me.id, {'flags': 'w', 'mode': 0777});
+				ws.write(new Buffer(me.access_tocken));
 				ws.on('drain', function(){
 					ws.end();
 					ws=null;
 				});
-				if(!this.ticketRefreshing)
+				if(!me.ticketRefreshing)
 				{
-					this.ticketRefreshing=true;
-					this.refreshTicket();
+					me.ticketRefreshing=true;
+					me.refreshTicket();
 				}
 			}
 		});
@@ -138,6 +139,7 @@ Token.prototype.refreshAToken =function(){
 };
 
 Token.prototype.refreshTicket=function (){
+	var me = this;
 	this.ticketOptions.path='/cgi-bin/ticket/getticket?access_token='+this.access_token+'&type=jsapi';
 	var req = https.request(this.ticketOptions, function(res) {
 		res.on('data', function(d) {
@@ -147,7 +149,7 @@ Token.prototype.refreshTicket=function (){
 			if(jr.errcode==0)
 			{
 				console.log('NO ERR');
-				this.jsapi_ticket=jr.ticket;
+				me.jsapi_ticket=jr.ticket;
 			}
 		});
 	});
