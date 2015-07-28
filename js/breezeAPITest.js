@@ -131,6 +131,17 @@ $('#downloadImage').click(function ()
     download(img, 0);
 });
 
+$('#previewImage').click(function(){
+    wx.previewImage({
+        current: 'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
+        urls: [
+            'http://img3.douban.com/view/photo/photo/public/p2152117150.jpg',
+            'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
+            'http://img3.douban.com/view/photo/photo/public/p2152134700.jpg'
+        ]
+    });
+});
+
 $('#getlocation').click(function()
 {
     wx.getLocation({
