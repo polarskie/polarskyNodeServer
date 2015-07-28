@@ -10,8 +10,6 @@ $(document).on("pageinit","#challenge",function(){
         //$('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
     });
     wx.ready(function(){
-        timestop=(new Date()).getTime();
-        alert(timestop-timestrt);
         wx.onMenuShareTimeline({
             title: '［百姓网/测试］看看你的嘴有多利索', // 分享标题
             link: 'http://www.polarsky.cc/jump.html', // 分享链接
@@ -55,14 +53,13 @@ $(document).on("pageinit","#challenge",function(){
             }
         });
     });
-    timestrt=(new Date()).getTime();
     wx.config({
-        'debug': false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        'debug': true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         'appId': 'wx26c652b1b427bcfd', // 必填，公众号的唯一标识
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
         'signature': signature,// 必填，签名，见附录1
-        'jsApiList': ['onMenuShareAppMessage','onMenuShareAppMessage','onMenuShareTimeline','chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
+        'jsApiList': ['onMenuShareAppMessage','onMenuShareTimeline','chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
             'openLocation', 'scanQRCode', 'startRecord', 'stopRecord', 'translateVoice', 'playVoice'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
 });
