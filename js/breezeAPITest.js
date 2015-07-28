@@ -26,7 +26,7 @@ $(document).on("pageinit","#challenge",function(){
             fail: function(msg){
                 alert(msg);
             }
-        });
+        });/*
         wx.onMenuShareAppMessage({
             title: '［百姓网/测试］看看你的嘴有多利索', // 分享标题
             desc: '5秒钟内你能说多少次“百姓网”？', // 分享描述
@@ -40,11 +40,12 @@ $(document).on("pageinit","#challenge",function(){
             cancel: function () {
                 // 用户取消分享后执行的回调函数
             }
-        });
+        });*/
         wx.onMenuShareAppMessage({
             title: '标题', // 分享标题
             desc: '描述', // 分享描述
             link: 'http://www.polarsky.cc', // 分享链接
+            imgUrl: 'http://www.polarsky.cc/favicon.ico', // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
                 alert('yes');
