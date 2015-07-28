@@ -53,20 +53,20 @@
       <file leaf-file-name="breezeAPITest.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/breezeAPITest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18851571">
-              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.47128928">
+              <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
-                <marker date="1438049884918" expanded="true" signature="6356:6387" placeholder="..." />
-                <marker date="1438049884918" expanded="true" signature="6432:6463" placeholder="..." />
-                <marker date="1438049884918" expanded="true" signature="6493:6515" placeholder="..." />
-                <marker date="1438049884918" expanded="true" signature="6493:6528" placeholder="..." />
-                <marker date="1438049884918" expanded="true" signature="6700:6744" placeholder="..." />
-                <marker date="1438049884918" expanded="true" signature="6700:6746" placeholder="..." />
-                <marker date="1438049884918" expanded="true" signature="6700:6751" placeholder="..." />
-                <marker date="1438049884918" expanded="true" signature="6700:6785" placeholder="..." />
-                <marker date="1438049884918" expanded="true" signature="6753:6784" placeholder="..." />
-                <marker date="1438049884918" expanded="true" signature="6851:6882" placeholder="..." />
+                <marker date="1438050627396" expanded="true" signature="6360:6391" placeholder="..." />
+                <marker date="1438050627396" expanded="true" signature="6436:6467" placeholder="..." />
+                <marker date="1438050627396" expanded="true" signature="6497:6519" placeholder="..." />
+                <marker date="1438050627396" expanded="true" signature="6497:6532" placeholder="..." />
+                <marker date="1438050627396" expanded="true" signature="6704:6748" placeholder="..." />
+                <marker date="1438050627396" expanded="true" signature="6704:6750" placeholder="..." />
+                <marker date="1438050627396" expanded="true" signature="6704:6755" placeholder="..." />
+                <marker date="1438050627396" expanded="true" signature="6704:6789" placeholder="..." />
+                <marker date="1438050627396" expanded="true" signature="6757:6788" placeholder="..." />
+                <marker date="1438050627396" expanded="true" signature="6855:6886" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -731,20 +731,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/breezeAPITest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18851571">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.47128928">
+          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
-            <marker date="1438049884918" expanded="true" signature="6356:6387" placeholder="..." />
-            <marker date="1438049884918" expanded="true" signature="6432:6463" placeholder="..." />
-            <marker date="1438049884918" expanded="true" signature="6493:6515" placeholder="..." />
-            <marker date="1438049884918" expanded="true" signature="6493:6528" placeholder="..." />
-            <marker date="1438049884918" expanded="true" signature="6700:6744" placeholder="..." />
-            <marker date="1438049884918" expanded="true" signature="6700:6746" placeholder="..." />
-            <marker date="1438049884918" expanded="true" signature="6700:6751" placeholder="..." />
-            <marker date="1438049884918" expanded="true" signature="6700:6785" placeholder="..." />
-            <marker date="1438049884918" expanded="true" signature="6753:6784" placeholder="..." />
-            <marker date="1438049884918" expanded="true" signature="6851:6882" placeholder="..." />
+            <marker date="1438050627396" expanded="true" signature="6360:6391" placeholder="..." />
+            <marker date="1438050627396" expanded="true" signature="6436:6467" placeholder="..." />
+            <marker date="1438050627396" expanded="true" signature="6497:6519" placeholder="..." />
+            <marker date="1438050627396" expanded="true" signature="6497:6532" placeholder="..." />
+            <marker date="1438050627396" expanded="true" signature="6704:6748" placeholder="..." />
+            <marker date="1438050627396" expanded="true" signature="6704:6750" placeholder="..." />
+            <marker date="1438050627396" expanded="true" signature="6704:6755" placeholder="..." />
+            <marker date="1438050627396" expanded="true" signature="6704:6789" placeholder="..." />
+            <marker date="1438050627396" expanded="true" signature="6757:6788" placeholder="..." />
+            <marker date="1438050627396" expanded="true" signature="6855:6886" placeholder="..." />
           </folding>
         </state>
       </provider>
