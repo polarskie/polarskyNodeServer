@@ -6,13 +6,15 @@ var sw=0;
 var g_count;
 $(document).on("pageinit","#challenge",function(){
     wx.error(function(res){
-        alert("error have "+arguments.length+" arguments");
         alert(res.errMsg);
+        for(var i in res)
+        {
+            alert(i+" "+res[i].toString());
+        }
         $('jumptofollow').click();
         //$('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
     });
     wx.ready(function(){
-        alert("ready have "+arguments.length+" arguments");
         wx.onMenuShareTimeline({
             title: '［百姓网/测试］看看你的嘴有多利索', // 分享标题
             link: 'http://www.polarsky.cc/jump.html', // 分享链接
