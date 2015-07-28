@@ -41,6 +41,18 @@ $(document).on("pageinit","#challenge",function(){
                 // 用户取消分享后执行的回调函数
             }
         });
+        wx.onMenuShareAppMessage({
+            title: '标题', // 分享标题
+            desc: '描述', // 分享描述
+            link: 'http://www.polarsky.cc', // 分享链接
+            success: function () {
+                // 用户确认分享后执行的回调函数
+                alert('yes');
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
     });
     timestrt=(new Date()).getTime();
     wx.config({
@@ -49,7 +61,7 @@ $(document).on("pageinit","#challenge",function(){
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
         'signature': signature,// 必填，签名，见附录1
-        'jsApiList': ['onMenuShareAppMessage','onMenuShareTimeline','chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
+        'jsApiList': ['onMenuShareAppMessage','onMenuShareAppMessage','onMenuShareTimeline','chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
             'openLocation', 'scanQRCode', 'startRecord', 'stopRecord', 'translateVoice', 'playVoice'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
 });
