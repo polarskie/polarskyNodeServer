@@ -4,6 +4,7 @@
 var img=new Array();
 var sw=0;
 var g_count;
+var localIds;
 $(document).on("pageinit","#challenge",function(){
     wx.error(function(res){
         $('jumptofollow').click();
