@@ -6,15 +6,12 @@ var sw=0;
 var g_count;
 $(document).on("pageinit","#challenge",function(){
     wx.error(function(res){
-        alert(res.errMsg);
-        for(var i in res)
-        {
-            alert(i+" "+res[i].toString());
-        }
         $('jumptofollow').click();
         //$('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
     });
     wx.ready(function(){
+        timestop=(new Date()).getTime();
+        alert(timestop-timestrt);
         wx.onMenuShareTimeline({
             title: '［百姓网/测试］看看你的嘴有多利索', // 分享标题
             link: 'http://www.polarsky.cc/jump.html', // 分享链接
@@ -45,6 +42,7 @@ $(document).on("pageinit","#challenge",function(){
             }
         });
     });
+    timestrt=(new Date()).getTime();
     wx.config({
         'debug': true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         'appId': 'wx26c652b1b427bcf',//d', // 必填，公众号的唯一标识
