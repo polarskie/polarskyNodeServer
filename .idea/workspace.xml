@@ -96,11 +96,11 @@
         <entry file="file://$PROJECT_DIR$/wechatTest.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.5490417">
-              <caret line="71" column="71" selection-start-line="71" selection-start-column="71" selection-end-line="71" selection-end-column="71" />
+              <caret line="71" column="18" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
               <folding>
-                <marker date="1438064290174" expanded="true" signature="8834:9066" placeholder="..." />
-                <marker date="1438064290174" expanded="true" signature="9258:9337" placeholder="..." />
-                <marker date="1438064290174" expanded="true" signature="9619:9791" placeholder="..." />
+                <marker date="1438064600803" expanded="true" signature="8836:9068" placeholder="..." />
+                <marker date="1438064600803" expanded="true" signature="9260:9339" placeholder="..." />
+                <marker date="1438064600803" expanded="true" signature="9621:9793" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -752,11 +752,11 @@
     <entry file="file://$PROJECT_DIR$/wechatTest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5490417">
-          <caret line="71" column="71" selection-start-line="71" selection-start-column="71" selection-end-line="71" selection-end-column="71" />
+          <caret line="71" column="18" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
           <folding>
-            <marker date="1438064290174" expanded="true" signature="8834:9066" placeholder="..." />
-            <marker date="1438064290174" expanded="true" signature="9258:9337" placeholder="..." />
-            <marker date="1438064290174" expanded="true" signature="9619:9791" placeholder="..." />
+            <marker date="1438064600803" expanded="true" signature="8836:9068" placeholder="..." />
+            <marker date="1438064600803" expanded="true" signature="9260:9339" placeholder="..." />
+            <marker date="1438064600803" expanded="true" signature="9621:9793" placeholder="..." />
           </folding>
         </state>
       </provider>
