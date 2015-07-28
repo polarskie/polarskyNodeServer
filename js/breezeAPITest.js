@@ -132,13 +132,10 @@ $('#downloadImage').click(function ()
 });
 
 $('#previewImage').click(function(){
+    if(localIds)
     wx.previewImage({
-        current: 'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
-        urls: [
-            'http://img3.douban.com/view/photo/photo/public/p2152117150.jpg',
-            'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
-            'http://img3.douban.com/view/photo/photo/public/p2152134700.jpg'
-        ]
+        current: localIds[0],
+        urls: localIds
     });
 });
 
