@@ -133,7 +133,7 @@ $('#downloadImage').click(function ()
             serverId: imgList[i],
             success: function (res) {
                 $("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
-                download(i+1);
+                download(img, i+1);
             }
         });
     }
