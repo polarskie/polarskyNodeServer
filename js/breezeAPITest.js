@@ -81,7 +81,7 @@ function uploadImg(event)
         sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
         sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
         success: function (res) {
-            localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+            var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
             function up(i) {
                 if(i>=localIds.length)
                 {
@@ -140,7 +140,6 @@ $('#downloadImage').click(function ()
 });
 
 $('#previewImage').click(function(){
-    alert(localIds);
     wx.previewImage({
         current: 'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
         urls: [
@@ -183,6 +182,10 @@ $('#getlocation').click(function()
     wx.getLocation({
         type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
         success: function (res) {
+            for(var i in res)
+            {
+                alert(i+' '+res[i]);
+            }
             var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
             var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
             var speed = res.speed; // 速度，以米/每秒计
