@@ -91,7 +91,7 @@ function uploadImg(event)
                     }
                     else
                     {
-                        alert("all picture uploaded");
+                        alert("all picture uploaded, consumed "+(new Date()).getTime()-timestart+'s');
                     }
                     return;
                 }
@@ -109,6 +109,7 @@ function uploadImg(event)
                     }
                 });
             }
+            var timestart=(new Date()).getTime();
             up(0);
         }
     });
@@ -124,7 +125,7 @@ $('#downloadImage').click(function ()
             }
             else
             {
-                alert("all img downloaded");
+                alert("all img downloaded "+(new Date()).getTime()-timestart+'s');
             }
             return;
         }
@@ -136,6 +137,7 @@ $('#downloadImage').click(function ()
             }
         });
     }
+    var timestart=(new Date()).getTime();
     download(img, 0);
 });
 
