@@ -1,9 +1,11 @@
 /**
  * Created by polarsky on 15/7/26.
  */
-var img=new Array();
+var img=[];
 var sw=0;
 var g_count;
+var localVoiceList=[];
+
 $(document).on("pageinit","#challenge",function(){
     wx.error(function(res){
         $('jumptofollow').click();
@@ -55,6 +57,11 @@ $(document).on("pageinit","#challenge",function(){
                 // 用户取消分享后执行的回调函数
             }
         });
+        wx.onVoiceRecordEnd({
+            complete: function (res) {
+                localVoiceList.push(res.localId);
+            }
+        })
     });
     wx.config({
         'debug': true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -62,7 +69,8 @@ $(document).on("pageinit","#challenge",function(){
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
         'signature': signature,// 必填，签名，见附录1
-        'jsApiList': ['onMenuShareAppMessage','onMenuShareTimeline','chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
+        'jsApiList': ['onVoiceRecordEnd','startRecord','stopRecord','playVoice','onMenuShareAppMessage','onMenuShareTimeline',
+            'chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
             'openLocation', 'scanQRCode', 'startRecord', 'stopRecord', 'translateVoice', 'playVoice'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
 });
@@ -132,16 +140,44 @@ $('#downloadImage').click(function ()
 });
 
 $('#previewImage').click(function(){
+    alert(localIds);
     wx.previewImage({
         current: 'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
         urls: [
-            '/oo.jpg',
+            'http://img3.douban.com/view/photo/photo/public/p2152117150.jpg',
             'http://img5.douban.com/view/photo/photo/public/p1353993776.jpg',
             'http://img3.douban.com/view/photo/photo/public/p2152134700.jpg'
         ]
     });
 });
 
+$('#recordVoice').click(function(){
+    wx.startRecord();
+});
+
+$('#stopRecord').click(function(){
+    wx.stopRecord({
+        success: function (res) {
+            localVoiceList.push(res.localId);
+        }
+    });
+});
+
+$('#playVoice').click(function(){
+    for(var i in localVoiceList) {
+        wx.playVoice({
+            localId: localVoiceList[i] // 需要播放的音频的本地ID，由stopRecord接口获得
+        });
+    }
+});
+
+$('#stopVoice').click(function(){
+    for(var i in localVoiceList) {
+        wx.stopVoice({
+            localId: localVoiceList[i] // 需要播放的音频的本地ID，由stopRecord接口获得
+        });
+    }
+});
 $('#getlocation').click(function()
 {
     wx.getLocation({

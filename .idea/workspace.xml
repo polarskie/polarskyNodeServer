@@ -44,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wechal-breezeAPITest.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="wechal-breezeAPITest.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wechal-breezeAPITest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.615385">
-              <caret line="64" column="32" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.5769231">
+              <caret line="65" column="55" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -60,23 +60,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="breezeAPITest.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="breezeAPITest.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/breezeAPITest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5150502">
-              <caret line="137" column="14" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
+            <state vertical-scroll-proportion="-30.115385">
+              <caret line="178" column="5" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
               <folding>
                 <element signature="e#0#42#0" expanded="false" />
-                <marker date="1438068855131" expanded="true" signature="7146:7177" placeholder="..." />
-                <marker date="1438068855131" expanded="true" signature="7222:7253" placeholder="..." />
-                <marker date="1438068855131" expanded="true" signature="7283:7305" placeholder="..." />
-                <marker date="1438068855131" expanded="true" signature="7283:7318" placeholder="..." />
-                <marker date="1438068855131" expanded="true" signature="7490:7534" placeholder="..." />
-                <marker date="1438068855131" expanded="true" signature="7490:7536" placeholder="..." />
-                <marker date="1438068855131" expanded="true" signature="7490:7541" placeholder="..." />
-                <marker date="1438068855131" expanded="true" signature="7490:7575" placeholder="..." />
-                <marker date="1438068855131" expanded="true" signature="7543:7574" placeholder="..." />
-                <marker date="1438068855131" expanded="true" signature="7641:7672" placeholder="..." />
+                <marker date="1438070302545" expanded="true" signature="8044:8075" placeholder="..." />
+                <marker date="1438070302545" expanded="true" signature="8120:8151" placeholder="..." />
+                <marker date="1438070302545" expanded="true" signature="8181:8203" placeholder="..." />
+                <marker date="1438070302545" expanded="true" signature="8181:8216" placeholder="..." />
+                <marker date="1438070302545" expanded="true" signature="8388:8432" placeholder="..." />
+                <marker date="1438070302545" expanded="true" signature="8388:8434" placeholder="..." />
+                <marker date="1438070302545" expanded="true" signature="8388:8439" placeholder="..." />
+                <marker date="1438070302545" expanded="true" signature="8388:8473" placeholder="..." />
+                <marker date="1438070302545" expanded="true" signature="8441:8472" placeholder="..." />
+                <marker date="1438070302545" expanded="true" signature="8539:8570" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -95,8 +95,8 @@
       <file leaf-file-name="wechatTest.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wechatTest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.027779">
-              <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+            <state vertical-scroll-proportion="-35.27778">
+              <caret line="58" column="37" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
               <folding>
                 <marker date="1438066561843" expanded="true" signature="9168:9400" placeholder="..." />
                 <marker date="1438066561843" expanded="true" signature="9592:9671" placeholder="..." />
@@ -151,8 +151,8 @@
         <option value="$PROJECT_DIR$/js/token.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/wechatTest.html" />
-        <option value="$PROJECT_DIR$/wechal-breezeAPITest.html" />
         <option value="$PROJECT_DIR$/js/breezeAPITest.js" />
+        <option value="$PROJECT_DIR$/wechal-breezeAPITest.html" />
       </list>
     </option>
   </component>
@@ -675,25 +675,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="1" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/1.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/breeze.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/token.js">
@@ -715,24 +699,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wechal-breezeAPITest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.615385">
-          <caret line="64" column="32" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wechatTest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.027779">
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+        <state vertical-scroll-proportion="-35.27778">
+          <caret line="58" column="37" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
           <folding>
             <marker date="1438066561843" expanded="true" signature="9168:9400" placeholder="..." />
             <marker date="1438066561843" expanded="true" signature="9592:9671" placeholder="..." />
@@ -741,22 +711,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="1" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/breeze.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/breezeAPITest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5150502">
-          <caret line="137" column="14" selection-start-line="137" selection-start-column="14" selection-end-line="137" selection-end-column="14" />
+        <state vertical-scroll-proportion="-30.115385">
+          <caret line="178" column="5" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
           <folding>
             <element signature="e#0#42#0" expanded="false" />
-            <marker date="1438068855131" expanded="true" signature="7146:7177" placeholder="..." />
-            <marker date="1438068855131" expanded="true" signature="7222:7253" placeholder="..." />
-            <marker date="1438068855131" expanded="true" signature="7283:7305" placeholder="..." />
-            <marker date="1438068855131" expanded="true" signature="7283:7318" placeholder="..." />
-            <marker date="1438068855131" expanded="true" signature="7490:7534" placeholder="..." />
-            <marker date="1438068855131" expanded="true" signature="7490:7536" placeholder="..." />
-            <marker date="1438068855131" expanded="true" signature="7490:7541" placeholder="..." />
-            <marker date="1438068855131" expanded="true" signature="7490:7575" placeholder="..." />
-            <marker date="1438068855131" expanded="true" signature="7543:7574" placeholder="..." />
-            <marker date="1438068855131" expanded="true" signature="7641:7672" placeholder="..." />
+            <marker date="1438070302545" expanded="true" signature="8044:8075" placeholder="..." />
+            <marker date="1438070302545" expanded="true" signature="8120:8151" placeholder="..." />
+            <marker date="1438070302545" expanded="true" signature="8181:8203" placeholder="..." />
+            <marker date="1438070302545" expanded="true" signature="8181:8216" placeholder="..." />
+            <marker date="1438070302545" expanded="true" signature="8388:8432" placeholder="..." />
+            <marker date="1438070302545" expanded="true" signature="8388:8434" placeholder="..." />
+            <marker date="1438070302545" expanded="true" signature="8388:8439" placeholder="..." />
+            <marker date="1438070302545" expanded="true" signature="8388:8473" placeholder="..." />
+            <marker date="1438070302545" expanded="true" signature="8441:8472" placeholder="..." />
+            <marker date="1438070302545" expanded="true" signature="8539:8570" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wechal-breezeAPITest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5769231">
+          <caret line="65" column="55" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#h1#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
