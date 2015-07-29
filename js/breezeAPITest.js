@@ -411,7 +411,7 @@ function showScore(count)
         });
 }
 function restTimeBeforeJump(){
-    $('countdowntoranking').html((Gtimerest-=1)+'s后跳转到排行榜');
+    $('#countdowntoranking').html((Gtimerest-=1)+'s后跳转到排行榜');
 }
 
 function savescore(count){
