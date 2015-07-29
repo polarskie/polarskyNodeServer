@@ -71,7 +71,7 @@ $(document).on("pageinit","#challenge",function(){
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
         'signature': signature,// 必填，签名，见附录1
-        'jsApiList': ['stopVoice','onVoiceRecordEnd','startRecord','stopRecord','playVoice','onMenuShareAppMessage','onMenuShareTimeline',
+        'jsApiList': ['downloadVoice','uploadVoice','stopVoice','onVoiceRecordEnd','startRecord','stopRecord','playVoice','onMenuShareAppMessage','onMenuShareTimeline',
             'chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
             'openLocation', 'scanQRCode', 'startRecord', 'stopRecord', 'translateVoice', 'playVoice'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
@@ -196,7 +196,7 @@ $('#uploadVoice').click(function(){
             }
             return;
         }
-        wx.uploadImage({
+        wx.uploadVoice({
             localId: localVoiceList[i], // 需要上传的图片的本地ID，由chooseImage接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
@@ -225,7 +225,7 @@ $('#downloadVoice').click(function ()
             }
             return;
         }
-        wx.downloadImage({
+        wx.downloadVoice({
             serverId: serverVoiceList[i],
             success: function (res) {
                 //$("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
