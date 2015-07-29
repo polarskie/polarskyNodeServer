@@ -213,7 +213,6 @@ $('#uploadVoice').click(function(){
 $('#downloadVoice').click(function ()
 {
     function downloadVoice1(i) {
-        alert(i);
         if(i>=serverVoiceList.length)
         {
             if(i==0)
@@ -228,11 +227,10 @@ $('#downloadVoice').click(function ()
         }
         alert(i);
         wx.downloadVoice({
-            serverId: serverVoiceList[i],
+            serverId: serverVoiceList[i], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+            isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
-                alert(res.localId);
-                //$("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
-                downloadVoice1(i+1);
+                downloadVoice1(i+1); // 返回音频的本地ID
             }
         });
     }
