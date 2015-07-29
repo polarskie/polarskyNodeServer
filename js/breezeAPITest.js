@@ -10,6 +10,7 @@ var serverVoiceList=[];
 
 $(document).on("pageinit","#challenge",function(){
     alert(getParameter('wgateid'));
+    alert(getParameter('ticket'));
     wx.error(function(res){
         $('jumptofollow').click();
         alert('opps');

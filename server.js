@@ -10,6 +10,7 @@ var exec=require('child_process').exec;
 var access_tocken;
 var jsapi_ticket;
 var charset="abcdefghijklmnopqrstuvwxyz";
+var wechatList=[];
 
 var ticketRefreshing=false;
 var aTokenOptions = {
