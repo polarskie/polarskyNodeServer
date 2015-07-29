@@ -212,7 +212,7 @@ $('#uploadVoice').click(function(){
 
 $('#downloadVoice').click(function ()
 {
-    function downloadVoice(i) {
+    function downloadVoice1(i) {
         alert(i);
         if(i>=serverVoiceList.length)
         {
@@ -232,12 +232,12 @@ $('#downloadVoice').click(function ()
             success: function (res) {
                 alert(res.localId);
                 //$("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
-                downloadVoice(i+1);
+                downloadVoice1(i+1);
             }
         });
     }
     var timestart=(new Date()).getTime();
-    downloadVoice(0);
+    downloadVoice1(0);
 });
 
 $('#getlocation').click(function()
