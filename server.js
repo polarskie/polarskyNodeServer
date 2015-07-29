@@ -296,30 +296,39 @@ function onRequest(req, res) {
 		req.on("data", function (data) {
 			res.end();
 			var newScore=getParameter(data);
-			console.log(util.inspect(newScore));
-			var rs=fs.createReadStream('ranking');
-			rs.on('data', function(data){
-				var ranking=JSON.parse(data.toString());
-				var inserted=false;
-				for(var i=0;i<ranking.length;++i)
-				{
-					if(parseInt(ranking[i].score)<parseInt(newScore.score))
-					{
-						ranking.splice(i, 0, newScore);
-						inserted=true;
-						break;
-					}
+			request('http://www.weixingate.com/wgate_user.php?wgateid'+newScore['wgateid'], function (error, response, body) {
+				if (!error && response.statusCode == 200) {
+					var perInfo=JSON.parse(body.toString());
+
+					console.log(util.inspect(newScore));
+					console.log(util.inspect(perInfo));
+					var rs=fs.createReadStream('ranking');
+					newScore['nickname']=perInfo['nickname'];
+					rs.on('data', function(data){
+						var ranking=JSON.parse(data.toString());
+						var inserted=false;
+						for(var i=0;i<ranking.length;++i)
+						{
+							if(parseInt(ranking[i].score)<parseInt(newScore.score))
+							{
+								ranking.splice(i, 0, newScore);
+								inserted=true;
+								break;
+							}
+						}
+						if(!inserted)
+						{
+							ranking.splice(i, 0, newScore);
+						}
+						var ws=fs.createWriteStream('ranking', {'flags': 'w', 'mode': 0777});
+						ws.on('drain', function(){
+							ws.end();
+							ws=null;
+						});
+						ws.write(new Buffer(JSON.stringify(ranking)));
+					});
+
 				}
-				if(!inserted)
-				{
-					ranking.splice(i, 0, newScore);
-				}
-				var ws=fs.createWriteStream('ranking', {'flags': 'w', 'mode': 0777});
-				ws.on('drain', function(){
-					ws.end();
-					ws=null;
-				});
-				ws.write(new Buffer(JSON.stringify(ranking)));
 			});
 		})
 	}
