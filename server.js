@@ -332,6 +332,22 @@ function onRequest(req, res) {
 			});
 		})
 	}
+	else if(req.url.indexOf('ranking')==1)
+	{
+		var wGateId=getParameter(req.url)['wgateid'];
+		request('http://www.weixingate.com/wgate_user.php?wgateid='+wGateId, function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+				var nickname=JSON.parse(body)['nickname'];
+				var rs=fs.createReadStream('ranking');
+				rs.on('data', function(data) {
+					var ranking = JSON.parse(data.toString());
+					ranking.push(nickname);
+					res.end(JSON.stringify(ranking));
+					return;
+				});
+			}
+		});
+	}
 	//else, a ture file is needed
 	else {
 		var path=req.url.slice(1, req.url.indexOf('?')==-1?req.url.length:req.url.indexOf('?'));

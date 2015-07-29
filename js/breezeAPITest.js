@@ -3,8 +3,6 @@
  */
 var localImageList=[];
 var serverImageList=[];
-var sw=0;
-var g_count;
 var localVoiceList=[];
 var serverVoiceList=[];
 
@@ -294,13 +292,13 @@ $('#scanqrcode').click(function(){
 });
 $('#tingting').click(function(){
     wx.startRecord();
-    timeRest=5;
+    var timeRest=5;
     $('#tingting h1').html('录音还有'+timeRest+'s');
     $('#tingting').button('refresh');
-    countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s');$('#tingting').button('refresh');", 1000);
-    setTimeout('uploadvoice()', 5000);
+    var countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s');$('#tingting').button('refresh');", 1000);
+    setTimeout('clearInterval(countdown);uploadvoice();', 5000);
 });
-
+/*
 $('#showattached').click(function(){
     if (sw==0)
     {
@@ -314,7 +312,7 @@ $('#showattached').click(function(){
     }
     $('.attached').slideToggle('slow');
 });
-
+*/
 $('#abundon').click(function(){
     $('.scoreboard').fadeOut();
 });
@@ -356,7 +354,7 @@ function countTimes(str, tar)
 }
 function uploadvoice()
 {
-    clearInterval(countdown);
+    //clearInterval(countdown);
     $('#tingting h1').html('点我开始说话');
     $('#tingting').button('refresh');
     var startTime=(new Date()).getTime();
@@ -369,7 +367,6 @@ function uploadvoice()
                 success: function (res1) {
                     alert(res1.translateResult); // 语音识别的结果
                     alert((new Date()).getTime()-startTime);
-                    //g_count=;
                     showScore(countTimes(res1.translateResult, "百姓网"));
                 },
                 fail: function(res1){
@@ -385,7 +382,7 @@ function uploadvoice()
 
 function showScore(count)
 {
-    $.get("ranking",
+    $.get("ranking?wgateid="+getParameter('wgateid'),
         {},
         function(data, status){
             var rank=JSON.parse(data);
@@ -394,12 +391,12 @@ function showScore(count)
             while(parseInt(rank[number-1]['score'])>count)
             {
                 number++;
-                if(number==total) break;
+                if(number==total-1) break;
             }
             //alert('i am here now');
             savescore(count);
             $('#noticeforscore').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。");
-            $('countdowntoranking').html("5s后跳转到排行榜");
+            $('＃countdowntoranking').html("5s后跳转到排行榜");
             var timerest=5;
             var countdowntoranking=setInterval("$('countdowntoranking').html((timerest-=1)+'s后跳转到排行榜');", 1000);
             setTimeout("clearInterval(countdowntoranking);showranking();",5000);
