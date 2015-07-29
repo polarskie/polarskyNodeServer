@@ -292,14 +292,14 @@ $('#scanqrcode').click(function(){
 });
 $('#tingting').click(function(){
     wx.startRecord();
-    var timeRest=5;
-    $('#tingting h1').html('录音还有'+timeRest+'s');
+    GtimeRest=5;
+    $('#tingting h1').html('录音还有'+GtimeRest+'s');
     $('#tingting').button('refresh');
     Gcountdown=setInterval("kkk()", 1000);
     setTimeout('clearInterval(Gcountdown);uploadvoice();', 5000);
 });
 function kkk(){
-    $('#tingting h1').html('录音还有'+(timeRest-=1)+'s');
+    $('#tingting h1').html('录音还有'+(GtimeRest-=1)+'s');
     $('#tingting').button('refresh');
     var j=9;
 }
