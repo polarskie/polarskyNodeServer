@@ -381,12 +381,12 @@ function onRequest(req, res) {
 			{
 				var nonce=generateNonce();
 				wechatTicketList.push(nonce);
-				response.writeHead(302, {
+				res.writeHead(302, {
 					'Location': 'http://www.weixingate.com/gate.php?back=http%3a%2f%2fwww.polarsky.cc%2fwechal-breezeAP' +
 					'ITest.html%3fticket%3d'+nonce+'&force=1&info=basic'
 					//add other headers here...
 				});
-				response.end();
+				res.end();
 				return;
 			}
 			wechatTicketList.splice(whichTicket, 1);
