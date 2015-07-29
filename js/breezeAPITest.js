@@ -80,7 +80,7 @@ $(document).on("pageinit","#challenge",function(){
         'nonceStr': nonceStr, // 必填，生成签名的随机串
         'signature': signature,// 必填，签名，见附录1
         'jsApiList': ['downloadVoice','uploadVoice','stopVoice','onVoiceRecordEnd','startRecord','stopRecord','playVoice','onMenuShareAppMessage','onMenuShareTimeline',
-            'chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
+            'pauseVoice','chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
             'openLocation', 'scanQRCode', 'startRecord', 'stopRecord', 'translateVoice', 'playVoice'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
 });
