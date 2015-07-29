@@ -246,7 +246,7 @@ $('#downloadVoice').click(function ()
     downloadVoice1(0);
     */
     wx.downloadVoice({
-        serverId: serverVoiceList[0], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+        serverId: '999', // 需要下载的音频的服务器端ID，由uploadVoice接口获得
         isShowProgressTips: 1, // 默认为1，显示进度提示
         success: function (res) {
             var localId = res.localId; // 返回音频的本地ID
