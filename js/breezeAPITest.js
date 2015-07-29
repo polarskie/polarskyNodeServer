@@ -298,7 +298,7 @@ $('#tingting').click(function(){
         $('#tingting h1').html('录音还有' + GtimeRest + 's');
         $('#tingting').button('refresh');
         GcountDownRecordInterval = setInterval("countDownRecord()", 1000);
-        setTimeout('clearInterval(GcountDownRecordInterval);uploadvoice();GtimeRest=false;', 5000);
+        setTimeout('GtimeRest=false;clearInterval(GcountDownRecordInterval);uploadvoice();', 5000);
     }
 });
 function countDownRecord(){
@@ -402,7 +402,7 @@ function showScore(count)
             }
             //alert('i am here now');
             savescore(count);
-            $('#noticeforscore').html("恭喜你，"+rank(rank.length-1)+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。");
+            $('#noticeforscore').html("恭喜你，"+(rank.length-1)+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。");
             $('#countdowntoranking').html("5s后跳转到排行榜");
             Gtimerest=5;
             var countdowntoranking=setInterval("restTimeBeforeJump()", 1000);
