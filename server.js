@@ -218,8 +218,7 @@ function generateSignature(url, timestamp, nonceStr, ticket)
 function getParameter(data)
 {
 	var paraStr=(new String(data));
-	paraStr=paraStr.slice(paraStr.indexOf('?')==-1?0:paraStr.indexOf('?'));
-	console.log(paraStr);
+	paraStr=paraStr.slice(paraStr.indexOf('?')==-1?0:paraStr.indexOf('?')+1);
 	var arr=paraStr.split('&');
 	var r=new Object();
 	for(var i in arr)
@@ -368,6 +367,30 @@ function onRequest(req, res) {
 			var mainUrl="http://www.polarsky.cc"+req.url.slice(0, req.url.indexOf('#')==-1?req.url.length:req.url.indexOf('#'));
 			console.log(req.url);
 			console.log((getParameter(req.url))['ticket']);
+			var ticket=(getParameter(req.url))['ticket'];
+			var firstTime=true;
+			for(var whichTicket in wechatTicketList)
+			{
+				if(wechatTicketList[whichTicket]==ticket)
+				{
+					firstTime=false;
+					break;
+				}
+			}
+			if(firstTime)
+			{
+				var nonce=generateNonce();
+				wechatTicketList.push(nonce);
+				response.writeHead(302, {
+					'Location': 'http://www.weixingate.com/gate.php?back=http%3a%2f%2fwww.polarsky.cc%2fwechal-breezeAP' +
+					'ITest.html%3fticket%3d'+nonce+'&force=1&info=basic'
+					//add other headers here...
+				});
+				response.end();
+				return;
+			}
+			wechatTicketList.splice(whichTicket, 1);
+			console.log('heree');
 			var timestamp=parseInt((new Date()).getTime()/1000);
 			var nonceStr=generateNonce();
 			console.log("the url now is "+mainUrl);
