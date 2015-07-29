@@ -5,6 +5,7 @@ var img=[];
 var sw=0;
 var g_count;
 var localVoiceList=[];
+var serverVoiceList=[];
 
 $(document).on("pageinit","#challenge",function(){
     wx.error(function(res){
@@ -114,6 +115,7 @@ function uploadImg(event)
         }
     });
 }
+
 $('#downloadImage').click(function ()
 {
     function download(imgList, i) {
@@ -132,7 +134,7 @@ $('#downloadImage').click(function ()
         wx.downloadImage({
             serverId: imgList[i],
             success: function (res) {
-                $("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
+                //$("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
                 download(img, i+1);
             }
         });
@@ -179,6 +181,61 @@ $('#stopVoice').click(function(){
         });
     }
 });
+$('#uploadVoice').click(function(){
+    function uploadVoice(i) {
+        if(i>=localVoiceList.length)
+        {
+            if(i==0)
+            {
+                alert("no voice recorded");
+            }
+            else
+            {
+                alert("all voices uploaded, consumed "+((new Date()).getTime()-timestart)+'s');
+            }
+            return;
+        }
+        wx.uploadImage({
+            localId: localVoiceList[i], // 需要上传的图片的本地ID，由chooseImage接口获得
+            isShowProgressTips: 1, // 默认为1，显示进度提示
+            success: function (res) {
+                var serverId = res.serverId; // 返回图片的服务器端ID
+                serverVoiceList.push(serverId);
+                up(i+1);
+            }
+        });
+    }
+    var timestart=(new Date()).getTime();
+    uploadVoice(0);
+});
+
+$('#downloadVoice').click(function ()
+{
+    function downloadVoice(i) {
+        if(i>=serverVoiceList.length)
+        {
+            if(i==0)
+            {
+                alert("no img uploaded, upload some imgs first");
+            }
+            else
+            {
+                alert("all img downloaded "+((new Date()).getTime()-timestart)+'s');
+            }
+            return;
+        }
+        wx.downloadImage({
+            serverId: serverVoiceList[i],
+            success: function (res) {
+                //$("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
+                download(img, i+1);
+            }
+        });
+    }
+    var timestart=(new Date()).getTime();
+    downloadVoice(0);
+});
+
 $('#getlocation').click(function()
 {
     wx.getLocation({
