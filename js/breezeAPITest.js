@@ -295,9 +295,14 @@ $('#tingting').click(function(){
     var timeRest=5;
     $('#tingting h1').html('录音还有'+timeRest+'s');
     $('#tingting').button('refresh');
-    Gcountdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s');$('#tingting').button('refresh');", 1000);
+    Gcountdown=setInterval("kkk()", 1000);
     setTimeout('clearInterval(Gcountdown);uploadvoice();', 5000);
 });
+function kkk(){
+    $('#tingting h1').html('录音还有'+(timeRest-=1)+'s');
+    $('#tingting').button('refresh');
+    var j=9;
+}
 /*
 $('#showattached').click(function(){
     if (sw==0)
