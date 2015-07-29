@@ -202,7 +202,7 @@ $('#uploadVoice').click(function(){
             success: function (res) {
                 var serverId = res.serverId; // 返回图片的服务器端ID
                 serverVoiceList.push(serverId);
-                up(i+1);
+                uploadVoice(i+1);
             }
         });
     }
@@ -217,11 +217,11 @@ $('#downloadVoice').click(function ()
         {
             if(i==0)
             {
-                alert("no img uploaded, upload some imgs first");
+                alert("no voice uploaded, upload some imgs first");
             }
             else
             {
-                alert("all img downloaded "+((new Date()).getTime()-timestart)+'s');
+                alert("all voices downloaded "+((new Date()).getTime()-timestart)+'s');
             }
             return;
         }
@@ -229,7 +229,7 @@ $('#downloadVoice').click(function ()
             serverId: serverVoiceList[i],
             success: function (res) {
                 //$("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
-                download(img, i+1);
+                downloadVoice(i+1);
             }
         });
     }
