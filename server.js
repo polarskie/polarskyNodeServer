@@ -10,7 +10,7 @@ var exec=require('child_process').exec;
 var access_tocken;
 var jsapi_ticket;
 var charset="abcdefghijklmnopqrstuvwxyz";
-var wechatList=[];
+var wechatTicketList=[];
 
 var ticketRefreshing=false;
 var aTokenOptions = {
@@ -363,6 +363,7 @@ function onRequest(req, res) {
 		else if (path.indexOf('wechal')!=-1)
 		{
 			var mainUrl="http://www.polarsky.cc"+req.url.slice(0, req.url.indexOf('#')==-1?req.url.length:req.url.indexOf('#'));
+			console.log(req.url);
 			var timestamp=parseInt((new Date()).getTime()/1000);
 			var nonceStr=generateNonce();
 			console.log("the url now is "+mainUrl);
