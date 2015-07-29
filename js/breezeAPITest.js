@@ -213,6 +213,7 @@ $('#uploadVoice').click(function(){
 $('#downloadVoice').click(function ()
 {
     function downloadVoice(i) {
+        alert(i);
         if(i>=serverVoiceList.length)
         {
             if(i==0)
