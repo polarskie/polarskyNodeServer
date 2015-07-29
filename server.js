@@ -334,21 +334,26 @@ function onRequest(req, res) {
 	}
 	else if(req.url.indexOf('ranking')==1)
 	{
-		console.log(req.url);
 		var wGateId=getParameter(req.url)['wgateid'];
-		console.log(wGateId);
-		request('http://www.weixingate.com/wgate_user.php?wgateid='+wGateId, function (error, response, body) {
-			if (!error && response.statusCode == 200) {
-				var nickname=JSON.parse(body)['nickname'];
-				var rs=fs.createReadStream('ranking');
-				rs.on('data', function(data) {
-					var ranking = JSON.parse(data.toString());
-					ranking.push(nickname);
-					res.end(JSON.stringify(ranking));
-					return;
-				});
-			}
-		});
+		if(wGateId) {
+			request('http://www.weixingate.com/wgate_user.php?wgateid=' + wGateId, function (error, response, body) {
+				if (!error && response.statusCode == 200) {
+					var nickname = JSON.parse(body)['nickname'];
+					var rs = fs.createReadStream('ranking');
+					rs.on('data', function (data) {
+						var ranking = JSON.parse(data.toString());
+						ranking.push(nickname);
+						res.end(JSON.stringify(ranking));
+						return;
+					});
+				}
+			});
+		}
+		else
+		{
+			var rs = fs.createReadStream('ranking');
+			rs.pipe(res);
+		}
 	}
 	//else, a ture file is needed
 	else {
