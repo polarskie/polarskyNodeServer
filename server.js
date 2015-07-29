@@ -217,7 +217,9 @@ function generateSignature(url, timestamp, nonceStr, ticket)
 
 function getParameter(data)
 {
-	var arr=(new String(data)).split('&');
+	var paraStr=(new String(data));
+	paraStr=paraStr.slice(paraStr.indexOf('?')==-1?0:paraStr.indexOf('?'));
+	var arr=paraStr.split('&');
 	var r=new Object();
 	for(var i in arr)
 	{
@@ -364,6 +366,7 @@ function onRequest(req, res) {
 		{
 			var mainUrl="http://www.polarsky.cc"+req.url.slice(0, req.url.indexOf('#')==-1?req.url.length:req.url.indexOf('#'));
 			console.log(req.url);
+			console.log(getParameter(req.url)['ticket']);
 			var timestamp=parseInt((new Date()).getTime()/1000);
 			var nonceStr=generateNonce();
 			console.log("the url now is "+mainUrl);
