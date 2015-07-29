@@ -402,10 +402,10 @@ function showScore(count)
             }
             //alert('i am here now');
             savescore(count);
-            $('#noticeforscore').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。");
+            $('#noticeforscore').html("恭喜你，"+rank(rank.length-1)+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。");
             $('#countdowntoranking').html("5s后跳转到排行榜");
             Gtimerest=5;
-            var countdowntoranking=setInterval("restTimeBeforeJump", 1000);
+            var countdowntoranking=setInterval("restTimeBeforeJump()", 1000);
             setTimeout("clearInterval(countdowntoranking);showranking();GtimeRest=false;",5000);
             $('#jumptoscoreboard').click();
         });
