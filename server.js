@@ -296,7 +296,7 @@ function onRequest(req, res) {
 		req.on("data", function (data) {
 			res.end();
 			var newScore=getParameter(data);
-			request('http://www.weixingate.com/wgate_user.php?wgateid'+newScore['wgateid'], function (error, response, body) {
+			request('http://www.weixingate.com/wgate_user.php?wgateid='+newScore['wgateid'], function (error, response, body) {
 				if (!error && response.statusCode == 200) {
 					var perInfo=JSON.parse(body.toString());
 
