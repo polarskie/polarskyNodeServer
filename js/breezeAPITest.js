@@ -291,17 +291,18 @@ $('#scanqrcode').click(function(){
     });
 });
 $('#tingting').click(function(){
-    wx.startRecord();
-    GtimeRest=5;
-    $('#tingting h1').html('录音还有'+GtimeRest+'s');
-    $('#tingting').button('refresh');
-    var countdown=setInterval("countDownRecord()", 1000);
-    setTimeout('clearInterval(countdown);uploadvoice();', 5000);
+    if(!GtimeRest) {
+        wx.startRecord();
+        GtimeRest = 5;
+        $('#tingting h1').html('录音还有' + GtimeRest + 's');
+        $('#tingting').button('refresh');
+        GcountDownRecordInterval = setInterval("countDownRecord()", 1000);
+        setTimeout('clearInterval(GcountDownRecordInterval);uploadvoice();GtimeRest=null;', 5000);
+    }
 });
 function countDownRecord(){
     $('#tingting h1').html('录音还有'+(GtimeRest-=1)+'s');
     $('#tingting').button('refresh');
-    var j=9;
 }
 /*
 $('#showattached').click(function(){
