@@ -229,6 +229,7 @@ $('#downloadVoice').click(function ()
         wx.downloadVoice({
             serverId: serverVoiceList[i],
             success: function (res) {
+                alert(res.localId);
                 //$("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
                 downloadVoice(i+1);
             }
