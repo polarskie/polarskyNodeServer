@@ -334,7 +334,9 @@ function onRequest(req, res) {
 	}
 	else if(req.url.indexOf('ranking')==1)
 	{
+		console.log(req.url);
 		var wGateId=getParameter(req.url)['wgateid'];
+		console.log(wGateId);
 		request('http://www.weixingate.com/wgate_user.php?wgateid='+wGateId, function (error, response, body) {
 			if (!error && response.statusCode == 200) {
 				var nickname=JSON.parse(body)['nickname'];

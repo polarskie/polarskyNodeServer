@@ -295,8 +295,8 @@ $('#tingting').click(function(){
     var timeRest=5;
     $('#tingting h1').html('录音还有'+timeRest+'s');
     $('#tingting').button('refresh');
-    var countdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s');$('#tingting').button('refresh');", 1000);
-    setTimeout('clearInterval(countdown);uploadvoice();', 5000);
+    Gcountdown=setInterval("$('#tingting h1').html('录音还有'+(timeRest-=1)+'s');$('#tingting').button('refresh');", 1000);
+    setTimeout('clearInterval(Gcountdown);uploadvoice();', 5000);
 });
 /*
 $('#showattached').click(function(){
