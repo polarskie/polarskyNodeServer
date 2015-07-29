@@ -405,10 +405,13 @@ function showScore(count)
             $('#noticeforscore').html("恭喜你，"+getParameter("nickname")+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。");
             $('#countdowntoranking').html("5s后跳转到排行榜");
             Gtimerest=5;
-            var countdowntoranking=setInterval("$('countdowntoranking').html((Gtimerest-=1)+'s后跳转到排行榜');", 1000);
+            var countdowntoranking=setInterval("restTimeBeforeJump", 1000);
             setTimeout("clearInterval(countdowntoranking);showranking();GtimeRest=false;",5000);
             $('#jumptoscoreboard').click();
         });
+}
+function restTimeBeforeJump(){
+    $('countdowntoranking').html((Gtimerest-=1)+'s后跳转到排行榜');
 }
 
 function savescore(count){
