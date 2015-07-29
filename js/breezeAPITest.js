@@ -226,6 +226,7 @@ $('#downloadVoice').click(function ()
             }
             return;
         }
+        alert(i);
         wx.downloadVoice({
             serverId: serverVoiceList[i],
             success: function (res) {
