@@ -5,6 +5,7 @@ var localImageList=[];
 var serverImageList=[];
 var localVoiceList=[];
 var serverVoiceList=[];
+var GtimeRest=false;
 
 $(document).on("pageinit","#challenge",function(){
     alert(getParameter('wgateid'));
@@ -297,7 +298,7 @@ $('#tingting').click(function(){
         $('#tingting h1').html('录音还有' + GtimeRest + 's');
         $('#tingting').button('refresh');
         GcountDownRecordInterval = setInterval("countDownRecord()", 1000);
-        setTimeout('clearInterval(GcountDownRecordInterval);uploadvoice();GtimeRest=null;', 5000);
+        setTimeout('clearInterval(GcountDownRecordInterval);uploadvoice();GtimeRest=false;', 5000);
     }
 });
 function countDownRecord(){
