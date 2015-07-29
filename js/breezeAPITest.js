@@ -143,7 +143,7 @@ $('#downloadImage').click(function ()
         wx.downloadImage({
             serverId: serverImageList[i],
             success: function (res) {
-                //$("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
+                $("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
                 download(i+1);
             }
         });
@@ -176,9 +176,15 @@ $('#stopRecord').click(function(){
 });
 
 $('#playVoice').click(function(){
-    for(var i in localVoiceList) {
         wx.playVoice({
-            localId: localVoiceList[i] // 需要播放的音频的本地ID，由stopRecord接口获得
+            localId: localVoiceList[localVoiceList.length-1] // 需要播放的音频的本地ID，由stopRecord接口获得
+        });
+});
+
+$('#pauseVoice').click(function(){
+    for(var i in localVoiceList) {
+        wx.pauseVoice({
+            localId: localVoiceList[localVoiceList.length-1] // 需要播放的音频的本地ID，由stopRecord接口获得
         });
     }
 });
@@ -186,7 +192,7 @@ $('#playVoice').click(function(){
 $('#stopVoice').click(function(){
     for(var i in localVoiceList) {
         wx.stopVoice({
-            localId: localVoiceList[i] // 需要播放的音频的本地ID，由stopRecord接口获得
+            localId: localVoiceList[localVoiceList.length-1] // 需要播放的音频的本地ID，由stopRecord接口获得
         });
     }
 });
