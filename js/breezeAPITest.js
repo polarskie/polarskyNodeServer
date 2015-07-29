@@ -182,20 +182,17 @@ $('#playVoice').click(function(){
 });
 
 $('#pauseVoice').click(function(){
-    for(var i in localVoiceList) {
         wx.pauseVoice({
             localId: localVoiceList[localVoiceList.length-1] // 需要播放的音频的本地ID，由stopRecord接口获得
         });
-    }
 });
 
 $('#stopVoice').click(function(){
-    for(var i in localVoiceList) {
         wx.stopVoice({
             localId: localVoiceList[localVoiceList.length-1] // 需要播放的音频的本地ID，由stopRecord接口获得
         });
-    }
 });
+
 $('#uploadVoice').click(function(){
     function uploadVoice(i) {
         if(i>=localVoiceList.length)
