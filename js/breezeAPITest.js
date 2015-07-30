@@ -420,7 +420,8 @@ function savescore(count){
     $.post("score",
         {
             'score': count,
-            'wgateid': getParameter('wgateid')
+            'wgateid': getParameter('wgateid'),
+            ''
         },
         function (data, status) {
             //showranking();
