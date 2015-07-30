@@ -84,7 +84,9 @@ $(document).on("pageinit","#challenge",function(){
         'signature': signature,// 必填，签名，见附录1
         'jsApiList': ['downloadVoice','uploadVoice','stopVoice','onVoiceRecordEnd','startRecord','stopRecord','playVoice','onMenuShareAppMessage','onMenuShareTimeline',
             'pauseVoice','chooseImage','previewImage','uploadImage','downloadImage', 'getLocation',
-            'openLocation', 'scanQRCode', 'startRecord', 'stopRecord', 'translateVoice', 'playVoice'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            'openLocation', 'scanQRCode', 'startRecord', 'stopRecord', 'translateVoice', 'playVoice',
+        'hideOptionMenu','showOptionMenu','closeWindow','hideMenuItems','showMenuItems','hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
 });
 function uploadImg(event)
@@ -292,6 +294,21 @@ $('#scanqrcode').click(function(){
             alert(res.resultStr); // 当needResult 为 1 时，扫码返回的结果
         }
     });
+});
+$('#hidemenu').click(function(){
+    wx.hideOptionMenu();
+});
+$('#showmenu').click(function(){
+    wx.showOptionMenu();
+});
+$('#closewindow').click(function(){
+    wx.closeWindow();
+});
+$('#hidenonbase').click(function(){
+    wx.hideAllNonBaseMenuItem();
+});
+$('#showfunctional').click(function(){
+    wx.showAllNonBaseMenuItem();
 });
 $('#tingting').click(function(){
     if(!GtimeRest) {
