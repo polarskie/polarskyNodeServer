@@ -76,7 +76,7 @@ $(document).on("pageinit","#challenge",function(){
         });
     });
     wx.config({
-        'debug': 0, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        'debug': 1, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         'appId': 'wx26c652b1b427bcfd', // 必填，公众号的唯一标识
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
@@ -404,7 +404,7 @@ function showScore(count)
             }
             //alert('i am here now');
             savescore(count);
-            $('#noticeforscore').html("恭喜你，"+(rank.length-1)+"！你在5秒时间内共说出"+count+"次“百姓网”，在"+total+"人中排名第"+number+"。");
+            $('#noticeforscore').html("恭喜你，<b>"+rank[rank.length-1]+"</b>！你在5秒时间内共说出<b>"+count+"</b>次“百姓网”，在"+total+"人中排名第<b>"+number+"</b>。");
             $('#countdowntoranking').html("5s后跳转到排行榜");
             Gtimerest=5;
             var countdowntoranking=setInterval("restTimeBeforeJump()", 1000);
