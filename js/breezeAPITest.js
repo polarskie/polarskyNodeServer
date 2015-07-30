@@ -236,6 +236,7 @@ $('#uploadVoice').click(function(){
             success: function (res) {
                 var serverId = res.serverId; // 返回图片的服务器端ID
                 serverVoiceList.push(serverId);
+                alert('server id is '+res.serverId);
                 uploadVoice(i+1);
             }
         });
@@ -264,7 +265,7 @@ $('#downloadVoice').click(function ()
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
                 localVoiceList.push(res.localId);
-                downloadVoice1(i+1); // 返回音频的本地ID
+                downloadVoice1(i+1);
                 alert('downloaded local id is '+res.localId);
             }
         });
