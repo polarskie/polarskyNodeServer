@@ -342,8 +342,9 @@ function showranking(){
                 $('#rankinglist').append('<li '+rank[i]['voiceid']==undefined?'data-icon="check"':'data-icon="delete"'+' class="row">\
                             <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
-                            <a class="ui-grid-c" onclick="listenOthers('+rank[i]['voiceid']==undefined?rank[i]['voiceid']:''+')"></a>\
-                            </li>');
+                            <a class="ui-grid-c" onclick="listenOthers('+
+                rank[i]['voiceid']==undefined?rank[i]['voiceid']:'false'
+                +')"></a></li>');
             }
             $('#jumptorankingboard').click();
             setTimeout("$('#rankinglist').listview('refresh');",0);
