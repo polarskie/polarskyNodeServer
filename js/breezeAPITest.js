@@ -334,8 +334,8 @@ function showranking(){
         function(data, status){
             $('#rankinglist').html('');
             $('#rankinglist').append(
-                '<li data-role="list-divider"><div><p style="display:inline-block; width:40%">nickname</p>' +
-                '<p style="display:inline-block; width:40%">score</p></div><p style="display: inline-block; width: 40px;">hear it!</p></li>');
+                '<li data-role="list-divider"><div><p style="display:inline-block; width:50%">nickname</p>' +
+                '<p style="display:inline-block; width:50%">score</p></div></li>');
             var rank=JSON.parse(data);
             for(var i=0;i<rank.length;++i)
             {
@@ -349,12 +349,12 @@ function showranking(){
                 {
                     voiceId='none'
                 }
-                $('#rankinglist').append('<li '+icon+' class="row">\
+                $('#rankinglist').append('<li '+icon+' onclick="'+
+                    'listenOthers(\''+voiceId+'\')'
+                    +'" class="row">\
                             <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
-                            <a class="ui-grid-c" onclick="'+
-                    'listenOthers(\''+voiceId+'\')'
-                +'"> i</a></li>');
+                            </li>');
             }
             $('#jumptorankingboard').click();
             setTimeout("$('#rankinglist').listview('refresh');",0);
