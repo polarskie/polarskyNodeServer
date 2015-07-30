@@ -417,16 +417,35 @@ function restTimeBeforeJump(){
 }
 
 function savescore(count){
-    alert($('#will-save-voice').attr('checked')?challengeId:null);
-    $.post("score",
-        {
-            'score': count,
-            'wgateid': getParameter('wgateid'),
-            'voiceid': $('#will-save-voice').attr('checked')?challengeId:null
-        },
-        function (data, status) {
-            //showranking();
+    if($('#will-save-voice').attr('checked'))
+    {
+        wx.uploadVoice({
+            localId: challengeId, // 需要上传的图片的本地ID，由chooseImage接口获得
+            isShowProgressTips: 1, // 默认为1，显示进度提示
+            success: function (res) {
+                var serverId = res.serverId; // 返回图片的服务器端ID
+                $.post("score",
+                    {
+                        'score': count,
+                        'wgateid': getParameter('wgateid'),
+                        'voiceid': serverId
+                    },
+                    function (data, status) {
+                        //showranking();
+                    });
+            }
         });
+    }
+    else {
+        $.post("score",
+            {
+                'score': count,
+                'wgateid': getParameter('wgateid')
+            },
+            function (data, status) {
+                //showranking();
+            });
+    }
 }
 
 function getParameter(name)
