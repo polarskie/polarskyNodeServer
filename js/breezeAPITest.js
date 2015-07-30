@@ -339,15 +339,38 @@ function showranking(){
             var rank=JSON.parse(data);
             for(var i=0;i<rank.length;++i)
             {
-                $('#rankinglist').append('<li class="row">\
+                $('#rankinglist').append('<li '+rank[i]['voiceid']?'data-icon="check"':'data-icon="delete"'+' class="row">\
                             <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
-                            <a class="ui-grid-c">听</a>\
+                            <a class="ui-grid-c" onclick="listenOthers('+rank[i]['voiceid']?rank[i]['voiceid']:''+')"></a>\
                             </li>');
             }
             $('#jumptorankingboard').click();
             setTimeout("$('#rankinglist').listview('refresh');",0);
         });
+}
+
+function listenOthers()
+{
+    if(arguments[0])
+    {
+        wx.downloadVoice({
+            serverId: arguments[0], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+            isShowProgressTips: 1, // 默认为1，显示进度提示
+            success: function (res) {
+                wx.playVoice({
+                    localId: res.localId // 需要播放的音频的本地ID，由stopRecord接口获得
+                });
+            },
+            fail: function () {
+                alert(' 这个人没有上传音频');
+            }
+        });
+    }
+    else
+    {
+        alert('这个人没有上传音频');
+    }
 }
 
 function countTimes(str, tar)
