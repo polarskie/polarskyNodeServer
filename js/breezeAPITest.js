@@ -10,7 +10,7 @@ var challengeId;
 var g_count;
 
 function callForAuth(){
-    alert("请同意接下来的请求，否则功能不能实现")；
+    alert("请同意接下来的请求，否则功能不能实现");
     wx.startRecord({
         cancel: function(){
             alert('canceled');
