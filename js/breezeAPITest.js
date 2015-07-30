@@ -9,6 +9,13 @@ var GtimeRest=false;
 var challengeId;
 var g_count;
 
+function callFor(){
+    wx.startRecord();
+    wx.stopRecord({
+        success: function (res) {
+        }
+    });
+}
 $(document).on("pageinit","#challenge",function(){
     //alert(getParameter('wgateid'));
     //alert(getParameter('ticket'));
@@ -18,6 +25,7 @@ $(document).on("pageinit","#challenge",function(){
         //$('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
     });
     wx.ready(function(){
+
         /*
         wx.onMenuShareTimeline({
             title: 'welcome to my homepage', // 分享标题
