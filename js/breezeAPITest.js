@@ -310,6 +310,11 @@ $('#hidenonbase').click(function(){
 $('#showfunctional').click(function(){
     wx.showAllNonBaseMenuItem();
 });
+$('#showpart').click(function () {
+    wx.showMenuItems({
+        menuList: ["menuItem:share:facebook"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+    });
+});
 $('#tingting').click(function(){
     if(!GtimeRest) {
         wx.startRecord();
