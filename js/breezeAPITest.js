@@ -355,7 +355,7 @@ function showranking(){
                             <a class="ui-grid-c" onclick="'+
                     'listenOthers("'+voiceId+'")'
                 +'"> i</a></li>');
-                consolelog('<li '+icon+' class="row">\
+                console.log('<li '+icon+' class="row">\
                             <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
                             <a class="ui-grid-c" onclick="'+
