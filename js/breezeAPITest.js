@@ -17,19 +17,12 @@ function callFor(){
     });
 }
 
-
+function flipColor()
+{
+    $('#moving').html((new Date()).getTime());
+}
 $(document).on("pageinit","#challenge",function(){
-    setInterval(function()
-    {
-        if($('#testcolor').css('background-color')=='white')
-        {
-            $('#testcolor').css('background-color', 'black');
-        }
-        else
-        {
-            $('#testcolor').css('background-color', 'white');
-        }
-    }, 500);
+    setInterval("flipColor()", 500);
     //alert(getParameter('wgateid'));
     //alert(getParameter('ticket'));
     wx.error(function(res){
