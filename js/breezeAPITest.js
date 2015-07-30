@@ -334,8 +334,8 @@ function showranking(){
         function(data, status){
             $('#rankinglist').html('');
             $('#rankinglist').append(
-                '<li data-role="list-divider"><div><p style="display:inline-block; width:50%">nickname</p>' +
-                '<p style="display:inline-block; width:50%">score</p></div></li>');
+                '<li data-role="list-divider"><div><p style="display:inline-block; width:40%">nickname</p>' +
+                '<p style="display:inline-block; width:40%">score</p></div></li>');
             var rank=JSON.parse(data);
             for(var i=0;i<rank.length;++i)
             {
