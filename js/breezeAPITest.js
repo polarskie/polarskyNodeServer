@@ -344,11 +344,16 @@ function showranking(){
                 {
                     icon='data-icon="check"';
                 }
+                var voiceId=rank[i]['voiceid'];
+                if(rank[i]['voiceid']==undefined)
+                {
+                    voiceId='none'
+                }
                 $('#rankinglist').append('<li '+icon+' class="row">\
                             <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
                             <a class="ui-grid-c" onclick="listenOthers("'+
-                rank[i]['voiceid']
+                voiceId
                 +'")"> i</a></li>');
             }
             $('#jumptorankingboard').click();
@@ -359,7 +364,7 @@ function showranking(){
 function listenOthers()
 {
     alert(arguments[0]);
-    if(arguments[0]!=undefined)
+    if(arguments[0]!='none')
     {
         wx.downloadVoice({
             serverId: arguments[0], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
