@@ -363,11 +363,12 @@ function showranking(){
 
 function listenOthers()
 {
-    alert(arguments[0]);
     if(arguments[0]!='none')
     {
+        alert(arguments[0]);
+        var serverId=arguments[0];
         wx.downloadVoice({
-            serverId: arguments[0], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+            serverId: serverId, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
                 wx.playVoice({
@@ -375,7 +376,7 @@ function listenOthers()
                 });
             },
             fail: function () {
-                alert(' 这个人没有上传音频');
+                alert('音频过期');
             }
         });
     }
