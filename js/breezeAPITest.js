@@ -6,6 +6,7 @@ var serverImageList=[];
 var localVoiceList=[];
 var serverVoiceList=[];
 var GtimeRest=false;
+var challengeId;
 
 $(document).on("pageinit","#challenge",function(){
     alert(getParameter('wgateid'));
@@ -75,7 +76,7 @@ $(document).on("pageinit","#challenge",function(){
         });
     });
     wx.config({
-        'debug': 1, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        'debug': 0, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         'appId': 'wx26c652b1b427bcfd', // 必填，公众号的唯一标识
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
@@ -368,6 +369,7 @@ function uploadvoice()
     wx.stopRecord({
         success: function (res) {
             //alert(res.localId);/*
+            challengeId=res.localId;
             wx.translateVoice({
                 localId: res.localId, // 需要识别的音频的本地Id，由录音相关接口获得
                 isShowProgressTips: 1, // 默认为1，显示进度提示
