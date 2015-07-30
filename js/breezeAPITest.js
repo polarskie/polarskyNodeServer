@@ -245,7 +245,7 @@ $('#uploadVoice').click(function(){
     uploadVoice(0);
 });
 
-$('#downloadVoice').click(/*function ()
+$('#downloadVoice').click(function ()
 {
     function downloadVoice1(i) {
         if(i>=serverVoiceList.length)
@@ -272,18 +272,6 @@ $('#downloadVoice').click(/*function ()
     }
     var timestart=(new Date()).getTime();
     downloadVoice1(0);
-}*/
-function () {
-    if (serverVoiceList.length == 0) {
-        alert("no voice uploaded, upload some imgs first");
-        return;
-    }
-    wx.downloadVoice({
-        serverId: serverVoiceList[0],
-        success: function (res) {
-            alert('下载语音成功，localId 为' + res.localId);
-        }
-    });
 });
 
 $('#getlocation').click(function()
