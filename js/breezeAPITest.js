@@ -339,11 +339,10 @@ function showranking(){
             var rank=JSON.parse(data);
             for(var i=0;i<rank.length;++i)
             {
-                alert(rank[i]['voiceid']);
-                $('#rankinglist').append('<li '+rank[i]['voiceid']?'data-icon="check"':'data-icon="delete"'+' class="row">\
+                $('#rankinglist').append('<li '+rank[i]['voiceid']==undefined?'data-icon="check"':'data-icon="delete"'+' class="row">\
                             <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
-                            <a class="ui-grid-c" onclick="listenOthers('+rank[i]['voiceid']?rank[i]['voiceid']:''+')"></a>\
+                            <a class="ui-grid-c" onclick="listenOthers('+rank[i]['voiceid']==undefined?rank[i]['voiceid']:''+')"></a>\
                             </li>');
             }
             $('#jumptorankingboard').click();
