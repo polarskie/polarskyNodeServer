@@ -9,24 +9,27 @@ var GtimeRest=false;
 var challengeId;
 var g_count;
 
-function callFor(){
+function callForAuth(){
+    alert("请同意接下来的请求，否则功能不能实现")；
     wx.startRecord({
         cancel: function(){
             alert('canceled');
-        }
-    });
-    wx.stopRecord({
-        success: function (res) {
+        },
+        success: function(){
+            wx.stopRecord({
+                success: function (res) {
+                }
+            });
         }
     });
 }
 
-function flipColor()
+function checklive()
 {
     $('#moving').html((new Date()).getTime());
 }
 $(document).on("pageinit","#challenge",function(){
-    setInterval("flipColor()", 500);
+    setInterval("checklive()", 500);
     //alert(getParameter('wgateid'));
     //alert(getParameter('ticket'));
     wx.error(function(res){
@@ -35,7 +38,7 @@ $(document).on("pageinit","#challenge",function(){
         //$('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
     });
     wx.ready(function(){
-        callFor();
+        callForAuth();
 
         /*
         wx.onMenuShareTimeline({
