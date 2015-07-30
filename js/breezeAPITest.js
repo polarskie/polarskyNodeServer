@@ -312,7 +312,7 @@ $('#showfunctional').click(function(){
 });
 $('#showpart').click(function () {
     wx.showMenuItems({
-        menuList: ["menuItem:share:facebook"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+        menuList: ["menuItem:share:facebook", "menuItem:refresh", "menuItem:profile","menuItem:addContact"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
     });
 });
 $('#tingting').click(function(){
