@@ -13,7 +13,8 @@ function callForAuth(){
     alert("请同意接下来的请求，否则功能不能实现");
     wx.startRecord({
         cancel: function(){
-            alert('canceled');
+            alert('哦，天哪！');
+            wx.closeWindow();
         },
         success: function(){
             wx.stopRecord({
