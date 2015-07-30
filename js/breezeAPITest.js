@@ -344,7 +344,7 @@ function showranking(){
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
                             <a class="ui-grid-c" onclick="listenOthers('+
                 rank[i]['voiceid']==undefined?rank[i]['voiceid']:'false'
-                +')"></a></li>');
+                +')"> i</a></li>');
             }
             $('#jumptorankingboard').click();
             setTimeout("$('#rankinglist').listview('refresh');",0);
