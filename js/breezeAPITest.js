@@ -417,7 +417,7 @@ function restTimeBeforeJump(){
 }
 
 function savescore(count){
-    alert($('#will-save-voice').checked()?challengeId:nul);
+    alert($('#will-save-voice').checked()?challengeId:null);
     $.post("score",
         {
             'score': count,
