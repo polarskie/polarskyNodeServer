@@ -7,6 +7,7 @@ var localVoiceList=[];
 var serverVoiceList=[];
 var GtimeRest=false;
 var challengeId;
+var g_count;
 
 $(document).on("pageinit","#challenge",function(){
     alert(getParameter('wgateid'));
@@ -391,6 +392,7 @@ function uploadvoice()
 
 function showScore(count)
 {
+    g_count=count;
     $.get("ranking?wgateid="+getParameter('wgateid'),
         {},
         function(data, status){
@@ -403,12 +405,12 @@ function showScore(count)
                 if(number==total-1) break;
             }
             //alert('i am here now');
-            savescore(count);
+
             $('#noticeforscore').html("恭喜你，<b>"+rank[rank.length-1]+"</b>！你在5秒时间内共说出<b>"+count+"</b>次“百姓网”，在"+total+"人中排名第<b>"+number+"</b>。");
             $('#countdowntoranking').html("5s后跳转到排行榜");
             Gtimerest=5;
             var countdowntoranking=setInterval("restTimeBeforeJump()", 1000);
-            setTimeout("clearInterval(countdowntoranking);showranking();GtimeRest=false;",5000);
+            setTimeout("clearInterval(countdowntoranking);savescore();GtimeRest=false;",5000);
             $('#jumptoscoreboard').click();
         });
 }
@@ -416,7 +418,7 @@ function restTimeBeforeJump(){
     $('#countdowntoranking').html((Gtimerest-=1)+'s后跳转到排行榜');
 }
 
-function savescore(count){
+function savescore(){
     if($('#will-save-voice').attr('checked'))
     {
         wx.uploadVoice({
@@ -426,12 +428,12 @@ function savescore(count){
                 var serverId = res.serverId; // 返回图片的服务器端ID
                 $.post("score",
                     {
-                        'score': count,
+                        'score': g_count,
                         'wgateid': getParameter('wgateid'),
                         'voiceid': serverId
                     },
                     function (data, status) {
-                        //showranking();
+                        showranking();
                     });
             }
         });
@@ -439,7 +441,7 @@ function savescore(count){
     else {
         $.post("score",
             {
-                'score': count,
+                'score': g_count,
                 'wgateid': getParameter('wgateid')
             },
             function (data, status) {
