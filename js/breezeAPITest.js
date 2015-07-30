@@ -335,7 +335,7 @@ function showranking(){
             $('#rankinglist').html('');
             $('#rankinglist').append(
                 '<li data-role="list-divider"><div><p style="display:inline-block; width:40%">nickname</p>' +
-                '<p style="display:inline-block; width:40%">score</p></div><span style="display: inline-block; width: 40px;"> </span></li>');
+                '<p style="display:inline-block; width:40%">score</p></div><p style="display: inline-block; width: 40px;">hear it!</p></li>');
             var rank=JSON.parse(data);
             for(var i=0;i<rank.length;++i)
             {
@@ -374,6 +374,9 @@ function listenOthers()
                 wx.playVoice({
                     localId: res.localId // 需要播放的音频的本地ID，由stopRecord接口获得
                 });
+            },
+            fail: function () {
+                alert('音频过期');
             }
         });
     }
