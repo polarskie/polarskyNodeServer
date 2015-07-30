@@ -339,7 +339,12 @@ function showranking(){
             var rank=JSON.parse(data);
             for(var i=0;i<rank.length;++i)
             {
-                $('#rankinglist').append('<li '+rank[i]['voiceid']==undefined?'data-icon="check"':'data-icon="delete"'+' class="row">\
+                var icon='data-icon="delete"';
+                if(rank[i]['voiceid']==undefined)
+                {
+                    icon='data-icon="check"';
+                }
+                $('#rankinglist').append('<li '+icon+' class="row">\
                             <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
                             <a class="ui-grid-c" onclick="listenOthers('+
