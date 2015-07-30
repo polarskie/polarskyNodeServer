@@ -353,14 +353,8 @@ function showranking(){
                             <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
                             <a class="ui-grid-c" onclick="'+
-                    'listenOthers("'+voiceId+'")'
-                +'"> i</a></li>');
-                alert('<li '+icon+' class="row">\
-                            <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
-                            <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
-                            <a class="ui-grid-c" onclick="'+
                     'listenOthers(\''+voiceId+'\')'
-                    +'"> i</a></li>');
+                +'"> i</a></li>');
             }
             $('#jumptorankingboard').click();
             setTimeout("$('#rankinglist').listview('refresh');",0);
