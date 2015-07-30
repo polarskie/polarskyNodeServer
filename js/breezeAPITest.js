@@ -10,14 +10,15 @@ var challengeId;
 var g_count;
 
 $(document).on("pageinit","#challenge",function(){
-    alert(getParameter('wgateid'));
-    alert(getParameter('ticket'));
+    //alert(getParameter('wgateid'));
+    //alert(getParameter('ticket'));
     wx.error(function(res){
         $('jumptofollow').click();
-        alert('opps');
+        //alert('opps');
         //$('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
     });
     wx.ready(function(){
+        /*
         wx.onMenuShareTimeline({
             title: 'welcome to my homepage', // 分享标题
             link: 'http://www.polarsky.cc', // 分享链接
@@ -46,7 +47,7 @@ $(document).on("pageinit","#challenge",function(){
             cancel: function () {
                 // 用户取消分享后执行的回调函数
             }
-        });*/
+        });
         wx.onMenuShareAppMessage({
             title: 'ttttt', // 分享标题
             desc: 'ddddd', // 分享描述
@@ -61,23 +62,15 @@ $(document).on("pageinit","#challenge",function(){
             cancel: function () {
                 // 用户取消分享后执行的回调函数
             }
-        });
+        });*/
         wx.onVoiceRecordEnd({
             complete: function (res) {
                 localVoiceList.push(res.localId);
             }
-        })
-        wx.checkJsApi({
-            jsApiList: ['downloadVoice'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
-            success: function(res) {
-                // 以键值对的形式返回，可用的api值true，不可用为false
-                // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
-                alert(res.checkResult.downloadVoice);
-            }
         });
     });
     wx.config({
-        'debug': 1, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        'debug': 0, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         'appId': 'wx26c652b1b427bcfd', // 必填，公众号的唯一标识
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
@@ -258,10 +251,6 @@ $('#getlocation').click(function()
     wx.getLocation({
         type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
         success: function (res) {
-            for(var i in res)
-            {
-                alert(i+' '+res[i]);
-            }
             var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
             var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
             var speed = res.speed; // 速度，以米/每秒计
@@ -275,7 +264,7 @@ $('#showmeonmap').click(function(){
     wx.getLocation({
         type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
         success: function (res) {
-            alert('changed');
+            //alert('changed');
             wx.openLocation({
                 latitude: res.latitude, // 纬度，浮点数，范围为90 ~ -90
                 longitude: res.longitude, // 经度，浮点数，范围为180 ~ -180。
@@ -291,7 +280,7 @@ $('#scanqrcode').click(function(){
         needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
         scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
         success: function (res) {
-            alert(res.resultStr); // 当needResult 为 1 时，扫码返回的结果
+            alert('扫码结果：'+res.resultStr); // 当needResult 为 1 时，扫码返回的结果
         }
     });
 });
@@ -387,7 +376,7 @@ function listenOthers()
 {
     if(arguments[0]!='none')
     {
-        alert(arguments[0]);
+        //alert(arguments[0]);
         var serverId=arguments[0];
         wx.downloadVoice({
             serverId: serverId, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
@@ -424,7 +413,7 @@ function uploadvoice()
     //clearInterval(countdown);
     $('#tingting h1').html('点我开始说话');
     $('#tingting').button('refresh');
-    var startTime=(new Date()).getTime();
+    //var startTime=(new Date()).getTime();
     wx.stopRecord({
         success: function (res) {
             //alert(res.localId);/*
@@ -433,8 +422,8 @@ function uploadvoice()
                 localId: res.localId, // 需要识别的音频的本地Id，由录音相关接口获得
                 isShowProgressTips: 1, // 默认为1，显示进度提示
                 success: function (res1) {
-                    alert(res1.translateResult); // 语音识别的结果
-                    alert((new Date()).getTime()-startTime);
+                    alert('你的识别结果为：'+res1.translateResult); // 语音识别的结果
+                    //alert((new Date()).getTime()-startTime);
                     showScore(countTimes(res1.translateResult, "百姓网"));
                 },
                 fail: function(res1){
