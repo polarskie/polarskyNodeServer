@@ -339,6 +339,7 @@ function showranking(){
             var rank=JSON.parse(data);
             for(var i=0;i<rank.length;++i)
             {
+                alert(rank[i]['voiceid']);
                 $('#rankinglist').append('<li '+rank[i]['voiceid']?'data-icon="check"':'data-icon="delete"'+' class="row">\
                             <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
