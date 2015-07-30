@@ -340,7 +340,7 @@ function showranking(){
             for(var i=0;i<rank.length;++i)
             {
                 var icon='data-icon="delete"';
-                if(rank[i]['voiceid']==undefined)
+                if(rank[i]['voiceid']!=undefined)
                 {
                     icon='data-icon="check"';
                 }
@@ -360,6 +360,7 @@ function listenOthers()
 {
     if(arguments[0])
     {
+        alert(arguments[0]);
         wx.downloadVoice({
             serverId: arguments[0], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
