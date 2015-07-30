@@ -10,7 +10,6 @@ var challengeId;
 var g_count;
 
 function callForAuth(){
-    alert("请同意接下来的请求，否则功能不能实现");
     wx.startRecord({
         cancel: function(){
             alert('哦，天哪！');
@@ -30,6 +29,7 @@ function checklive()
     $('#moving').html((new Date()).getTime());
 }
 $(document).on("pageinit","#challenge",function(){
+    alert("请同意接下来的请求，否则功能不能实现");
     setInterval("checklive()", 500);
     //alert(getParameter('wgateid'));
     //alert(getParameter('ticket'));
