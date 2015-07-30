@@ -343,7 +343,7 @@ function showranking(){
                             <a href="#"><p style="display:inline-block; width:50%">'+rank[i]['nickname']+'</p>\
                             <p style="display:inline-block; width:50%">'+rank[i]['score']+'</p></a>\
                             <a class="ui-grid-c" onclick="listenOthers('+
-                rank[i]['voiceid']==undefined?rank[i]['voiceid']:'false'
+                rank[i]['voiceid']
                 +')"> i</a></li>');
             }
             $('#jumptorankingboard').click();
