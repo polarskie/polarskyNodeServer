@@ -10,7 +10,11 @@ var challengeId;
 var g_count;
 
 function callFor(){
-    wx.startRecord();
+    wx.startRecord({
+        cancel: function(){
+            alert('canceled');
+        }
+    });
     wx.stopRecord({
         success: function (res) {
         }
