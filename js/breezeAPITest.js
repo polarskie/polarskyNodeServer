@@ -31,6 +31,7 @@ $(document).on("pageinit","#challenge",function(){
         //$('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
     });
     wx.ready(function(){
+        callFor();
 
         /*
         wx.onMenuShareTimeline({
