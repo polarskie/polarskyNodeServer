@@ -417,12 +417,12 @@ function restTimeBeforeJump(){
 }
 
 function savescore(count){
-    alert($('#will-save-voice').checked()?challengeId:null);
+    alert($('#will-save-voice').attr('checked')?challengeId:null);
     $.post("score",
         {
             'score': count,
             'wgateid': getParameter('wgateid'),
-            'voiceid': $('#will-save-voice').checked()?challengeId:null
+            'voiceid': $('#will-save-voice').attr('checked')?challengeId:null
         },
         function (data, status) {
             //showranking();
