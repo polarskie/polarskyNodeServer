@@ -177,6 +177,7 @@ $('#stopRecord').click(function(){
     wx.stopRecord({
         success: function (res) {
             localVoiceList.push(res.localId);
+            alert("local id is "+res.localId);
         }
     });
 });
@@ -209,7 +210,8 @@ $('#uploadVoice').click(function(){
             }
             else
             {
-                alert("all voices uploaded, consumed "+((new Date()).getTime()-timestart)+'s');
+                localVoiceList=[];
+                alert("all voices uploaded, local voices are deleted, consumed "+((new Date()).getTime()-timestart)+'s');
             }
             return;
         }
@@ -246,7 +248,9 @@ $('#downloadVoice').click(function ()
             serverId: serverVoiceList[i], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
+                localVoiceList.push(res.localId);
                 downloadVoice1(i+1); // 返回音频的本地ID
+                alert('downloaded local id is '+res.localId);
             }
         });
     }
