@@ -374,9 +374,6 @@ function listenOthers()
                 wx.playVoice({
                     localId: res.localId // 需要播放的音频的本地ID，由stopRecord接口获得
                 });
-            },
-            fail: function () {
-                alert('音频过期');
             }
         });
     }
