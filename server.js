@@ -135,12 +135,12 @@ Token.prototype.refreshAToken =function(){
 	req.on('error', function(e) {
 		console.error(e);
 	});
-	setTimeout(this.refreshAToken, 7200000);
+	setTimeout(this.refreshAToken, 720);
 };
 
 Token.prototype.refreshTicket=function (){
 	var me = this;
-	console.log(this.acc)
+	console.log(this.acc);
 	this.ticketOptions.path='/cgi-bin/ticket/getticket?access_token='+this.access_token+'&type=jsapi';
 	var req = https.request(this.ticketOptions, function(res) {
 		res.on('data', function(d) {
@@ -158,7 +158,7 @@ Token.prototype.refreshTicket=function (){
 	req.on('error', function(e) {
 		console.error(e);
 	});
-	setTimeout(this.refreshTicket, 7200000);
+	setTimeout(this.refreshTicket, 720);
 };
 
 Token.prototype.start=function()
@@ -166,7 +166,7 @@ Token.prototype.start=function()
 	this.refreshAToken();
 };
 var testAcc=new Token('wxee703ec8c8670ca9', '932e32e53ceec9ffa46277734b450c33', 'test.at');
-var breezeAcc=new Token('wx26c652b1b427bcfd', '43c0623c4ade955da363cc0258f7287a', 'breeze.at')
+var breezeAcc=new Token('wx26c652b1b427bcfd', '43c0623c4ade955da363cc0258f7287a', 'breeze.at');
 testAcc.start();
 breezeAcc.start();
 
