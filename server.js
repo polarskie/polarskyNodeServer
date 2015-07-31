@@ -57,7 +57,7 @@ function refreshAToken(){
 	req.on('error', function(e) {
 		console.error(e);
 	});
-	setTimeout(refreshAToken, 3600000);
+	setTimeout(refreshAToken, 7200000);
 }
 function refreshTicket(){
 	var req = https.request(ticketOptions, function(res) {
@@ -77,7 +77,7 @@ function refreshTicket(){
 	req.on('error', function(e) {
 		console.error(e);
 	});
-	setTimeout(refreshTicket, 3600000);
+	setTimeout(refreshTicket, 7200000);
 }
 //refreshAToken();
 
@@ -135,7 +135,7 @@ Token.prototype.refreshAToken =function(){
 	req.on('error', function(e) {
 		console.error(e);
 	});
-	setTimeout(this.refreshAToken, 3600000);
+	setTimeout(this.refreshAToken, 7200000);
 };
 
 Token.prototype.refreshTicket=function (){
@@ -158,7 +158,7 @@ Token.prototype.refreshTicket=function (){
 	req.on('error', function(e) {
 		console.error(e);
 	});
-	setTimeout(this.refreshTicket, 3600000);
+	setTimeout(this.refreshTicket, 7200000);
 };
 
 Token.prototype.start=function()
