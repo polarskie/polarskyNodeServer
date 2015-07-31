@@ -131,10 +131,10 @@ Token.prototype.refreshAToken =function(){
 			}
 		});
 	});
-	req.end();
 	req.on('error', function(e) {
 		console.error(e);
 	});
+	req.end();
 	setTimeout(this.refreshAToken, 720);
 };
 
@@ -154,10 +154,10 @@ Token.prototype.refreshTicket=function (){
 			}
 		});
 	});
-	req.end();
 	req.on('error', function(e) {
 		console.error(e);
 	});
+	req.end();
 	setTimeout(this.refreshTicket, 720);
 };
 
