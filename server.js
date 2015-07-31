@@ -108,6 +108,7 @@ function Token(appid, secret, id)
 
 Token.prototype.refreshAToken =function(){
 	var me=this;
+	console.log(util.inspect(this.aTokenOptions));
 	var req = https.request(this.aTokenOptions, function(res) {
 		res.on('data', function(d) {
 			//console.log(d.toString())
