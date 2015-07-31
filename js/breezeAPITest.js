@@ -41,51 +41,6 @@ $(document).on("pageinit","#challenge",function(){
     wx.ready(function(){
         callForAuth();
 
-        /*
-        wx.onMenuShareTimeline({
-            title: 'welcome to my homepage', // 分享标题
-            link: 'http://www.polarsky.cc', // 分享链接
-            imgUrl: 'http://www.polarsky.cc/favicon.ico', // 分享图标
-            success: function () {
-                alert("感谢你的支持！");
-                // 用户确认分享后执行的回调函数
-            },
-            cancel: function () {
-                // 用户取消分享后执行的回调函数
-            },
-            fail: function(msg){
-                alert(msg);
-            }
-        });/*
-        wx.onMenuShareAppMessage({
-            title: '［百姓网/测试］看看你的嘴有多利索', // 分享标题
-            desc: '5秒钟内你能说多少次“百姓网”？', // 分享描述
-            link: 'http://www.polarsky.cc/jump.html', // 分享链接
-            imgUrl: 'http://www.polarsky.cc/favicon.ico', // 分享图标
-            type: 'link', // 分享类型,music、video或link，不填默认为link
-            success: function () {
-                // 用户确认分享后执行的回调函数
-                alert("感谢你的支持！");
-            },
-            cancel: function () {
-                // 用户取消分享后执行的回调函数
-            }
-        });
-        wx.onMenuShareAppMessage({
-            title: 'ttttt', // 分享标题
-            desc: 'ddddd', // 分享描述
-            link: 'http://www.polarsky.cc', // 分享链接
-            imgUrl: 'http://www.polarsky.cc/favicon.ico', // 分享图标
-            type: 'link', // 分享类型,music、video或link，不填默认为link
-            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-            success: function () {
-                // 用户确认分享后执行的回调函数
-                alert('hi');
-            },
-            cancel: function () {
-                // 用户取消分享后执行的回调函数
-            }
-        });*/
         wx.onVoiceRecordEnd({
             complete: function (res) {
                 localVoiceList.push(res.localId);
@@ -105,7 +60,7 @@ $(document).on("pageinit","#challenge",function(){
         'showAllNonBaseMenuItem'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
 });
-function uploadImg(event)
+$('#uploadImage').click(function ()
 {
     wx.chooseImage({
         count: 9, // 默认9
@@ -144,7 +99,7 @@ function uploadImg(event)
             up(0);
         }
     });
-}
+});
 
 $('#downloadImage').click(function ()
 {
@@ -164,7 +119,7 @@ $('#downloadImage').click(function ()
         wx.downloadImage({
             serverId: serverImageList[i],
             success: function (res) {
-                $("body").prepend("<div class='container'><img src='"+res.localId+"' ></div>");
+                $("#testpage").append("<div><img src='"+res.localId+"' ></div>");
                 download(i+1);
             }
         });
@@ -332,19 +287,19 @@ $('#showpart').click(function () {
         menuList: ["menuItem:share:qq" ,"menuItem:share:facebook", "menuItem:refresh", "menuItem:profile","menuItem:addContact"] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
     });
 });
-$('#tingting').click(function(){
+$('#challengespeed').click(function(){
     if(!GtimeRest) {
         wx.startRecord();
         GtimeRest = 5;
-        $('#tingting h1').html('录音还有' + GtimeRest + 's');
-        $('#tingting').button('refresh');
+        $('#challengespeed h1').html('录音还有' + GtimeRest + 's');
+        $('#challengespeed').button('refresh');
         GcountDownRecordInterval = setInterval("countDownRecord()", 1000);
         setTimeout('GtimeRest=false;clearInterval(GcountDownRecordInterval);uploadvoice();', 5000);
     }
 });
 function countDownRecord(){
-    $('#tingting h1').html('录音还有'+(GtimeRest-=1)+'s');
-    $('#tingting').button('refresh');
+    $('#challengespeed h1').html('录音还有'+(GtimeRest-=1)+'s');
+    $('#challengespeed').button('refresh');
 }
 /*
 $('#showattached').click(function(){
@@ -439,8 +394,8 @@ function countTimes(str, tar)
 function uploadvoice()
 {
     //clearInterval(countdown);
-    $('#tingting h1').html('点我开始说话');
-    $('#tingting').button('refresh');
+    $('#challengespeed h1').html('点我开始说话');
+    $('#challengespeed').button('refresh');
     //var startTime=(new Date()).getTime();
     wx.stopRecord({
         success: function (res) {
