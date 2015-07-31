@@ -264,6 +264,7 @@ $('#scanqrcode').click(function(){
         scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
         success: function (res) {
             alert('扫码结果：'+res.resultStr); // 当needResult 为 1 时，扫码返回的结果
+            location.assign(res.resultStr);
         }
     });
 });
