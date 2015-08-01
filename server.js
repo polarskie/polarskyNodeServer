@@ -304,7 +304,12 @@ function onRequest(req, res) {
 					console.log(util.inspect(newScore));
 					console.log(util.inspect(perInfo));
 					var rs=fs.createReadStream('ranking');
-					newScore['nickname']=perInfo['nickname'];
+					if(perInfo==null) {
+						newScore['nickname']='佚名';
+					}
+					else {
+						newScore['nickname'] = perInfo['nickname'];
+					}
 					rs.on('data', function(data){
 						var ranking=JSON.parse(data.toString());
 						var inserted=false;
