@@ -440,7 +440,7 @@ function showScore(count)
             $('#countdowntoranking').html("5s后跳转到排行榜");
             Gtimerest=5;
             countdowntoranking=setInterval("restTimeBeforeJump()", 1000);
-            setTimeout("clearInterval(countdowntoranking);savescore();GtimeRest=false;",5000);
+            setTimeout("clearInterval(countdowntoranking);saveScore();GtimeRest=false;",5000);
             $('#jumptoscoreboard').click();
         });
 }
@@ -448,7 +448,7 @@ function restTimeBeforeJump(){
     $('#countdowntoranking').html((Gtimerest-=1)+'s后跳转到排行榜');
 }
 
-function savescore(){
+function saveScore(){
     if($('#will-save-voice').attr('checked'))
     {
         wx.uploadVoice({
