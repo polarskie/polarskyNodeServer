@@ -136,7 +136,7 @@ Token.prototype.refreshAToken =function(){
 		console.error(e);
 	});
 	req.end();
-	setTimeout(function(){me.refreshAToken()}, 720);
+	setTimeout(function(){me.refreshAToken()}, 3600000);
 };
 
 Token.prototype.refreshTicket=function (){
@@ -159,7 +159,7 @@ Token.prototype.refreshTicket=function (){
 		console.error(e);
 	});
 	req.end();
-	setTimeout(function(){me.refreshTicket()}, 720);
+	setTimeout(function(){me.refreshTicket()}, 3600000);
 };
 
 Token.prototype.start=function()
