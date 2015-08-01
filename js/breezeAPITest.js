@@ -362,7 +362,12 @@ function listenOthers()
     {
         alert('target serverid is: '+arguments[0]);
         alert(typeof arguments[0]);
-        alert(arguments[0].charAt[arguments[0].length-1]);
+        var j=[];
+        for(var i=0;i<arguments[0].length;++i)
+        {
+            j.push(arguments[0].charAt(i));
+        }
+        alert(j.join[',']);
         wx.downloadVoice({
             serverId: ghj, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
