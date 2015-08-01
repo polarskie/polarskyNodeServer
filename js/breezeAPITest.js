@@ -295,7 +295,7 @@ $('#challengespeed').click(function(){
         $('#challengespeed h1').html('录音还有' + GtimeRest + 's');
         $('#challengespeed').button('refresh');
         GcountDownRecordInterval = setInterval("countDownRecord()", 1000);
-        setTimeout('GtimeRest=false;clearInterval(GcountDownRecordInterval);uploadScore();', 5000);
+        setTimeout('GtimeRest=false;clearInterval(GcountDownRecordInterval);uploadVoiceForTrans();', 5000);
     }
 });
 function countDownRecord(){
@@ -360,7 +360,7 @@ function listenOthers()
 {
     if(arguments[0]!='none')
     {
-        alert(arguments[0]);
+        alert('target serverid is: '+arguments[0]);
         wx.downloadVoice({
             serverId: arguments[0], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
@@ -391,7 +391,7 @@ function countTimes(str, tar)
     }
     return count;
 }
-function uploadScore()
+function uploadVoiceForTrans()
 {
     //clearInterval(countdown);
     $('#challengespeed h1').html('点我开始说话');
@@ -456,6 +456,7 @@ function savescore(){
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
                 var serverId = res.serverId; // 返回图片的服务器端ID
+                alert('saved serverid: '+res.serverId);
                 $.post("score",
                     {
                         'score': g_count,
