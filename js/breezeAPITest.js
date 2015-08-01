@@ -362,11 +362,11 @@ function listenOthers()
     {
         alert('target serverid is: '+arguments[0]);
         wx.downloadVoice({
-            serverId: arguments[0], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+            serverId: ghj, // 需要下载的音频的服务器端ID，由uploadVoice接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
             success: function (res) {
                 wx.playVoice({
-                    localId: challengeId // 需要播放的音频的本地ID，由stopRecord接口获得
+                    localId: res.localId // 需要播放的音频的本地ID，由stopRecord接口获得
                 });
             },
             fail: function () {
@@ -457,6 +457,7 @@ function saveScore(){
             success: function (res) {
                 var serverId = res.serverId; // 返回图片的服务器端ID
                 alert('saved serverid: '+res.serverId);
+                ghj=res.serverId;
                 $.post("score",
                     {
                         'score': g_count,
