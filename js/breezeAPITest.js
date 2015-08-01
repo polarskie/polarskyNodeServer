@@ -171,7 +171,7 @@ $('#stopVoice').click(function(){
 });
 
 $('#uploadVoice').click(function(){
-    function uploadVoice(i) {
+    function uploadVoice1(i) {
         if(i>=localVoiceList.length)
         {
             if(i==0)
@@ -192,12 +192,12 @@ $('#uploadVoice').click(function(){
                 var serverId = res.serverId; // 返回图片的服务器端ID
                 serverVoiceList.push(serverId);
                 alert('server id is '+res.serverId);
-                uploadVoice(i+1);
+                uploadVoice1(i+1);
             }
         });
     }
     var timestart=(new Date()).getTime();
-    uploadVoice(0);
+    uploadVoice1(0);
 });
 
 $('#downloadVoice').click(function ()
@@ -295,7 +295,7 @@ $('#challengespeed').click(function(){
         $('#challengespeed h1').html('录音还有' + GtimeRest + 's');
         $('#challengespeed').button('refresh');
         GcountDownRecordInterval = setInterval("countDownRecord()", 1000);
-        setTimeout('GtimeRest=false;clearInterval(GcountDownRecordInterval);uploadvoice();', 5000);
+        setTimeout('GtimeRest=false;clearInterval(GcountDownRecordInterval);uploadScore();', 5000);
     }
 });
 function countDownRecord(){
@@ -391,7 +391,7 @@ function countTimes(str, tar)
     }
     return count;
 }
-function uploadvoice()
+function uploadScore()
 {
     //clearInterval(countdown);
     $('#challengespeed h1').html('点我开始说话');
