@@ -52,7 +52,7 @@ $(document).on("pageinit","#challenge",function(){
         });
     });
     wx.config({
-        'debug': 1, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        'debug': 0, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         'appId': 'wx26c652b1b427bcfd', // 必填，公众号的唯一标识
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
@@ -371,7 +371,7 @@ function listenOthers()
     if(arguments[0]!='none')
     {
         //alert('target serverid is: '+arguments[0]);
-        var checkMuteCallTrigger=setTimeout(function(){alert('oops!!!您的手机存储容量不足，无法下载。请重新进入。')}, 5000);
+        var checkMuteCallTrigger=setTimeout(function(){alert('oops!!!您的手机存储容量不足，无法下载。请重新登陆帐号后重新进入。')}, 5000);
         wx.downloadVoice({
             serverId: arguments[0], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
