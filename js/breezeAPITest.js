@@ -8,8 +8,9 @@ var serverVoiceList=[];
 var GtimeRest=false;
 var challengeId;
 var g_count;
-
+/*
 function callForAuth(){
+    alert("请同意接下来的请求，否则功能不能实现");
     wx.startRecord({
         cancel: function(){
             alert('哦，天哪！');
@@ -18,18 +19,20 @@ function callForAuth(){
         success: function(){
             wx.stopRecord({
                 success: function (res) {
+                    var but=$('#challengespeed');
+                    but.attr('disabled', false);
+                    but.button('refresh');
                 }
             });
         }
     });
 }
-
+*/
 function checklive()
 {
     $('#moving').html((new Date()).getTime());
 }
 $(document).on("pageinit","#challenge",function(){
-    alert("请同意接下来的请求，否则功能不能实现");
     setInterval("checklive()", 500);
     //alert(getParameter('wgateid'));
     //alert(getParameter('ticket'));
@@ -39,7 +42,7 @@ $(document).on("pageinit","#challenge",function(){
         //$('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
     });
     wx.ready(function(){
-        callForAuth();
+        //callForAuth();
 
         wx.onVoiceRecordEnd({
             complete: function (res) {
@@ -48,7 +51,7 @@ $(document).on("pageinit","#challenge",function(){
         });
     });
     wx.config({
-        'debug': 1, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        'debug': 0, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         'appId': 'wx26c652b1b427bcfd', // 必填，公众号的唯一标识
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
@@ -290,12 +293,18 @@ $('#showpart').click(function () {
 });
 $('#challengespeed').click(function(){
     if(!GtimeRest) {
-        wx.startRecord();
-        GtimeRest = 5;
-        $('#challengespeed h1').html('录音还有' + GtimeRest + 's');
-        $('#challengespeed').button('refresh');
-        GcountDownRecordInterval = setInterval("countDownRecord()", 1000);
-        setTimeout('GtimeRest=false;clearInterval(GcountDownRecordInterval);uploadVoiceForTrans();', 5000);
+        wx.startRecord({
+            success: function(){
+                GtimeRest = 5;
+                $('#challengespeed h1').html('录音还有' + GtimeRest + 's');
+                $('#challengespeed').button('refresh');
+                GcountDownRecordInterval = setInterval("countDownRecord()", 1000);
+                setTimeout('GtimeRest=false;clearInterval(GcountDownRecordInterval);uploadVoiceForTrans();', 5000);
+            },
+            cancel: function(){
+                alert("您没有同意录音。。。");
+            }
+        });
     }
 });
 function countDownRecord(){
@@ -352,7 +361,7 @@ function showranking(){
                             </li>');
             }
             $('#jumptorankingboard').click();
-            setTimeout("$('#rankinglist').listview('refresh');",0);
+            setTimeout("$('#rankinglist').listview('refresh');",100);
         });
 }
 
