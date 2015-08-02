@@ -37,6 +37,7 @@ $(document).on("pageinit","#challenge",function(){
     //alert(getParameter('wgateid'));
     //alert(getParameter('ticket'));
     wx.error(function(res){
+        alert(res.errMsg);
         $('jumptofollow').click();
         //alert('opps');
         //$('#guanzhu').slideDown('slow', function(){alert('请先关注我（长按二维码，选择“识别图中二维码”）,否则功能无法实现哦');});
@@ -51,7 +52,7 @@ $(document).on("pageinit","#challenge",function(){
         });
     });
     wx.config({
-        'debug': 0, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        'debug': 1, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         'appId': 'wx26c652b1b427bcfd', // 必填，公众号的唯一标识
         'timestamp': timestamp, // 必填，生成签名的时间戳
         'nonceStr': nonceStr, // 必填，生成签名的随机串
