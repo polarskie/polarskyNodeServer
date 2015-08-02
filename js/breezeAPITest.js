@@ -369,7 +369,8 @@ function listenOthers()
 {
     if(arguments[0]!='none')
     {
-        alert('target serverid is: '+arguments[0]);
+        //alert('target serverid is: '+arguments[0]);
+        var checkMuteCallTrigger=setTimeout(function(){alert('oops!!!您的手机存储容量不足，无法下载。')}, 500);
         wx.downloadVoice({
             serverId: arguments[0], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
@@ -378,10 +379,11 @@ function listenOthers()
                     localId: res.localId // 需要播放的音频的本地ID，由stopRecord接口获得
                 });
             },
-            fail: function () {
-                alert('音频过期');
+            fail: function (res) {
+                alert(res.errMsg);
             }
         });
+        clearTimeout(checkMuteCallTrigger);
     }
     else
     {
