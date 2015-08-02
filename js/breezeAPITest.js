@@ -371,7 +371,7 @@ function listenOthers()
     if(arguments[0]!='none')
     {
         //alert('target serverid is: '+arguments[0]);
-        var checkMuteCallTrigger=setTimeout(function(){alert('oops!!!您的手机存储容量不足，无法下载。')}, 5000);
+        var checkMuteCallTrigger=setTimeout(function(){alert('oops!!!您的手机存储容量不足，无法下载。请重新进入。')}, 5000);
         wx.downloadVoice({
             serverId: arguments[0], // 需要下载的音频的服务器端ID，由uploadVoice接口获得
             isShowProgressTips: 1, // 默认为1，显示进度提示
