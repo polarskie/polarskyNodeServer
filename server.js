@@ -295,7 +295,6 @@ function onRequest(req, res) {
 	else if(req.url.indexOf('score')==1)
 	{
 		req.on("data", function (data) {
-			res.end();
 			var newScore=getParameter(data);
 			request('http://www.weixingate.com/wgate_user.php?wgateid='+newScore['wgateid'], function (error, response, body) {
 				if (!error && response.statusCode == 200) {
@@ -330,6 +329,7 @@ function onRequest(req, res) {
 						ws.on('drain', function(){
 							ws.end();
 							ws=null;
+							res.end();
 						});
 						ws.write(new Buffer(JSON.stringify(ranking)));
 					});
