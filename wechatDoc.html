@@ -1,0 +1,962 @@
+<html>
+<head>
+    <title>
+        doc
+    </title>
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/wechatDoc.css" rel="stylesheet">
+</head>
+<body>
+<div id="content">
+    <!-- /header -->
+    <a id="top"></a>
+    <div id="mw-js-message" style="display:none;"></div>
+    <!-- firstHeading -->
+    <div class="content_hd">
+        <h2 id="firstHeading" class="">微信JSSDK说明文档</h2>
+        <div class="info">
+
+        </div>
+    </div>
+    <!-- /firstHeading -->
+    <!-- bodyContent -->
+    <div id="bodyContent" class="bodyContent">
+        <!-- tagline -->
+        <div id="siteSub">出自微信公众平台开发者文档(详细注释版)</div>
+        <!-- /jumpto -->
+        <!-- bodytext -->
+        <div style="text-align:center;font-size:24px;"><b>微信JS-SDK说明文档</b></div>
+        <p><br>
+        </p>
+        <table id="toc" class="toc"><tbody><tr><td><div id="toctitle"><h2>目录</h2></div>
+            <ul>
+                <li class="toclevel-1 tocsection-1"><a href="#.E6.A6.82.E8.BF.B0"><span class="tocnumber">1</span> <span class="toctext">概述</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-2"><a href="#JSSDK.E4.BD.BF.E7.94.A8.E6.AD.A5.E9.AA.A4"><span class="tocnumber">1.1</span> <span class="toctext">JSSDK使用步骤</span></a>
+                            <ul>
+                                <li class="toclevel-3 tocsection-3"><a href="#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E7.BB.91.E5.AE.9A.E5.9F.9F.E5.90.8D"><span class="tocnumber">1.1.1</span> <span class="toctext">步骤一：绑定域名</span></a></li>
+                                <li class="toclevel-3 tocsection-4"><a href="#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E5.BC.95.E5.85.A5JS.E6.96.87.E4.BB.B6"><span class="tocnumber">1.1.2</span> <span class="toctext">步骤二：引入JS文件</span></a></li>
+                                <li class="toclevel-3 tocsection-5"><a href="#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E9.80.9A.E8.BF.87config.E6.8E.A5.E5.8F.A3.E6.B3.A8.E5.85.A5.E6.9D.83.E9.99.90.E9.AA.8C.E8.AF.81.E9.85.8D.E7.BD.AE"><span class="tocnumber">1.1.3</span> <span class="toctext">步骤三：通过config接口注入权限验证配置</span></a></li>
+                                <li class="toclevel-3 tocsection-6"><a href="#.E6.AD.A5.E9.AA.A4.E5.9B.9B.EF.BC.9A.E9.80.9A.E8.BF.87ready.E6.8E.A5.E5.8F.A3.E5.A4.84.E7.90.86.E6.88.90.E5.8A.9F.E9.AA.8C.E8.AF.81"><span class="tocnumber">1.1.4</span> <span class="toctext">步骤四：通过ready接口处理成功验证</span></a></li>
+                                <li class="toclevel-3 tocsection-7"><a href="#.E6.AD.A5.E9.AA.A4.E4.BA.94.EF.BC.9A.E9.80.9A.E8.BF.87error.E6.8E.A5.E5.8F.A3.E5.A4.84.E7.90.86.E5.A4.B1.E8.B4.A5.E9.AA.8C.E8.AF.81"><span class="tocnumber">1.1.5</span> <span class="toctext">步骤五：通过error接口处理失败验证</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="toclevel-2 tocsection-8"><a href="#.E6.8E.A5.E5.8F.A3.E8.B0.83.E7.94.A8.E8.AF.B4.E6.98.8E"><span class="tocnumber">1.2</span> <span class="toctext">接口调用说明</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-9"><a href="#.E5.9F.BA.E7.A1.80.E6.8E.A5.E5.8F.A3"><span class="tocnumber">2</span> <span class="toctext">基础接口</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-10"><a href="#.E5.88.A4.E6.96.AD.E5.BD.93.E5.89.8D.E5.AE.A2.E6.88.B7.E7.AB.AF.E7.89.88.E6.9C.AC.E6.98.AF.E5.90.A6.E6.94.AF.E6.8C.81.E6.8C.87.E5.AE.9AJS.E6.8E.A5.E5.8F.A3"><span class="tocnumber">2.1</span> <span class="toctext">判断当前客户端版本是否支持指定JS接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-11"><a href="#.E5.88.86.E4.BA.AB.E6.8E.A5.E5.8F.A3"><span class="tocnumber">3</span> <span class="toctext">分享接口</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-12"><a href="#.E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0.E6.9C.8B.E5.8F.8B.E5.9C.88.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3"><span class="tocnumber">3.1</span> <span class="toctext">获取“分享到朋友圈”按钮点击状态及自定义分享内容接口</span></a></li>
+                        <li class="toclevel-2 tocsection-13"><a href="#.E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E7.BB.99.E6.9C.8B.E5.8F.8B.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3"><span class="tocnumber">3.2</span> <span class="toctext">获取“分享给朋友”按钮点击状态及自定义分享内容接口</span></a></li>
+                        <li class="toclevel-2 tocsection-14"><a href="#.E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0QQ.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3"><span class="tocnumber">3.3</span> <span class="toctext">获取“分享到QQ”按钮点击状态及自定义分享内容接口</span></a></li>
+                        <li class="toclevel-2 tocsection-15"><a href="#.E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0.E8.85.BE.E8.AE.AF.E5.BE.AE.E5.8D.9A.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3"><span class="tocnumber">3.4</span> <span class="toctext">获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口</span></a></li>
+                        <li class="toclevel-2 tocsection-16"><a href="#.E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0QQ.E7.A9.BA.E9.97.B4.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3"><span class="tocnumber">3.5</span> <span class="toctext">获取“分享到QQ空间”按钮点击状态及自定义分享内容接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-17"><a href="#.E5.9B.BE.E5.83.8F.E6.8E.A5.E5.8F.A3"><span class="tocnumber">4</span> <span class="toctext">图像接口</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-18"><a href="#.E6.8B.8D.E7.85.A7.E6.88.96.E4.BB.8E.E6.89.8B.E6.9C.BA.E7.9B.B8.E5.86.8C.E4.B8.AD.E9.80.89.E5.9B.BE.E6.8E.A5.E5.8F.A3"><span class="tocnumber">4.1</span> <span class="toctext">拍照或从手机相册中选图接口</span></a></li>
+                        <li class="toclevel-2 tocsection-19"><a href="#.E9.A2.84.E8.A7.88.E5.9B.BE.E7.89.87.E6.8E.A5.E5.8F.A3"><span class="tocnumber">4.2</span> <span class="toctext">预览图片接口</span></a></li>
+                        <li class="toclevel-2 tocsection-20"><a href="#.E4.B8.8A.E4.BC.A0.E5.9B.BE.E7.89.87.E6.8E.A5.E5.8F.A3"><span class="tocnumber">4.3</span> <span class="toctext">上传图片接口</span></a></li>
+                        <li class="toclevel-2 tocsection-21"><a href="#.E4.B8.8B.E8.BD.BD.E5.9B.BE.E7.89.87.E6.8E.A5.E5.8F.A3"><span class="tocnumber">4.4</span> <span class="toctext">下载图片接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-22"><a href="#.E9.9F.B3.E9.A2.91.E6.8E.A5.E5.8F.A3"><span class="tocnumber">5</span> <span class="toctext">音频接口</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-23"><a href="#.E5.BC.80.E5.A7.8B.E5.BD.95.E9.9F.B3.E6.8E.A5.E5.8F.A3"><span class="tocnumber">5.1</span> <span class="toctext">开始录音接口</span></a></li>
+                        <li class="toclevel-2 tocsection-24"><a href="#.E5.81.9C.E6.AD.A2.E5.BD.95.E9.9F.B3.E6.8E.A5.E5.8F.A3"><span class="tocnumber">5.2</span> <span class="toctext">停止录音接口</span></a></li>
+                        <li class="toclevel-2 tocsection-25"><a href="#.E7.9B.91.E5.90.AC.E5.BD.95.E9.9F.B3.E8.87.AA.E5.8A.A8.E5.81.9C.E6.AD.A2.E6.8E.A5.E5.8F.A3"><span class="tocnumber">5.3</span> <span class="toctext">监听录音自动停止接口</span></a></li>
+                        <li class="toclevel-2 tocsection-26"><a href="#.E6.92.AD.E6.94.BE.E8.AF.AD.E9.9F.B3.E6.8E.A5.E5.8F.A3"><span class="tocnumber">5.4</span> <span class="toctext">播放语音接口</span></a></li>
+                        <li class="toclevel-2 tocsection-27"><a href="#.E6.9A.82.E5.81.9C.E6.92.AD.E6.94.BE.E6.8E.A5.E5.8F.A3"><span class="tocnumber">5.5</span> <span class="toctext">暂停播放接口</span></a></li>
+                        <li class="toclevel-2 tocsection-28"><a href="#.E5.81.9C.E6.AD.A2.E6.92.AD.E6.94.BE.E6.8E.A5.E5.8F.A3"><span class="tocnumber">5.6</span> <span class="toctext">停止播放接口</span></a></li>
+                        <li class="toclevel-2 tocsection-29"><a href="#.E7.9B.91.E5.90.AC.E8.AF.AD.E9.9F.B3.E6.92.AD.E6.94.BE.E5.AE.8C.E6.AF.95.E6.8E.A5.E5.8F.A3"><span class="tocnumber">5.7</span> <span class="toctext">监听语音播放完毕接口</span></a></li>
+                        <li class="toclevel-2 tocsection-30"><a href="#.E4.B8.8A.E4.BC.A0.E8.AF.AD.E9.9F.B3.E6.8E.A5.E5.8F.A3"><span class="tocnumber">5.8</span> <span class="toctext">上传语音接口</span></a></li>
+                        <li class="toclevel-2 tocsection-31"><a href="#.E4.B8.8B.E8.BD.BD.E8.AF.AD.E9.9F.B3.E6.8E.A5.E5.8F.A3"><span class="tocnumber">5.9</span> <span class="toctext">下载语音接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-32"><a href="#.E6.99.BA.E8.83.BD.E6.8E.A5.E5.8F.A3"><span class="tocnumber">6</span> <span class="toctext">智能接口</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-33"><a href="#.E8.AF.86.E5.88.AB.E9.9F.B3.E9.A2.91.E5.B9.B6.E8.BF.94.E5.9B.9E.E8.AF.86.E5.88.AB.E7.BB.93.E6.9E.9C.E6.8E.A5.E5.8F.A3"><span class="tocnumber">6.1</span> <span class="toctext">识别音频并返回识别结果接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-34"><a href="#.E8.AE.BE.E5.A4.87.E4.BF.A1.E6.81.AF"><span class="tocnumber">7</span> <span class="toctext">设备信息</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-35"><a href="#.E8.8E.B7.E5.8F.96.E7.BD.91.E7.BB.9C.E7.8A.B6.E6.80.81.E6.8E.A5.E5.8F.A3"><span class="tocnumber">7.1</span> <span class="toctext">获取网络状态接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-36"><a href="#.E5.9C.B0.E7.90.86.E4.BD.8D.E7.BD.AE"><span class="tocnumber">8</span> <span class="toctext">地理位置</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-37"><a href="#.E4.BD.BF.E7.94.A8.E5.BE.AE.E4.BF.A1.E5.86.85.E7.BD.AE.E5.9C.B0.E5.9B.BE.E6.9F.A5.E7.9C.8B.E4.BD.8D.E7.BD.AE.E6.8E.A5.E5.8F.A3"><span class="tocnumber">8.1</span> <span class="toctext">使用微信内置地图查看位置接口</span></a></li>
+                        <li class="toclevel-2 tocsection-38"><a href="#.E8.8E.B7.E5.8F.96.E5.9C.B0.E7.90.86.E4.BD.8D.E7.BD.AE.E6.8E.A5.E5.8F.A3"><span class="tocnumber">8.2</span> <span class="toctext">获取地理位置接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-39"><a href="#.E7.95.8C.E9.9D.A2.E6.93.8D.E4.BD.9C"><span class="tocnumber">9</span> <span class="toctext">界面操作</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-40"><a href="#.E9.9A.90.E8.97.8F.E5.8F.B3.E4.B8.8A.E8.A7.92.E8.8F.9C.E5.8D.95.E6.8E.A5.E5.8F.A3"><span class="tocnumber">9.1</span> <span class="toctext">隐藏右上角菜单接口</span></a></li>
+                        <li class="toclevel-2 tocsection-41"><a href="#.E6.98.BE.E7.A4.BA.E5.8F.B3.E4.B8.8A.E8.A7.92.E8.8F.9C.E5.8D.95.E6.8E.A5.E5.8F.A3"><span class="tocnumber">9.2</span> <span class="toctext">显示右上角菜单接口</span></a></li>
+                        <li class="toclevel-2 tocsection-42"><a href="#.E5.85.B3.E9.97.AD.E5.BD.93.E5.89.8D.E7.BD.91.E9.A1.B5.E7.AA.97.E5.8F.A3.E6.8E.A5.E5.8F.A3"><span class="tocnumber">9.3</span> <span class="toctext">关闭当前网页窗口接口</span></a></li>
+                        <li class="toclevel-2 tocsection-43"><a href="#.E6.89.B9.E9.87.8F.E9.9A.90.E8.97.8F.E5.8A.9F.E8.83.BD.E6.8C.89.E9.92.AE.E6.8E.A5.E5.8F.A3"><span class="tocnumber">9.4</span> <span class="toctext">批量隐藏功能按钮接口</span></a></li>
+                        <li class="toclevel-2 tocsection-44"><a href="#.E6.89.B9.E9.87.8F.E6.98.BE.E7.A4.BA.E5.8A.9F.E8.83.BD.E6.8C.89.E9.92.AE.E6.8E.A5.E5.8F.A3"><span class="tocnumber">9.5</span> <span class="toctext">批量显示功能按钮接口</span></a></li>
+                        <li class="toclevel-2 tocsection-45"><a href="#.E9.9A.90.E8.97.8F.E6.89.80.E6.9C.89.E9.9D.9E.E5.9F.BA.E7.A1.80.E6.8C.89.E9.92.AE.E6.8E.A5.E5.8F.A3"><span class="tocnumber">9.6</span> <span class="toctext">隐藏所有非基础按钮接口</span></a></li>
+                        <li class="toclevel-2 tocsection-46"><a href="#.E6.98.BE.E7.A4.BA.E6.89.80.E6.9C.89.E5.8A.9F.E8.83.BD.E6.8C.89.E9.92.AE.E6.8E.A5.E5.8F.A3"><span class="tocnumber">9.7</span> <span class="toctext">显示所有功能按钮接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-47"><a href="#.E5.BE.AE.E4.BF.A1.E6.89.AB.E4.B8.80.E6.89.AB"><span class="tocnumber">10</span> <span class="toctext">微信扫一扫</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-48"><a href="#.E8.B0.83.E8.B5.B7.E5.BE.AE.E4.BF.A1.E6.89.AB.E4.B8.80.E6.89.AB.E6.8E.A5.E5.8F.A3"><span class="tocnumber">10.1</span> <span class="toctext">调起微信扫一扫接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-49"><a href="#.E5.BE.AE.E4.BF.A1.E5.B0.8F.E5.BA.97"><span class="tocnumber">11</span> <span class="toctext">微信小店</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-50"><a href="#.E8.B7.B3.E8.BD.AC.E5.BE.AE.E4.BF.A1.E5.95.86.E5.93.81.E9.A1.B5.E6.8E.A5.E5.8F.A3"><span class="tocnumber">11.1</span> <span class="toctext">跳转微信商品页接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-51"><a href="#.E5.BE.AE.E4.BF.A1.E5.8D.A1.E5.88.B8"><span class="tocnumber">12</span> <span class="toctext">微信卡券</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-52"><a href="#.E8.8E.B7.E5.8F.96api_ticket"><span class="tocnumber">12.1</span> <span class="toctext">获取api_ticket</span></a></li>
+                        <li class="toclevel-2 tocsection-53"><a href="#.E6.8B.89.E5.8F.96.E9.80.82.E7.94.A8.E5.8D.A1.E5.88.B8.E5.88.97.E8.A1.A8.E5.B9.B6.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E9.80.89.E6.8B.A9.E4.BF.A1.E6.81.AF"><span class="tocnumber">12.2</span> <span class="toctext">拉取适用卡券列表并获取用户选择信息</span></a></li>
+                        <li class="toclevel-2 tocsection-54"><a href="#.E6.89.B9.E9.87.8F.E6.B7.BB.E5.8A.A0.E5.8D.A1.E5.88.B8.E6.8E.A5.E5.8F.A3"><span class="tocnumber">12.3</span> <span class="toctext">批量添加卡券接口</span></a></li>
+                        <li class="toclevel-2 tocsection-55"><a href="#.E6.9F.A5.E7.9C.8B.E5.BE.AE.E4.BF.A1.E5.8D.A1.E5.8C.85.E4.B8.AD.E7.9A.84.E5.8D.A1.E5.88.B8.E6.8E.A5.E5.8F.A3"><span class="tocnumber">12.4</span> <span class="toctext">查看微信卡包中的卡券接口</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-56"><a href="#.E5.BE.AE.E4.BF.A1.E6.94.AF.E4.BB.98"><span class="tocnumber">13</span> <span class="toctext">微信支付</span></a>
+                    <ul>
+                        <li class="toclevel-2 tocsection-57"><a href="#.E5.8F.91.E8.B5.B7.E4.B8.80.E4.B8.AA.E5.BE.AE.E4.BF.A1.E6.94.AF.E4.BB.98.E8.AF.B7.E6.B1.82"><span class="tocnumber">13.1</span> <span class="toctext">发起一个微信支付请求</span></a></li>
+                    </ul>
+                </li>
+                <li class="toclevel-1 tocsection-58"><a href="#.E9.99.84.E5.BD.951-JS-SDK.E4.BD.BF.E7.94.A8.E6.9D.83.E9.99.90.E7.AD.BE.E5.90.8D.E7.AE.97.E6.B3.95"><span class="tocnumber">14</span> <span class="toctext">附录1-JS-SDK使用权限签名算法</span></a></li>
+                <li class="toclevel-1 tocsection-59"><a href="#.E9.99.84.E5.BD.952-.E6.89.80.E6.9C.89JS.E6.8E.A5.E5.8F.A3.E5.88.97.E8.A1.A8"><span class="tocnumber">15</span> <span class="toctext">附录2-所有JS接口列表</span></a></li>
+                <li class="toclevel-1 tocsection-60"><a href="#.E9.99.84.E5.BD.953-.E6.89.80.E6.9C.89.E8.8F.9C.E5.8D.95.E9.A1.B9.E5.88.97.E8.A1.A8"><span class="tocnumber">16</span> <span class="toctext">附录3-所有菜单项列表</span></a></li>
+                <li class="toclevel-1 tocsection-61"><a href="#.E9.99.84.E5.BD.954-.E5.8D.A1.E5.88.B8.E6.89.A9.E5.B1.95.E5.AD.97.E6.AE.B5.E5.8F.8A.E7.AD.BE.E5.90.8D.E7.94.9F.E6.88.90.E7.AE.97.E6.B3.95"><span class="tocnumber">17</span> <span class="toctext">附录4-卡券扩展字段及签名生成算法</span></a></li>
+                <li class="toclevel-1 tocsection-62"><a href="#.E9.99.84.E5.BD.955-.E5.B8.B8.E8.A7.81.E9.94.99.E8.AF.AF.E5.8F.8A.E8.A7.A3.E5.86.B3.E6.96.B9.E6.B3.95"><span class="tocnumber">18</span> <span class="toctext">附录5-常见错误及解决方法</span></a></li>
+                <li class="toclevel-1 tocsection-63"><a href="#.E9.99.84.E5.BD.956-DEMO.E9.A1.B5.E9.9D.A2.E5.92.8C.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81"><span class="tocnumber">19</span> <span class="toctext">附录6-DEMO页面和示例代码</span></a></li>
+                <li class="toclevel-1 tocsection-64"><a href="#.E9.99.84.E5.BD.957-.E9.97.AE.E9.A2.98.E5.8F.8D.E9.A6.88"><span class="tocnumber">20</span> <span class="toctext">附录7-问题反馈</span></a></li>
+            </ul>
+        </td></tr></tbody></table>
+        <h2> <span class="mw-headline" id=".E6.A6.82.E8.BF.B0"><b>概述</b></span></h2>
+        <p>微信JS-SDK是微信公众平台面向网页开发者提供的基于微信内的网页开发工具包。
+        </p><p>通过使用微信JS-SDK，网页开发者可借助微信高效地使用拍照、选图、语音、位置等手机系统的能力，同时可以直接使用微信分享、扫一扫、卡券、支付等微信特有的能力，为微信用户提供更优质的网页体验。
+    </p><p>此文档面向网页开发者介绍微信JS-SDK如何使用及相关注意事项。
+    </p>
+        <h3> <span class="mw-headline" id="JSSDK.E4.BD.BF.E7.94.A8.E6.AD.A5.E9.AA.A4"><b>JSSDK使用步骤</b></span></h3>
+        <h4> <span class="mw-headline" id=".E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E7.BB.91.E5.AE.9A.E5.9F.9F.E5.90.8D"><b>步骤一：绑定域名</b></span></h4>
+        <p>先登录<a href="http://mp.weixin.qq.com" class="external text" rel="nofollow" target="_blank">微信公众平台</a>进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+        </p><p>备注：登录后可在“开发者中心”查看对应的接口权限。
+    </p>
+        <h4> <span class="mw-headline" id=".E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E5.BC.95.E5.85.A5JS.E6.96.87.E4.BB.B6"><b>步骤二：引入JS文件</b></span></h4>
+        <p>在需要调用JS接口的页面引入如下JS文件，（支持https）：<a href="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" class="external free" rel="nofollow" target="_blank">http://res.wx.qq.com/open/js/jweixin-1.0.0.js</a>
+        </p><p>备注：支持使用 AMD/CMD 标准模块加载方法加载
+    </p><p><br>
+    </p>
+        <h4> <span class="mw-headline" id=".E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E9.80.9A.E8.BF.87config.E6.8E.A5.E5.8F.A3.E6.B3.A8.E5.85.A5.E6.9D.83.E9.99.90.E9.AA.8C.E8.AF.81.E9.85.8D.E7.BD.AE"><b>步骤三：通过config接口注入权限验证配置</b></span></h4>
+        <p><font color="#FF0000">
+            所有需要使用JS-SDK的页面必须先注入配置信息，否则将无法调用（同一个url仅需调用一次，对于变化url的SPA的web app可在每次url变化时进行调用,目前Android微信客户端不支持pushState的H5新特性，所以使用pushState来实现web app的页面会导致签名失败，此问题会在Android6.2中修复）。
+        </font>
+        </p>
+<pre>wx.config({
+    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: '', // 必填，公众号的唯一标识
+    timestamp: , // 必填，生成签名的时间戳
+    nonceStr: '', // 必填，生成签名的随机串
+    signature: '',// 必填，签名，见附录1
+    jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+});
+</pre>
+        <h4> <span class="mw-headline" id=".E6.AD.A5.E9.AA.A4.E5.9B.9B.EF.BC.9A.E9.80.9A.E8.BF.87ready.E6.8E.A5.E5.8F.A3.E5.A4.84.E7.90.86.E6.88.90.E5.8A.9F.E9.AA.8C.E8.AF.81"><b>步骤四：通过ready接口处理成功验证</b></span></h4>
+<pre>wx.ready(function(){
+
+    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+});
+
+</pre>
+        <p><br>
+        </p>
+        <h4> <span class="mw-headline" id=".E6.AD.A5.E9.AA.A4.E4.BA.94.EF.BC.9A.E9.80.9A.E8.BF.87error.E6.8E.A5.E5.8F.A3.E5.A4.84.E7.90.86.E5.A4.B1.E8.B4.A5.E9.AA.8C.E8.AF.81"><b>步骤五：通过error接口处理失败验证</b></span></h4>
+<pre>wx.error(function(res){
+
+    // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E6.8E.A5.E5.8F.A3.E8.B0.83.E7.94.A8.E8.AF.B4.E6.98.8E"><b>接口调用说明</b></span></h3>
+        <p>所有接口通过wx对象(也可使用jWeixin对象)来调用，参数是一个对象，除了每个接口本身需要传的参数之外，还有以下通用参数：
+        </p>
+        <ol><li> success：接口调用成功时执行的回调函数。
+        </li><li> fail：接口调用失败时执行的回调函数。
+        </li><li> complete：接口调用完成时执行的回调函数，无论成功或失败都会执行。
+        </li><li> cancel：用户点击取消时的回调函数，仅部分有用户取消操作的api才会用到。
+        </li><li> trigger: 监听Menu中的按钮点击时触发的方法，该方法仅支持Menu中的相关接口。
+        </li></ol>
+        <p>备注：<font style="color:red">不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回</font>。
+        </p><p><br>
+        以上几个函数都带有一个参数，类型为对象，其中除了每个接口本身返回的数据之外，还有一个通用属性errMsg，其值格式如下：
+    </p>
+        <ol><li> 调用成功时："xxx:ok" ，其中xxx为调用的接口名
+        </li><li> 用户取消时："xxx:cancel"，其中xxx为调用的接口名
+        </li><li> 调用失败时：其值为具体错误信息
+        </li></ol>
+        <h2> <span class="mw-headline" id=".E5.9F.BA.E7.A1.80.E6.8E.A5.E5.8F.A3"><b>基础接口</b></span></h2>
+        <h3> <span class="mw-headline" id=".E5.88.A4.E6.96.AD.E5.BD.93.E5.89.8D.E5.AE.A2.E6.88.B7.E7.AB.AF.E7.89.88.E6.9C.AC.E6.98.AF.E5.90.A6.E6.94.AF.E6.8C.81.E6.8C.87.E5.AE.9AJS.E6.8E.A5.E5.8F.A3"><b>判断当前客户端版本是否支持指定JS接口</b></span></h3>
+<pre>wx.checkJsApi({
+    jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+    success: function(res) {
+        // 以键值对的形式返回，可用的api值true，不可用为false
+        // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+    }
+});
+</pre>
+        <p>备注：checkJsApi接口是客户端6.0.2新引入的一个预留接口，第一期开放的接口均可不使用checkJsApi来检测。
+        </p>
+        <h2> <span class="mw-headline" id=".E5.88.86.E4.BA.AB.E6.8E.A5.E5.8F.A3"><b>分享接口</b></span></h2>
+        <p>请注意不要有诱导分享等违规行为，对于诱导分享行为将永久回收公众号接口权限，详细规则请查看：<a href="http://kf.qq.com/faq/131117ne2MV7141117JzI32q.html" class="external text" rel="nofollow" target="_blank">朋友圈管理常见问题</a> 。
+        </p>
+        <h3> <span class="mw-headline" id=".E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0.E6.9C.8B.E5.8F.8B.E5.9C.88.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3"><b>获取“分享到朋友圈”按钮点击状态及自定义分享内容接口</b></span></h3>
+<pre>wx.onMenuShareTimeline({
+    title: '', // 分享标题
+    link: '', // 分享链接
+    imgUrl: '', // 分享图标
+    success: function () { 
+        // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+    }
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E7.BB.99.E6.9C.8B.E5.8F.8B.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3"><b>获取“分享给朋友”按钮点击状态及自定义分享内容接口</b></span></h3>
+<pre>wx.onMenuShareAppMessage({
+    title: '', // 分享标题
+    desc: '', // 分享描述
+    link: '', // 分享链接
+    imgUrl: '', // 分享图标
+    type: '', // 分享类型,music、video或link，不填默认为link
+    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+    success: function () { 
+        // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+    }
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0QQ.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3"><b>获取“分享到QQ”按钮点击状态及自定义分享内容接口</b></span></h3>
+<pre>wx.onMenuShareQQ({
+    title: '', // 分享标题
+    desc: '', // 分享描述
+    link: '', // 分享链接
+    imgUrl: '', // 分享图标
+    success: function () { 
+       // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+       // 用户取消分享后执行的回调函数
+    }
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0.E8.85.BE.E8.AE.AF.E5.BE.AE.E5.8D.9A.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3"><b>获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口</b></span></h3>
+<pre>wx.onMenuShareWeibo({
+    title: '', // 分享标题
+    desc: '', // 分享描述
+    link: '', // 分享链接
+    imgUrl: '', // 分享图标
+    success: function () { 
+       // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+    }
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E8.8E.B7.E5.8F.96.E2.80.9C.E5.88.86.E4.BA.AB.E5.88.B0QQ.E7.A9.BA.E9.97.B4.E2.80.9D.E6.8C.89.E9.92.AE.E7.82.B9.E5.87.BB.E7.8A.B6.E6.80.81.E5.8F.8A.E8.87.AA.E5.AE.9A.E4.B9.89.E5.88.86.E4.BA.AB.E5.86.85.E5.AE.B9.E6.8E.A5.E5.8F.A3"><b>获取“分享到QQ空间”按钮点击状态及自定义分享内容接口</b></span></h3>
+<pre>wx.onMenuShareQZone({
+    title: '', // 分享标题
+    desc: '', // 分享描述
+    link: '', // 分享链接
+    imgUrl: '', // 分享图标
+    success: function () { 
+       // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+    }
+});
+</pre>
+        <h2> <span class="mw-headline" id=".E5.9B.BE.E5.83.8F.E6.8E.A5.E5.8F.A3"><b>图像接口</b></span></h2>
+        <h3> <span class="mw-headline" id=".E6.8B.8D.E7.85.A7.E6.88.96.E4.BB.8E.E6.89.8B.E6.9C.BA.E7.9B.B8.E5.86.8C.E4.B8.AD.E9.80.89.E5.9B.BE.E6.8E.A5.E5.8F.A3"><b>拍照或从手机相册中选图接口</b></span></h3>
+<pre>wx.chooseImage({
+    count: 1, // 默认9
+    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+    success: function (res) {
+        var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+    }
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E9.A2.84.E8.A7.88.E5.9B.BE.E7.89.87.E6.8E.A5.E5.8F.A3"><b>预览图片接口</b></span></h3>
+<pre>wx.previewImage({
+    current: '', // 当前显示图片的http链接
+    urls: [] // 需要预览的图片http链接列表
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E4.B8.8A.E4.BC.A0.E5.9B.BE.E7.89.87.E6.8E.A5.E5.8F.A3"><b>上传图片接口</b></span></h3>
+<pre>wx.uploadImage({
+    localId: '', // 需要上传的图片的本地ID，由chooseImage接口获得
+    isShowProgressTips: 1, // 默认为1，显示进度提示
+    success: function (res) {
+        var serverId = res.serverId; // 返回图片的服务器端ID
+    }
+});
+</pre>
+        <p>备注：上传图片有效期3天，可用微信多媒体接口下载图片到自己的服务器，此处获得的 serverId 即 media_id，参考文档
+            <a href="../12/58bfcfabbd501c7cd77c19bd9cfa8354.html" class="external free" rel="nofollow">../12/58bfcfabbd501c7cd77c19bd9cfa8354.html</a>
+            目前多媒体文件下载接口的频率限制为10000次/天，如需要调高频率，请邮件weixin-open@qq.com,邮件主题为【申请多媒体接口调用量】，请对你的项目进行简单描述，附上产品体验链接，并对用户量和使用量进行说明。
+        </p>
+        <h3> <span class="mw-headline" id=".E4.B8.8B.E8.BD.BD.E5.9B.BE.E7.89.87.E6.8E.A5.E5.8F.A3"><b>下载图片接口</b></span></h3>
+<pre>wx.downloadImage({
+    serverId: '', // 需要下载的图片的服务器端ID，由uploadImage接口获得
+    isShowProgressTips: 1, // 默认为1，显示进度提示
+    success: function (res) {
+        var localId = res.localId; // 返回图片下载后的本地ID
+    }
+});
+</pre>
+        <h2> <span class="mw-headline" id=".E9.9F.B3.E9.A2.91.E6.8E.A5.E5.8F.A3"><b>音频接口</b></span></h2>
+        <h3> <span class="mw-headline" id=".E5.BC.80.E5.A7.8B.E5.BD.95.E9.9F.B3.E6.8E.A5.E5.8F.A3"><b>开始录音接口</b></span></h3>
+<pre>wx.startRecord();
+</pre>
+        <h3> <span class="mw-headline" id=".E5.81.9C.E6.AD.A2.E5.BD.95.E9.9F.B3.E6.8E.A5.E5.8F.A3"><b>停止录音接口</b></span></h3>
+<pre>wx.stopRecord({
+    success: function (res) {
+        var localId = res.localId;
+    }
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E7.9B.91.E5.90.AC.E5.BD.95.E9.9F.B3.E8.87.AA.E5.8A.A8.E5.81.9C.E6.AD.A2.E6.8E.A5.E5.8F.A3"><b>监听录音自动停止接口</b></span></h3>
+<pre>wx.onVoiceRecordEnd({
+    // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+    complete: function (res) {
+        var localId = res.localId; 
+    }
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E6.92.AD.E6.94.BE.E8.AF.AD.E9.9F.B3.E6.8E.A5.E5.8F.A3"><b>播放语音接口</b></span></h3>
+<pre>wx.playVoice({
+    localId: '' // 需要播放的音频的本地ID，由stopRecord接口获得
+});
+</pre>
+        <p><br>
+        </p>
+        <h3> <span class="mw-headline" id=".E6.9A.82.E5.81.9C.E6.92.AD.E6.94.BE.E6.8E.A5.E5.8F.A3"><b>暂停播放接口</b></span></h3>
+<pre>wx.pauseVoice({
+    localId: '' // 需要暂停的音频的本地ID，由stopRecord接口获得
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E5.81.9C.E6.AD.A2.E6.92.AD.E6.94.BE.E6.8E.A5.E5.8F.A3"><b>停止播放接口</b></span></h3>
+<pre>wx.stopVoice({
+    localId: '' // 需要停止的音频的本地ID，由stopRecord接口获得
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E7.9B.91.E5.90.AC.E8.AF.AD.E9.9F.B3.E6.92.AD.E6.94.BE.E5.AE.8C.E6.AF.95.E6.8E.A5.E5.8F.A3"><b>监听语音播放完毕接口</b></span></h3>
+<pre>wx.onVoicePlayEnd({
+    success: function (res) {
+        var localId = res.localId; // 返回音频的本地ID
+    }
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E4.B8.8A.E4.BC.A0.E8.AF.AD.E9.9F.B3.E6.8E.A5.E5.8F.A3"><b>上传语音接口</b></span></h3>
+<pre>wx.uploadVoice({
+    localId: '', // 需要上传的音频的本地ID，由stopRecord接口获得
+    isShowProgressTips: 1, // 默认为1，显示进度提示
+        success: function (res) {
+        var serverId = res.serverId; // 返回音频的服务器端ID
+    }
+});
+</pre>
+        <p>备注：上传语音有效期3天，可用微信多媒体接口下载语音到自己的服务器，此处获得的 serverId 即 media_id，参考文档
+            <a href="../12/58bfcfabbd501c7cd77c19bd9cfa8354.html" class="external free" rel="nofollow">../12/58bfcfabbd501c7cd77c19bd9cfa8354.html</a>
+            目前多媒体文件下载接口的频率限制为10000次/天，如需要调高频率，请邮件weixin-open@qq.com,邮件主题为【申请多媒体接口调用量】，请对你的项目进行简单描述，附上产品体验链接，并对用户量和使用量进行说明。
+        </p>
+        <h3> <span class="mw-headline" id=".E4.B8.8B.E8.BD.BD.E8.AF.AD.E9.9F.B3.E6.8E.A5.E5.8F.A3"><b>下载语音接口</b></span></h3>
+<pre>wx.downloadVoice({
+    serverId: '', // 需要下载的音频的服务器端ID，由uploadVoice接口获得
+    isShowProgressTips: 1, // 默认为1，显示进度提示
+    success: function (res) {
+        var localId = res.localId; // 返回音频的本地ID
+    }
+});
+</pre>
+        <p><br>
+        </p>
+        <h2> <span class="mw-headline" id=".E6.99.BA.E8.83.BD.E6.8E.A5.E5.8F.A3"><b>智能接口</b></span></h2>
+        <h3> <span class="mw-headline" id=".E8.AF.86.E5.88.AB.E9.9F.B3.E9.A2.91.E5.B9.B6.E8.BF.94.E5.9B.9E.E8.AF.86.E5.88.AB.E7.BB.93.E6.9E.9C.E6.8E.A5.E5.8F.A3"><b>识别音频并返回识别结果接口</b></span></h3>
+<pre>wx.translateVoice({
+   localId: '', // 需要识别的音频的本地Id，由录音相关接口获得
+    isShowProgressTips: 1, // 默认为1，显示进度提示
+    success: function (res) {
+        alert(res.translateResult); // 语音识别的结果
+    }
+});
+</pre>
+        <h2> <span class="mw-headline" id=".E8.AE.BE.E5.A4.87.E4.BF.A1.E6.81.AF"><b>设备信息</b></span></h2>
+        <h3> <span class="mw-headline" id=".E8.8E.B7.E5.8F.96.E7.BD.91.E7.BB.9C.E7.8A.B6.E6.80.81.E6.8E.A5.E5.8F.A3"><b>获取网络状态接口</b></span></h3>
+<pre>wx.getNetworkType({
+    success: function (res) {
+        var networkType = res.networkType; // 返回网络类型2g，3g，4g，wifi
+    }
+});
+</pre>
+        <p><br>
+        </p>
+        <h2> <span class="mw-headline" id=".E5.9C.B0.E7.90.86.E4.BD.8D.E7.BD.AE"><b>地理位置</b></span></h2>
+        <h3> <span class="mw-headline" id=".E4.BD.BF.E7.94.A8.E5.BE.AE.E4.BF.A1.E5.86.85.E7.BD.AE.E5.9C.B0.E5.9B.BE.E6.9F.A5.E7.9C.8B.E4.BD.8D.E7.BD.AE.E6.8E.A5.E5.8F.A3"><b>使用微信内置地图查看位置接口</b></span></h3>
+<pre>wx.openLocation({
+    latitude: 0, // 纬度，浮点数，范围为90 ~ -90
+    longitude: 0, // 经度，浮点数，范围为180 ~ -180。
+    name: '', // 位置名
+    address: '', // 地址详情说明
+    scale: 1, // 地图缩放级别,整形值,范围从1~28。默认为最大
+    infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E8.8E.B7.E5.8F.96.E5.9C.B0.E7.90.86.E4.BD.8D.E7.BD.AE.E6.8E.A5.E5.8F.A3"><b>获取地理位置接口</b></span></h3>
+<pre>wx.getLocation({
+    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+    success: function (res) {
+        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+        var speed = res.speed; // 速度，以米/每秒计
+        var accuracy = res.accuracy; // 位置精度
+    }
+});
+</pre>
+        <h2> <span class="mw-headline" id=".E7.95.8C.E9.9D.A2.E6.93.8D.E4.BD.9C"><b>界面操作</b></span></h2>
+        <h3> <span class="mw-headline" id=".E9.9A.90.E8.97.8F.E5.8F.B3.E4.B8.8A.E8.A7.92.E8.8F.9C.E5.8D.95.E6.8E.A5.E5.8F.A3"><b>隐藏右上角菜单接口</b></span></h3>
+<pre>wx.hideOptionMenu();
+</pre>
+        <h3> <span class="mw-headline" id=".E6.98.BE.E7.A4.BA.E5.8F.B3.E4.B8.8A.E8.A7.92.E8.8F.9C.E5.8D.95.E6.8E.A5.E5.8F.A3"><b>显示右上角菜单接口</b></span></h3>
+<pre>wx.showOptionMenu();
+</pre>
+        <h3> <span class="mw-headline" id=".E5.85.B3.E9.97.AD.E5.BD.93.E5.89.8D.E7.BD.91.E9.A1.B5.E7.AA.97.E5.8F.A3.E6.8E.A5.E5.8F.A3"><b>关闭当前网页窗口接口</b></span></h3>
+<pre>wx.closeWindow();
+</pre>
+        <h3> <span class="mw-headline" id=".E6.89.B9.E9.87.8F.E9.9A.90.E8.97.8F.E5.8A.9F.E8.83.BD.E6.8C.89.E9.92.AE.E6.8E.A5.E5.8F.A3"><b>批量隐藏功能按钮接口</b></span></h3>
+<pre>wx.hideMenuItems({
+    menuList: [] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E6.89.B9.E9.87.8F.E6.98.BE.E7.A4.BA.E5.8A.9F.E8.83.BD.E6.8C.89.E9.92.AE.E6.8E.A5.E5.8F.A3"><b>批量显示功能按钮接口</b></span></h3>
+<pre>wx.showMenuItems({
+    menuList: [] // 要显示的菜单项，所有menu项见附录3
+});
+</pre>
+        <h3> <span class="mw-headline" id=".E9.9A.90.E8.97.8F.E6.89.80.E6.9C.89.E9.9D.9E.E5.9F.BA.E7.A1.80.E6.8C.89.E9.92.AE.E6.8E.A5.E5.8F.A3"><b>隐藏所有非基础按钮接口</b></span></h3>
+<pre>wx.hideAllNonBaseMenuItem();
+// “基本类”按钮详见附录3
+</pre>
+        <h3> <span class="mw-headline" id=".E6.98.BE.E7.A4.BA.E6.89.80.E6.9C.89.E5.8A.9F.E8.83.BD.E6.8C.89.E9.92.AE.E6.8E.A5.E5.8F.A3"><b>显示所有功能按钮接口</b></span></h3>
+<pre>wx.showAllNonBaseMenuItem();
+</pre>
+        <h2> <span class="mw-headline" id=".E5.BE.AE.E4.BF.A1.E6.89.AB.E4.B8.80.E6.89.AB"><b>微信扫一扫</b></span></h2>
+        <h3> <span class="mw-headline" id=".E8.B0.83.E8.B5.B7.E5.BE.AE.E4.BF.A1.E6.89.AB.E4.B8.80.E6.89.AB.E6.8E.A5.E5.8F.A3"><b>调起微信扫一扫接口</b></span></h3>
+<pre>wx.scanQRCode({
+    needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+    scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+    success: function (res) {
+    var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+}
+});
+</pre>
+        <h2> <span class="mw-headline" id=".E5.BE.AE.E4.BF.A1.E5.B0.8F.E5.BA.97"><b>微信小店</b></span></h2>
+        <h3> <span class="mw-headline" id=".E8.B7.B3.E8.BD.AC.E5.BE.AE.E4.BF.A1.E5.95.86.E5.93.81.E9.A1.B5.E6.8E.A5.E5.8F.A3"><b>跳转微信商品页接口</b></span></h3>
+<pre>wx.openProductSpecificView({
+    productId: '', // 商品id
+    viewType: '' // 0.默认值，普通商品详情页1.扫一扫商品详情页2.小店商品详情页
+});
+</pre>
+        <p><br>
+        </p>
+        <h2> <span class="mw-headline" id=".E5.BE.AE.E4.BF.A1.E5.8D.A1.E5.88.B8"><b>微信卡券</b></span></h2>
+        <p>微信卡券接口中使用的签名凭证api_ticket，与步骤三中config使用的签名凭证jsapi_ticket不同，开发者在调用微信卡券JS-SDK的过程中需依次完成两次不同的签名，并确保凭证的缓存。
+        </p>
+        <h3> <span class="mw-headline" id=".E8.8E.B7.E5.8F.96api_ticket"><b>获取api_ticket</b></span></h3>
+        <p>api_ticket 是用于调用微信卡券JS API的临时票据，有效期为7200 秒，通过access_token
+            来获取。
+        </p><p>开发者注意事项：
+    </p><p><font color="#FF0000">
+        1.此用于卡券接口签名的api_ticket与步骤三中<a href="../7/aaa137b55fb2e0456bf8dd9148dd613f.html#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E9.80.9A.E8.BF.87config.E6.8E.A5.E5.8F.A3.E6.B3.A8.E5.85.A5.E6.9D.83.E9.99.90.E9.AA.8C.E8.AF.81.E9.85.8D.E7.BD.AE" class="external text" rel="nofollow">通过config接口注入权限验证配置</a>使用的jsapi_ticket不同。
+    </font>
+    </p><p>2.由于获取api_ticket 的api 调用次数非常有限，频繁刷新api_ticket 会导致api调用受限，影响自身业务，开发者需在自己的服务存储与更新api_ticket。
+    </p><p><b>接口调用请求说明</b>
+    </p>
+<pre>http请求方式: GET
+<a href="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&amp;type=wx_card" class="external free" rel="nofollow" target="_blank">https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&amp;type=wx_card</a>
+</pre>
+        <p><b>参数说明</b>
+        </p>
+        <table border="1" cellspacing="0" cellpadding="2" align="center" width="700px">
+            <tbody><tr>
+                <th style="width:120px">参数
+                </th>
+                <th style="width:120px">是否必须
+                </th>
+                <th>说明
+                </th></tr>
+            <tr>
+                <td> access_token
+                </td>
+                <td> 是
+                </td>
+                <td> 调用接口凭证
+                </td></tr>
+            </tbody></table>
+        <p><b>返回数据</b>
+        </p><p>数据示例：
+    </p>
+<pre> {
+"errcode":0,
+"errmsg":"ok",
+"ticket":"bxLdikRXVbTPdHSM05e5u5sUoXNKdvsdshFKA",
+"expires_in":7200
+}
+</pre>
+        <table border="1" cellspacing="0" cellpadding="7" align="center" width="700px">
+            <tbody><tr>
+                <th style="width:350px">参数名
+                </th>
+                <th>描述
+                </th></tr>
+            <tr>
+                <td> errcode
+                </td>
+                <td> 错误码
+                </td></tr>
+            <tr>
+                <td> errmsg
+                </td>
+                <td>错误信息
+                </td></tr>
+            <tr>
+                <td> ticket
+                </td>
+                <td> api_ticket，卡券接口中签名所需凭证
+                </td></tr>
+            <tr>
+                <td> expires_in
+                </td>
+                <td> 有效时间
+                </td></tr>
+            </tbody></table>
+        <h3> <span class="mw-headline" id=".E6.8B.89.E5.8F.96.E9.80.82.E7.94.A8.E5.8D.A1.E5.88.B8.E5.88.97.E8.A1.A8.E5.B9.B6.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E9.80.89.E6.8B.A9.E4.BF.A1.E6.81.AF"><b>拉取适用卡券列表并获取用户选择信息</b></span></h3>
+<pre>wx.chooseCard({
+    shopId: '', // 门店Id
+    cardType: '', // 卡券类型
+    cardId: '', // 卡券Id
+    timestamp: 0, // 卡券签名时间戳
+    nonceStr: '', // 卡券签名随机串
+    signType: '', // 签名方式，默认'SHA1'
+    cardSign: '', // 卡券签名
+    success: function (res) {
+        var cardList= res.cardList; // 用户选中的卡券列表信息
+    }
+});
+</pre>
+        <table border="1" cellspacing="0" cellpadding="2" align="center" width="700px">
+            <tbody><tr>
+                <th style="width:100px">参数名
+                </th>
+                <th>必填
+                </th>
+                <th>类型
+                </th>
+                <th>示例值
+                </th>
+                <th>描述
+                </th></tr>
+            <tr>
+                <td>shopId
+                </td>
+                <td>否
+                </td>
+                <td>string(24)
+                </td>
+                <td>1234
+                </td>
+                <td>门店ID。shopID用于筛选出拉起带有指定location_list(shopID)的卡券列表，非必填。
+                </td></tr>
+            <tr>
+                <td>cardType
+                </td>
+                <td>否
+                </td>
+                <td> string(24)
+                </td>
+                <td>GROUPON
+                </td>
+                <td>卡券类型，用于拉起指定卡券类型的卡券列表。当cardType为空时，默认拉起所有卡券的列表，非必填。
+                </td></tr>
+            <tr>
+                <td>cardId
+                </td>
+                <td>否
+                </td>
+                <td> string(32)
+                </td>
+                <td>p1Pj9jr90_SQRaVqYI239Ka1erk
+                </td>
+                <td>卡券ID，用于拉起指定cardId的卡券列表，当cardId为空时，默认拉起所有卡券的列表，非必填。
+                </td></tr>
+            <tr>
+                <td>timestamp
+                </td>
+                <td>是
+                </td>
+                <td> string(32)
+                </td>
+                <td> 14300000000
+                </td>
+                <td>时间戳。
+                </td></tr>
+            <tr>
+                <td>nonceStr
+                </td>
+                <td>是
+                </td>
+                <td> string(32)
+                </td>
+                <td>sduhi123
+                </td>
+                <td>随机字符串。
+                </td></tr>
+            <tr>
+                <td>signType
+                </td>
+                <td>是
+                </td>
+                <td> string(32)
+                </td>
+                <td>SHA1
+                </td>
+                <td>签名方式，目前仅支持SHA1
+                </td></tr>
+            <tr>
+                <td>cardSign
+                </td>
+                <td>是
+                </td>
+                <td> string(64)
+                </td>
+                <td>abcsdijcous123
+                </td>
+                <td>签名。
+                </td></tr>
+            </tbody></table>
+        <p>cardSign详见<a href="../7/aaa137b55fb2e0456bf8dd9148dd613f.html#.E9.99.84.E5.BD.954-.E5.8D.A1.E5.88.B8.E6.89.A9.E5.B1.95.E5.AD.97.E6.AE.B5.E5.8F.8A.E7.AD.BE.E5.90.8D.E7.94.9F.E6.88.90.E7.AE.97.E6.B3.95" class="external text" rel="nofollow">附录4</a>。开发者特别注意：签名错误会导致拉取卡券列表异常为空，请仔细检查参与签名的参数有效性。
+        </p><p><b>特别提醒</b>
+    </p><p>拉取列表仅与用户本地卡券有关，拉起列表异常为空的情况通常有三种：签名错误、时间戳无效、筛选机制有误。请开发者依次排查定位原因。
+    </p>
+        <h3> <span class="mw-headline" id=".E6.89.B9.E9.87.8F.E6.B7.BB.E5.8A.A0.E5.8D.A1.E5.88.B8.E6.8E.A5.E5.8F.A3"><b>批量添加卡券接口</b></span></h3>
+<pre>wx.addCard({
+    cardList: [{
+        cardId: '',
+        cardExt: ''
+    }], // 需要添加的卡券列表
+    success: function (res) {
+        var cardList = res.cardList; // 添加的卡券列表信息
+    }
+});
+</pre>
+        <p>cardExt详见<a href="../7/aaa137b55fb2e0456bf8dd9148dd613f.html#.E9.99.84.E5.BD.954-.E5.8D.A1.E5.88.B8.E6.89.A9.E5.B1.95.E5.AD.97.E6.AE.B5.E5.8F.8A.E7.AD.BE.E5.90.8D.E7.94.9F.E6.88.90.E7.AE.97.E6.B3.95" class="external text" rel="nofollow">附录4</a>，值得注意的是，这里的card_ext参数必须与参与签名的参数一致，格式为字符串而不是Object，否则会报签名错误。
+        </p>
+        <h3> <span class="mw-headline" id=".E6.9F.A5.E7.9C.8B.E5.BE.AE.E4.BF.A1.E5.8D.A1.E5.8C.85.E4.B8.AD.E7.9A.84.E5.8D.A1.E5.88.B8.E6.8E.A5.E5.8F.A3"><b>查看微信卡包中的卡券接口</b></span></h3>
+<pre>wx.openCard({
+    cardList: [{
+        cardId: '',
+        code: ''
+    }]// 需要打开的卡券列表
+});
+</pre>
+        <h2> <span class="mw-headline" id=".E5.BE.AE.E4.BF.A1.E6.94.AF.E4.BB.98"><b>微信支付</b></span></h2>
+        <h3> <span class="mw-headline" id=".E5.8F.91.E8.B5.B7.E4.B8.80.E4.B8.AA.E5.BE.AE.E4.BF.A1.E6.94.AF.E4.BB.98.E8.AF.B7.E6.B1.82"><b>发起一个微信支付请求</b></span></h3>
+<pre>wx.chooseWXPay({
+    timestamp: 0, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+    nonceStr: '', // 支付签名随机串，不长于 32 位
+    package: '', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+    signType: '', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+    paySign: '', // 支付签名
+    success: function (res) {
+        // 支付成功后的回调函数
+    }
+});
+</pre>
+        <p>备注：prepay_id 通过微信支付统一下单接口拿到，paySign 采用统一的微信支付 Sign 签名生成方法，注意这里 appId 也要参与签名，appId 与 config 中传入的 appId 一致，即最后参与签名的参数有appId, timeStamp, nonceStr, package, signType。
+        </p><p>微信支付开发文档：<a href="https://pay.weixin.qq.com/wiki/doc/api/index.html" class="external free" rel="nofollow" target="_blank">https://pay.weixin.qq.com/wiki/doc/api/index.html</a>
+    </p>
+        <h2> <span class="mw-headline" id=".E9.99.84.E5.BD.951-JS-SDK.E4.BD.BF.E7.94.A8.E6.9D.83.E9.99.90.E7.AD.BE.E5.90.8D.E7.AE.97.E6.B3.95"><b>附录1-JS-SDK使用权限签名算法</b></span></h2>
+        <p><b>jsapi_ticket</b>
+        </p><p>生成签名之前必须先了解一下jsapi_ticket，jsapi_ticket是公众号用于调用微信JS接口的临时票据。正常情况下，<font color="red">jsapi_ticket的有效期为7200秒</font>，通过access_token来获取。由于获取jsapi_ticket的api调用次数非常有限，频繁刷新jsapi_ticket会导致api调用受限，影响自身业务，<font color="red">开发者必须在自己的服务全局缓存jsapi_ticket</font> 。
+    </p>
+        <ol><li> 参考以下文档获取access_token（<font color="red">有效期7200秒，开发者必须在自己的服务全局缓存access_token</font>）：<a href="../15/54ce45d8d30b6bf6758f68d2e95bc627.html" class="external free" rel="nofollow">../15/54ce45d8d30b6bf6758f68d2e95bc627.html</a>
+        </li><li> 用第一步拿到的access_token 采用http GET方式请求获得jsapi_ticket（<font color="red">有效期7200秒，开发者必须在自己的服务全局缓存jsapi_ticket</font>）：<a href="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&amp;type=jsapi" class="external free" rel="nofollow" target="_blank">https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&amp;type=jsapi</a>
+        </li></ol>
+        <p>成功返回如下JSON：
+        </p>
+<pre>{
+"errcode":0,
+"errmsg":"ok",
+"ticket":"bxLdikRXVbTPdHSM05e5u5sUoXNKd8-41ZO3MhKoyN5OfkWITDGgnr2fwJ0m9E8NYzWKVZvdVtaUgWvsdshFKA",
+"expires_in":7200
+}
+</pre>
+        <p>获得jsapi_ticket之后，就可以生成JS-SDK权限验证的签名了。
+        </p><p><br>
+    </p><p><b>签名算法</b>
+    </p><p>签名生成规则如下：参与签名的字段包括noncestr（随机字符串）, 有效的jsapi_ticket, timestamp（时间戳）, url（当前网页的URL，<font color="red">不包含#及其后面部分</font>） 。对所有待签名参数按照字段名的ASCII 码从小到大排序（字典序）后，使用URL键值对的格式（即key1=value1&amp;key2=value2…）拼接成字符串string1。这里需要注意的是所有参数名均为小写字符。对string1作sha1加密，字段名和字段值都采用原始值，不进行URL 转义。
+    </p><p><br>
+        即signature=sha1(string1)。
+        示例：
+    </p>
+        <ul><li> noncestr=Wm3WZYTPz0wzccnW
+        </li><li> jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg
+        </li><li> timestamp=1414587457
+        </li><li> url=<a href="http://mp.weixin.qq.com?params=value" class="external free" rel="nofollow" target="_blank">http://mp.weixin.qq.com?params=value</a>
+        </li></ul>
+        <p><br>
+            步骤1. 对所有待签名参数按照字段名的ASCII 码从小到大排序（字典序）后，使用URL键值对的格式（即key1=value1&amp;key2=value2…）拼接成字符串string1：
+        </p>
+<pre>jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg&amp;noncestr=Wm3WZYTPz0wzccnW&amp;timestamp=1414587457&amp;url=http://mp.weixin.qq.com?params=value
+</pre>
+        <p><br>
+            步骤2. 对string1进行sha1签名，得到signature：
+        </p>
+<pre>0f9de62fce790f9a083d5c99e95740ceb90c27ed
+</pre>
+        <p>注意事项
+        </p>
+        <ol><li> 签名用的noncestr和timestamp必须与wx.config中的nonceStr和timestamp相同。
+        </li><li> 签名用的url必须是调用JS接口页面的完整URL。
+        </li><li> <font color="red">出于安全考虑，开发者必须在服务器端实现签名的逻辑</font>。
+        </li></ol>
+        <p><br>
+            如出现invalid signature 等错误详见附录5常见错误及解决办法。
+        </p>
+        <h2> <span class="mw-headline" id=".E9.99.84.E5.BD.952-.E6.89.80.E6.9C.89JS.E6.8E.A5.E5.8F.A3.E5.88.97.E8.A1.A8"><b>附录2-所有JS接口列表</b></span></h2>
+        <p>版本1.0.0接口
+        </p>
+        <ul><li> onMenuShareTimeline
+        </li><li> onMenuShareAppMessage
+        </li><li> onMenuShareQQ
+        </li><li> onMenuShareWeibo
+        </li><li> onMenuShareQZone
+        </li><li> startRecord
+        </li><li> stopRecord
+        </li><li> onVoiceRecordEnd
+        </li><li> playVoice
+        </li><li> pauseVoice
+        </li><li> stopVoice
+        </li><li> onVoicePlayEnd
+        </li><li> uploadVoice
+        </li><li> downloadVoice
+        </li><li> chooseImage
+        </li><li> previewImage
+        </li><li> uploadImage
+        </li><li> downloadImage
+        </li><li> translateVoice
+        </li><li> getNetworkType
+        </li><li> openLocation
+        </li><li> getLocation
+        </li><li> hideOptionMenu
+        </li><li> showOptionMenu
+        </li><li> hideMenuItems
+        </li><li> showMenuItems
+        </li><li> hideAllNonBaseMenuItem
+        </li><li> showAllNonBaseMenuItem
+        </li><li> closeWindow
+        </li><li> scanQRCode
+        </li><li> chooseWXPay
+        </li><li> openProductSpecificView
+        </li><li> addCard
+        </li><li> chooseCard
+        </li><li> openCard
+        </li></ul>
+        <h2> <span class="mw-headline" id=".E9.99.84.E5.BD.953-.E6.89.80.E6.9C.89.E8.8F.9C.E5.8D.95.E9.A1.B9.E5.88.97.E8.A1.A8"><b>附录3-所有菜单项列表</b></span></h2>
+        <p>基本类
+        </p>
+        <ul><li> 举报: "menuItem:exposeArticle"
+        </li><li> 调整字体: "menuItem:setFont"
+        </li><li> 日间模式: "menuItem:dayMode"
+        </li><li> 夜间模式: "menuItem:nightMode"
+        </li><li> 刷新: "menuItem:refresh"
+        </li><li> 查看公众号（已添加）: "menuItem:profile"
+        </li><li> 查看公众号（未添加）: "menuItem:addContact"
+        </li></ul>
+        <p>传播类
+        </p>
+        <ul><li> 发送给朋友: "menuItem:share:appMessage"
+        </li><li> 分享到朋友圈: "menuItem:share:timeline"
+        </li><li> 分享到QQ: "menuItem:share:qq"
+        </li><li> 分享到Weibo: "menuItem:share:weiboApp"
+        </li><li> 收藏: "menuItem:favorite"
+        </li><li> 分享到FB: "menuItem:share:facebook"
+        </li><li> 分享到 QQ 空间/menuItem:share:QZone
+        </li></ul>
+        <p>保护类
+        </p>
+        <ul><li> 编辑标签: "menuItem:editTag"
+        </li><li> 删除: "menuItem:delete"
+        </li><li> 复制链接: "menuItem:copyUrl"
+        </li><li> 原网页: "menuItem:originPage"
+        </li><li> 阅读模式: "menuItem:readMode"
+        </li><li> 在QQ浏览器中打开: "menuItem:openWithQQBrowser"
+        </li><li> 在Safari中打开: "menuItem:openWithSafari"
+        </li><li> 邮件: "menuItem:share:email"
+        </li><li> 一些特殊公众号: "menuItem:share:brand"
+        </li></ul>
+        <h2> <span class="mw-headline" id=".E9.99.84.E5.BD.954-.E5.8D.A1.E5.88.B8.E6.89.A9.E5.B1.95.E5.AD.97.E6.AE.B5.E5.8F.8A.E7.AD.BE.E5.90.8D.E7.94.9F.E6.88.90.E7.AE.97.E6.B3.95"><b>附录4-卡券扩展字段及签名生成算法</b></span></h2>
+        <p><b>JSSDK使用者请读这里，JSAPI用户可以跳过</b>
+        </p><p><font color="red">卡券签名和JSSDK的签名完全独立，两者的算法和意义完全不同，请不要混淆。</font>JSSDK的签名是使用所有JS接口都需要走的一层鉴权，用以标识调用者的身份，和卡券本身并无关系。其次，卡券的签名考虑到协议的扩展性和简单的防数据擅改，设计了一套独立的签名协议。另外由于历史原因，卡券的JS接口先于JSSDK出现，当时的JSAPI并没有鉴权体系，所以在卡券的签名里也加上了appsecret/api_ticket这些身份信息，希望开发者理解。
+    </p><p><br>
+        <b>卡券 api_ticket</b>
+    </p><p>卡券 api_ticket 是用于调用卡券相关接口的临时票据，有效期为 7200 秒，通过 access_token 来获取。这里要注意与 jsapi_ticket 区分开来。由于获取卡券 api_ticket 的 api 调用次数非常有限，频繁刷新卡券 api_ticket 会导致 api 调用受限，影响自身业务，<font color="red">开发者必须在自己的服务全局缓存卡券 api_ticket </font>。
+    </p>
+        <ol><li> 参考以下文档获取access_token（<font color="red">有效期7200秒，开发者必须在自己的服务全局缓存access_token</font>）：<a href="../15/54ce45d8d30b6bf6758f68d2e95bc627.html" class="external free" rel="nofollow">../15/54ce45d8d30b6bf6758f68d2e95bc627.html</a>
+        </li><li> 用第一步拿到的access_token 采用http GET方式请求获得卡券 api_ticket（<font color="red">有效期7200秒，开发者必须在自己的服务全局缓存卡券 api_ticket</font>）：<a href="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&amp;type=wx_card" class="external text" rel="nofollow" target="_blank">https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&amp;<font color="red">type=wx_card</font></a>
+        </li></ol>
+        <p><br>
+        </p><p><b>卡券扩展字段cardExt说明</b>
+    </p><p>cardExt本身是一个JSON字符串，是商户为该张卡券分配的唯一性信息，包含以下字段：
+    </p>
+        <table class="wikitable">
+            <tbody><tr>
+                <th style="width:10px">字段
+                </th>
+                <th>是否必填
+                </th>
+                <th>说明
+                </th></tr>
+            <tr>
+                <td> code
+                </td>
+                <td> 否
+                </td>
+                <td> 指定的卡券code码，只能被领一次。<font color="red">use_custom_code字段为true的卡券必须填写，非自定义code不必填写</font>。
+                </td></tr>
+            <tr>
+                <td> openid
+                </td>
+                <td> 否
+                </td>
+                <td> 指定领取者的openid，只有该用户能领取。<font color="red">bind_openid字段为true的卡券必须填写，bind_openid字段为false不必填写</font>。
+                </td></tr>
+            <tr>
+                <td> timestamp
+                </td>
+                <td> 是
+                </td>
+                <td> 时间戳，商户生成从1970年1月1日00:00:00至今的秒数,即<font color="red">当前的时间</font>,且最终需要转换为字符串形式;由商户生成后传入。
+                </td></tr>
+            <tr>
+                <td> nonce_str
+                </td>
+                <td> 否
+                </td>
+                <td> 随机字符串，由开发者设置传入，加强签名的安全性。随机字符串，不长于32位。推荐使用大小写字母和数字。
+                </td></tr>
+            <tr>
+                <td> signature
+                </td>
+                <td> 是
+                </td>
+                <td> 签名，商户将接口列表中的参数按照指定方式进行签名,签名方式使用SHA1,具体签名方案参见下文;由商户按照规范签名后传入。
+                </td></tr>
+            </tbody></table>
+        <p><b>签名说明</b>
+        </p>
+        <ol><li> 将 api_ticket（特别说明：api_ticket 相较 appsecret 安全性更高，同时兼容老版本文档中使用的 appsecret 作为签名凭证。）、timestamp、card_id、code、openid、nonce_str的value值进行字符串的字典序排序。
+        </li><li> 将所有参数字符串拼接成一个字符串进行sha1加密，得到signature。
+        </li><li> signature中的timestamp，nonce字段和card_ext中的timestamp，nonce_str字段必须保持一致。
+        </li><li> code=jonyqin_1434008071，timestamp=1404896688，card_id=pjZ8Yt1XGILfi-FUsewpnnolGgZk， api_ticket=ojZ8YtyVyr30HheH3CM73y7h4jJE ，nonce_str=jonyqin 则signature=sha1(1404896688jonyqinjonyqin_1434008071ojZ8YtyVyr30HheH3CM73y7h4jJE pjZ8Yt1XGILfi-FUsewpnnolGgZk)=6b81fbf6af16e856334153b39737556063c82689。
+        </li></ol>
+        <p><b>强烈建议开发者使用卡券资料包中的签名工具SDK进行签名或使用debug工具进行校验</b>：<a href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=cardsign" class="external free" rel="nofollow" target="_blank">http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=cardsign</a>
+        </p><p><b>卡券签名cardSign说明</b>
+    </p>
+        <ol><li> 将 api_ticket（特别说明：api_ticket 相较 appsecret 安全性更高，同时兼容老版本文档中使用的 appsecret 作为签名凭证。）、app_id、location_id、times_tamp、nonce_str、card_id、card_type的value值进行字符串的字典序排序。
+        </li><li> 将所有参数字符串拼接成一个字符串进行sha1加密，得到cardSign。
+        </li></ol>
+        <h2> <span class="mw-headline" id=".E9.99.84.E5.BD.955-.E5.B8.B8.E8.A7.81.E9.94.99.E8.AF.AF.E5.8F.8A.E8.A7.A3.E5.86.B3.E6.96.B9.E6.B3.95"><b>附录5-常见错误及解决方法</b></span></h2>
+        <p>调用config 接口的时候传入参数 debug: true 可以开启debug模式，页面会alert出错误信息。以下为常见错误及解决方法：
+        </p>
+        <ol><li> invalid url domain当前页面所在域名与使用的appid没有绑定，请确认正确填写绑定的域名，如果使用了端口号，则配置的绑定域名也要加上端口号（一个appid可以绑定三个有效域名，见<a href="#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E7.BB.91.E5.AE.9A.E5.9F.9F.E5.90.8D"> 目录1.1.1</a>）。
+        </li><li> invalid signature签名错误。建议按如下顺序检查：
+            <ol><li> 确认签名算法正确，可用 <a href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign" class="external free" rel="nofollow" target="_blank">http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign</a> 页面工具进行校验。
+            </li><li> 确认config中nonceStr（js中驼峰标准大写S）, timestamp与用以签名中的对应noncestr, timestamp一致。
+            </li><li> 确认url是页面完整的url(请在当前页面alert(location.href.split('#')[0])确认)，包括'http(s)://'部分，以及'？'后面的GET参数部分,但不包括'#'hash后面的部分。
+            </li><li> 确认 config 中的 appid 与用来获取 jsapi_ticket 的 appid 一致。
+            </li><li> 确保一定缓存access_token和jsapi_ticket。
+            </li><li> <font style="color:red">确保你获取用来签名的url是动态获取的，动态页面可参见实例代码中php的实现方式。如果是html的静态页面在前端通过ajax将url传到后台签名，前端需要用js获取当前页面除去'#'hash部分的链接（可用location.href.split('#')[0]获取,而且需要encodeURIComponent），因为页面一旦分享，微信客户端会在你的链接末尾加入其它参数，如果不是动态获取当前链接，将导致分享后的页面签名失败</font>。
+            </li></ol>
+        </li><li> the permission value is offline verifying这个错误是因为config没有正确执行，或者是调用的JSAPI没有传入config的jsApiList参数中。建议按如下顺序检查：
+            <ol><li> 确认config正确通过。
+            </li><li> 如果是在页面加载好时就调用了JSAPI，则必须写在wx.ready的回调中。
+            </li><li> 确认config的jsApiList参数包含了这个JSAPI。
+            </li></ol>
+        </li><li> permission denied该公众号没有权限使用这个JSAPI，或者是调用的JSAPI没有传入config的jsApiList参数中（部分接口需要认证之后才能使用）。
+        </li><li> function not exist当前客户端版本不支持该接口，请升级到新版体验。
+        </li><li> 为什么6.0.1版本config:ok，但是6.0.2版本之后不ok（因为6.0.2版本之前没有做权限验证，所以config都是ok，但这并不意味着你config中的签名是OK的，请在6.0.2检验是否生成正确的签名以保证config在高版本中也ok。）
+        </li><li> 在iOS和Android都无法分享（请确认公众号已经认证，只有认证的公众号才具有分享相关接口权限，如果确实已经认证，则要检查监听接口是否在wx.ready回调函数中触发）
+        </li><li> 服务上线之后无法获取jsapi_ticket，自己测试时没问题。（因为access_token和jsapi_ticket必须要在自己的服务器缓存，否则上线后会触发频率限制。请确保一定对token和ticket做缓存以减少2次服务器请求，不仅可以避免触发频率限制，还加快你们自己的服务速度。目前为了方便测试提供了1w的获取量，超过阀值后，服务将不再可用，请确保在<font style="color:red">服务上线前一定全局缓存access_token和jsapi_ticket，两者有效期均为7200秒，否则一旦上线触发频率限制，服务将不再可用</font>）。
+        </li><li> uploadImage怎么传多图（目前只支持一次上传一张，多张图片需等前一张图片上传之后再调用该接口）
+        </li><li> 没法对本地选择的图片进行预览（chooseImage接口本身就支持预览，不需要额外支持）
+        </li><li> 通过a链接(例如先通过微信授权登录)跳转到b链接，invalid signature签名失败（后台生成签名的链接为使用jssdk的当前链接，也就是跳转后的b链接，请不要用微信登录的授权链接进行签名计算，后台签名的url一定是使用jssdk的当前页面的完整url除去'#'部分）
+        </li><li> 出现config:fail错误（这是由于传入的config参数不全导致，请确保传入正确的appId、timestamp、nonceStr、signature和需要使用的jsApiList）
+        </li><li> 如何把jsapi上传到微信的多媒体资源下载到自己的服务器（请参见文档中uploadVoice和uploadImage接口的备注说明）
+        </li><li> Android通过jssdk上传到微信服务器，第三方再从微信下载到自己的服务器，会出现杂音（微信团队已经修复此问题，目前后台已优化上线）
+        </li><li> 绑定父级域名，是否其子域名也是可用的（是的，合法的子域名在绑定父域名之后是完全支持的）
+        </li><li> 在iOS微信6.1版本中，分享的图片外链不显示，只能显示公众号页面内链的图片或者微信服务器的图片，已在6.2中修复
+        </li><li> 是否需要对低版本自己做兼容（jssdk都是兼容低版本的，不需要第三方自己额外做更多工作，但有的接口是6.0.2新引入的，只有新版才可调用）
+        </li><li> 该公众号支付签名无效，无法发起该笔交易（请确保你使用的jweixin.js是官方线上版本，不仅可以减少用户流量，还有可能对某些bug进行修复，拷贝到第三方服务器中使用，官方将不对其出现的任何问题提供保障，具体支付签名算法可参考<a href="#.E5.BE.AE.E4.BF.A1.E6.94.AF.E4.BB.98"> JSSDK微信支付一栏</a>）
+        </li><li> 目前Android微信客户端不支持pushState的H5新特性，所以使用pushState来实现web app的页面会导致签名失败，此问题已在Android6.2中修复
+        </li><li> uploadImage在chooseImage的回调中有时候Android会不执行，Android6.2会解决此问题，若需支持低版本可以把调用uploadImage放在setTimeout中延迟100ms解决
+        </li><li> require subscribe错误说明你没有订阅该测试号，该错误仅测试号会出现
+        </li><li> getLocation返回的坐标在openLocation有偏差，因为getLocation返回的是gps坐标，openLocation打开的腾讯地图为火星坐标，需要第三方自己做转换，6.2版本开始已经支持直接获取火星坐标
+        </li><li> 查看公众号（未添加）:&nbsp;"menuItem:addContact"不显示，目前仅有从公众号传播出去的链接才能显示，来源必须是公众号
+        </li></ol>
+        <h2> <span class="mw-headline" id=".E9.99.84.E5.BD.956-DEMO.E9.A1.B5.E9.9D.A2.E5.92.8C.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81"><b>附录6-DEMO页面和示例代码</b></span></h2>
+        <p><b>DEMO页面</b>：
+        </p><p><a href="http://demo.open.weixin.qq.com/jssdk" class="external free" rel="nofollow" target="_blank">http://demo.open.weixin.qq.com/jssdk</a>
+    </p>
+        <div class="center"><div class="floatnone"><a href="#" class="image"><img alt="Jssdk demo001.png" src="../static/assets/e5afe45f8fe7b17bb1534be0545704ab.png" width="250" height="247"></a></div></div>
+        <p><br>
+            <b>示例代码</b>：
+        </p><p><a href="http://demo.open.weixin.qq.com/jssdk/sample.zip" class="external free" rel="nofollow" target="_blank">http://demo.open.weixin.qq.com/jssdk/sample.zip</a>
+    </p><p>备注：链接中包含<font color="red">php、java、nodejs以及python</font>的示例代码供第三方参考，第三方<font color="red">切记要对获取的accesstoken以及jsapi_ticket进行缓存</font>以确保不会触发频率限制。
+    </p>
+        <h2> <span class="mw-headline" id=".E9.99.84.E5.BD.957-.E9.97.AE.E9.A2.98.E5.8F.8D.E9.A6.88"><b>附录7-问题反馈</b></span></h2>
+        <p>邮箱地址：weixin-open@qq.com
+        </p><p>邮件主题：【微信JS-SDK反馈】
+    </p><p>邮件内容说明：
+    </p><p>用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+    </p>
+        <!--
+        NewPP limit report
+        Preprocessor node count: 655/1000000
+        Post-expand include size: 0/2097152 bytes
+        Template argument size: 0/2097152 bytes
+        Expensive parser function count: 0/100
+        -->
+        <div class="printfooter">
+            取自“<a href="../7/aaa137b55fb2e0456bf8dd9148dd613f.html">../7/aaa137b55fb2e0456bf8dd9148dd613f.html</a>”</div>
+        <!-- /bodytext -->
+        <!-- catlinks -->
+        <div id="catlinks" class="catlinks catlinks-allhidden"></div>						<!-- /catlinks -->
+        <div class="visualClear"></div>
+    </div>
+    <!-- /bodyContent -->
+</div>
+</body>
+</html>

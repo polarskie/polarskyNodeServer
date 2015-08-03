@@ -1,0 +1,10 @@
+#toc
+{
+    display: block;
+    position: fixed;
+    left: 5%;
+    height: 400px;
+    overflow: scroll;
+    background-color: RGBA(56, 128, 28, 0.7);
+    border-radius: 20px;
+}
